@@ -1,7 +1,7 @@
 {
-	"name": "-----------",
-	"description": "-----------",
-	"homepage": "-----------",
+	"name": "2021-skl-shake-tea",
+	"description": "新光人壽-手搖飲",
+	"homepage": "https://github.com/jameshsu1125/2021-skl-shake-tea",
 	"version": "1.0.0",
 	"main": "index.js",
 	"scripts": {

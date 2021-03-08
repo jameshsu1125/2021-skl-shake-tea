@@ -1,0 +1,107 @@
+#home {
+	.anim {
+		animation-name: cloud;
+
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+
+	@keyframes cloud {
+		from {
+			left: 100%;
+		}
+		to {
+			left: -20%;
+		}
+	}
+
+	& > div {
+		position: absolute;
+		width: 100%;
+
+		& > div {
+			position: absolute;
+			height: 100%;
+			.anim;
+		}
+	}
+
+	.cloud {
+		@img: './img/cloud.png';
+		height: image-height(@img);
+		margin-top: 54px;
+
+		& > div {
+			background-image: url(@img);
+			width: image-width(@img);
+			animation-duration: 90s;
+			animation-delay: -30s;
+		}
+	}
+
+	.drink-0 {
+		@img: './img/drink-0.png';
+		height: image-height(@img);
+		margin-top: 24px;
+
+		& > div {
+			background-image: url(@img);
+			width: image-width(@img);
+			animation-duration: 40s;
+			animation-delay: -20s;
+		}
+	}
+
+	.leaf-0 {
+		@img: './img/leaf.png';
+		height: image-height(@img);
+		margin-top: 73px;
+
+		& > div {
+			background-image: url(@img);
+			width: image-width(@img);
+			animation-duration: 50s;
+			animation-delay: -21s;
+		}
+	}
+
+	.leaf-1 {
+		@img: './img/leaf.png';
+		height: image-height(@img);
+		margin-top: 363px;
+
+		& > div {
+			background-image: url(@img);
+			width: image-width(@img);
+			animation-duration: 60s;
+			animation-delay: 0s;
+			transform: scale(-1, 1);
+		}
+	}
+
+	.leaf-2 {
+		@img: './img/leaf-2.png';
+		height: image-height(@img);
+		margin-top: 323px;
+
+		& > div {
+			background-image: url(@img);
+			width: image-width(@img);
+			animation-duration: 80s;
+			animation-delay: -65s;
+		}
+	}
+
+	.drink-1 {
+		@img: './img/drink-1.png';
+		height: image-height(@img);
+		margin-top: 400px;
+
+		& > div {
+			background-image: url(@img);
+			width: image-width(@img);
+			animation-duration: 30s;
+			animation-delay: -20s;
+		}
+	}
+}

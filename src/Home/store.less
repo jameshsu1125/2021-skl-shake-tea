@@ -1,0 +1,150 @@
+#home {
+	.store {
+		position: absolute;
+		@img: './img/store.png';
+		background-image: url(@img);
+		width: image-width(@img);
+		height: image-height(@img);
+		display: inline-block;
+		left: 50%;
+		margin-left: 0 - image-width(@img) * 0.5 - 10px;
+		bottom: -120px;
+
+		& > div {
+			position: absolute;
+		}
+
+		@chair: 'img/chair.png';
+		.chair {
+			height: image-height(@chair);
+			width: image-width(@chair) * 2 + 40px;
+			bottom: 0px;
+			left: 220px;
+
+			& > div {
+				float: left;
+				height: 100%;
+				width: image-width(@chair);
+				background-image: url(@chair);
+				margin: 0 10px;
+			}
+		}
+
+		.plant {
+			@img: './img/plant.png';
+			background-image: url(@img);
+			width: image-width(@img);
+			height: image-height(@img);
+			bottom: -24px;
+			right: 110px;
+		}
+
+		.drink-2 {
+			@img: './img/drink-2.png';
+			background-image: url(@img);
+			width: image-width(@img);
+			height: image-height(@img);
+			bottom: 50px;
+			left: -50px;
+		}
+
+		.drink-3 {
+			@img: './img/drink-3.png';
+			background-image: url(@img);
+			width: image-width(@img);
+			height: image-height(@img);
+			bottom: 0px;
+			right: -30px;
+		}
+
+		.dialog {
+			@img: './img/dialog.png';
+			background-image: url(@img);
+			width: image-width(@img);
+			height: image-height(@img);
+			left: 450px;
+			top: -106px;
+		}
+
+		.txt {
+			width: 466px;
+			height: 370px;
+			left: 136px;
+			top: 236px;
+			color: #fff;
+			font-size: 27px;
+
+			.btn {
+				position: absolute;
+				width: 135px;
+				height: 135px;
+				background-color: #d10737;
+				border-radius: 50%;
+				padding: 20px;
+				font-size: 1.1em;
+				box-sizing: border-box;
+				text-align: center;
+				box-shadow: 3px 8px 0px rgba(0, 0, 0, 0.5);
+				left: 150px;
+				line-height: 1.2em;
+				letter-spacing: 1px;
+
+				@keyframes btn {
+					0% {
+						opacity: 0;
+					}
+					50% {
+						opacity: 1;
+					}
+					100% {
+						opacity: 0;
+					}
+				}
+
+				& > div {
+					font-size: 1rem;
+					transform: rotate(45deg);
+
+					animation-name: btn;
+					animation-duration: 1s;
+					animation-timing-function: ease-in-out;
+					animation-iteration-count: infinite;
+				}
+
+				& > div:nth-child(2) {
+					margin-top: -7px;
+					animation-delay: 0s;
+				}
+
+				& > div:nth-child(3) {
+					margin-top: -25px;
+					animation-delay: 0.1s;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-height: 900px) {
+	#home {
+		.store {
+			bottom: -200px;
+		}
+	}
+}
+
+@media only screen and (max-height: 800px) {
+	#home {
+		.store {
+			bottom: -330px;
+		}
+	}
+}
+
+@media only screen and (max-height: 700px) {
+	#home {
+		.store {
+			bottom: -350px;
+		}
+	}
+}
