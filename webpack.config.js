@@ -15,7 +15,7 @@ module.exports = (env) => {
 		module: {
 			rules: [
 				{ test: /\.(js|jsx)$/, exclude: /node_modules/, use: 'babel-loader?retainLines=true' },
-				{ test: /\.s[ac]ss$/i, use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] },
+				{ test: /\.less$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'] },
 				{ test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader'] },
 				{ test: /\.(png|jpg|gif|svg)$/, use: [{ loader: 'file-loader', options: { name: 'bundle/img/[path][name].[ext]', context: 'src' } }] },
 				{ test: /\.(ogv|mp4)$/, use: [{ loader: 'file-loader', options: { name: 'bundle/vid/[path][name].[ext]', context: 'src' } }] },
