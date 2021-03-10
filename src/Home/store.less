@@ -8,7 +8,7 @@
 		display: inline-block;
 		left: 50%;
 		margin-left: 0 - image-width(@img) * 0.5 - 10px;
-		bottom: -120px;
+		bottom: 0px;
 
 		& > div {
 			position: absolute;
@@ -44,7 +44,7 @@
 			background-image: url(@img);
 			width: image-width(@img);
 			height: image-height(@img);
-			bottom: 50px;
+			bottom: 0px;
 			left: -50px;
 		}
 
@@ -88,6 +88,8 @@
 				left: 150px;
 				line-height: 1.2em;
 				letter-spacing: 1px;
+				user-select: none;
+				cursor: pointer;
 
 				@keyframes btn {
 					0% {

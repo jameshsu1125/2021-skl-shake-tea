@@ -1,16 +1,52 @@
 import React from 'react';
 import './store.less';
 
+import $ from 'jquery';
+require('jquery-easing');
+require('jquery.waitforimages');
+
 export default class store extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
-		//script
+		this.tr = {
+			init() {
+				this.store.init();
+			},
+			in() {
+				this.store.in();
+			},
+			store: {
+				b: -1200,
+				time: 5000,
+				delay: 500,
+				init() {
+					this.c = $(root.refs.main);
+					this.tran();
+				},
+				in() {
+					$(this)
+						.delay(this.delay)
+						.animate(
+							{ b: 0 },
+							{
+								duration: this.time,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutQuart',
+							}
+						);
+				},
+				tran() {
+					this.c.css({
+						'margin-bottom': this.b + 'px',
+					});
+				},
+			},
+		};
 	}
 
-	componentDidMount() {
-		//script
-	}
+	componentDidMount() {}
 
 	componentDidUpdate() {
 		//script
@@ -23,7 +59,7 @@ export default class store extends React.Component {
 	render() {
 		return (
 			<>
-				<div className='store'>
+				<div ref='main' className='store'>
 					<div className='chair'>
 						<div></div>
 						<div></div>

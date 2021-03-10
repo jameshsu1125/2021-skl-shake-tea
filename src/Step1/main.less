@@ -1,0 +1,50 @@
+@r: 0.6;
+
+#Step1 {
+	position: relative;
+	width: 100%;
+	height: calc(~'100vh - 54px');
+	// todo => min-height calc
+	min-height: 400px;
+	box-sizing: border-box;
+	display: inline-block;
+
+	.container {
+		position: relative;
+		width: 100%;
+		height: calc(~'100% - 202px');
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.row {
+			position: relative;
+			width: 750px;
+			padding: 0 60px;
+			height: auto;
+
+			.title {
+				position: relative;
+				@img: './img/s.png';
+				background-image: url(@img);
+				width: 100%;
+				height: image-height(@img);
+				background-position: left;
+				background-repeat: no-repeat;
+				text-align: left;
+				text-indent: image-width(@img) + 20px;
+				line-height: image-height(@img);
+				font-size: 1.7em;
+				letter-spacing: 2px;
+				color: #333;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	#Step1 {
+		height: calc(~'100vh - 90px');
+	}
+}

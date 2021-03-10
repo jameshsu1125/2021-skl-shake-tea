@@ -1,0 +1,17 @@
+@r: 0.6;
+
+#Step3 {
+	position: relative;
+	width: 750px;
+	height: calc(~'100vh - 54px');
+	// todo => min-height calc
+	min-height: 400px;
+	box-sizing: border-box;
+	display: inline-block;
+}
+
+@media only screen and (max-width: 750px) {
+	#Step3 {
+		height: calc(~'100vh - 90px');
+	}
+}
