@@ -24,12 +24,16 @@ export default class Sign extends React.Component {
 		return (
 			<div id='Sign'>
 				<div>
-					<div className='light'></div>
-					歡迎光臨新光人壽「好時光。手搖客製所」
-					<br />
-					一杯飲料也能換一個保障、一份心安，
-					<br />
-					趕快來客製自己的 “好時光保險特調”！
+					<div></div>
+					<div>
+						歡迎光臨新光人壽「好時光。手搖客製所」
+						<br />
+						一杯飲料也能換一個保障、一份心安，
+						<br />
+						趕快來客製自己的 “好時光保險特調”！
+						<br />
+					</div>
+					<div></div>
 				</div>
 			</div>
 		);

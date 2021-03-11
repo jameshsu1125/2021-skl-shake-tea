@@ -1,9 +1,20 @@
+@r: 0.6;
+
 #NextStepButton {
-	position: absolute;
-	left: 50%;
-	margin-left: -115px/2;
+	position: relative;
+	margin-top: 20px;
+	cursor: pointer;
+
+	transition: 0.2s;
+	transition-timing-function: cubic-bezier(0, 0.69, 0.66, 1.38);
+
+	&:hover {
+		transform: scale(1.1);
+	}
 }
 
-.nextButtonStep1 {
-	top: 100vh;
+#EmptyStep {
+	width: 120px;
+	height: 120px;
+	margin-top: 20px;
 }
