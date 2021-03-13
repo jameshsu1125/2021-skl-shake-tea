@@ -5,20 +5,24 @@ import Home from './../Home/main';
 import Nav from './../Nav/main';
 import Menu from './../Menu/main';
 import Content from './content';
-
 import Sign from './../Sign/main';
 import Carousel from '../Carousel/main';
-import Step2 from './../Step2/main';
-import Step3 from './../Step3/main';
-import Step4 from './../Step4/main';
-import NextStepButton from './../NextStepButton/main';
-import EmptyStep from './../NextStepButton/emptyStep';
+import Slider from '../Slider/main';
+import Footer from './../Footer/main';
+import Click from 'lesca-click';
 
 export default class index extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { menu: false, step: 1 };
+
+		Click.init();
+		Click.preventDefault = false;
+
+		this.state = { menu: false };
+		this.carousel = { ...this.state.carousel };
 	}
+
+	componentDidMount() {}
 
 	append_menu() {
 		if (this.state.menu)
@@ -43,14 +47,11 @@ export default class index extends React.Component {
 					<Home />
 					<Content>
 						<Sign />
-						<Carousel index='1' question='你喜歡的茶品基底？'>
-							{this.state.step == 1 ? <NextStepButton data={this.state.step} /> : <EmptyStep />}
-						</Carousel>
-						<Carousel index='2' question='你要加什麼配料呢？(可複選)'>
-							{this.state.step == 2 ? <NextStepButton data={this.state.step} /> : <EmptyStep />}
-						</Carousel>
-						<Step3>{this.state.step == 3 ? <NextStepButton data={this.state.step} /> : <EmptyStep />}</Step3>
-						<Step4>{this.state.step == 4 ? <NextStepButton data={this.state.step} /> : <EmptyStep />}</Step4>
+						<Carousel index='1' question='你喜歡的茶品基底？' />
+						<Carousel index='2' question='你要加什麼配料呢？(可複選)' />
+						<Slider index='3' question='你的糖分喜好？'></Slider>
+						<Slider index='4' question='你一週平均都喝幾杯手搖呢？'></Slider>
+						<Footer />
 					</Content>
 				</div>
 				{this.append_menu()}

@@ -1,0 +1,29 @@
+@r: 750/1280;
+
+._slick_arrow {
+	position: absolute;
+	@img: './img/arrow.png';
+	background-image: url(@img);
+	width: image-width(@img) * @r;
+	height: image-height(@img) * @r / 2;
+	background-size: 100%;
+	background-position-y: 0px;
+	top: 220px;
+	cursor: pointer;
+	z-index: 1;
+
+	&:hover {
+		background-position-y: 0 - image-height(@img) * @r / 2;
+	}
+}
+
+.prev {
+	left: 50%;
+	margin-left: -260px;
+}
+
+.next {
+	transform: scale(-1, 1);
+	right: 50%;
+	margin-right: -260px;
+}
