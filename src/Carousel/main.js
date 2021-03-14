@@ -28,7 +28,7 @@ export default class carousel extends React.Component {
 				this.slick.init();
 			},
 			slick: {
-				gap: 80,
+				gap: 200,
 				is: true,
 				l: 0,
 				index: 0,

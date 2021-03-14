@@ -15,7 +15,7 @@ module.exports = {
 			r: 1.2,
 		},
 		front2: {
-			offset: 1000,
+			offset: 2000,
 			r: 3,
 		},
 	},

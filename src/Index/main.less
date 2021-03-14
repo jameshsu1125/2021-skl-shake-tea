@@ -3,6 +3,11 @@ body {
 	background-color: #f4d8c6;
 	font-family: 'PingFangSC-Regular', 'Microsoft JhengHei', '微軟正黑體', Arial,
 		Helvetica, sans-serif;
+	height: -webkit-fill-available;
+}
+
+html {
+	height: -webkit-fill-available;
 }
 
 #index {
@@ -15,6 +20,7 @@ body {
 		position: relative;
 		width: 100%;
 		min-height: 100vh;
+		min-height: -webkit-fill-available;
 
 		& > div {
 			display: inline-block;
