@@ -5,7 +5,6 @@ export default class dots extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { index: 0 };
-		console.log(this.props.num);
 	}
 
 	componentDidMount() {

@@ -2,19 +2,25 @@ import React from 'react';
 import './main.less';
 
 import NextStepButton from './../NextStepButton/main';
+import EmptyStepButton from './../NextStepButton/emptyStep';
 import Items from './../Items/main';
 import Arrow from './arrow';
 import Dots from './dots';
+import { Data } from './../Items/data';
 
 import $ from 'jquery';
 require('jquery-easing');
-import { Data } from './../Items/data';
+import Swal from 'sweetalert2';
 
 export default class carousel extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.state = { btn: false };
+
 		this.num = Data['step' + this.props.index]?.length || 0;
+		this.type = this.props.index == '1' ? 'radio' : 'checkbox';
+		this.data = this.type == 'radio' ? '' : [];
 
 		const root = this;
 		this.tr = {
@@ -22,15 +28,17 @@ export default class carousel extends React.Component {
 				this.slick.init();
 			},
 			slick: {
-				gap: 200,
+				gap: 80,
 				is: true,
 				l: 0,
 				index: 0,
 				max: 2,
-				time: 500,
+				time: require('./../_config').carousel.duration,
 				init() {
 					this.c = $(root.refs.slick);
+					this.c.css('width', `${root.num + 2}00vw`);
 					this.clicked = () => {
+						Click.preventDefault = true;
 						this.add_evt();
 					};
 					root.refs.touch.addEventListener('touchstart', (e) => this.clicked(e));
@@ -51,6 +59,7 @@ export default class carousel extends React.Component {
 						Click.ex_down = () => {};
 						Click.ex_move = () => {};
 						Click.ex_up = () => {};
+						Click.preventDefault = false;
 					};
 
 					Click.ex_move = (e) => {
@@ -72,6 +81,7 @@ export default class carousel extends React.Component {
 				offset(dx) {
 					this.l = 0 - (this.index + dx / 750) * 100;
 					this.tran();
+					root.refs.items.offset(this.index, dx);
 				},
 				set() {
 					if (this.index >= root.num) {
@@ -99,7 +109,7 @@ export default class carousel extends React.Component {
 				},
 				panto(direct) {
 					this.is = false;
-
+					root.refs.items.in(this.index, direct);
 					$(this).animate(
 						{ l: 0 - this.index * 100 },
 						{
@@ -116,10 +126,11 @@ export default class carousel extends React.Component {
 				},
 				panBack() {
 					this.is = false;
+					root.refs.items.back(this.index);
 					$(this).animate(
 						{ l: 0 - this.index * 100 },
 						{
-							duration: 400,
+							duration: require('./../_config').carousel.back_duration,
 							step: () => this.tran(),
 							complete: () => {
 								this.is = true;
@@ -142,13 +153,72 @@ export default class carousel extends React.Component {
 		this.tr.init();
 	}
 
+	getData() {
+		return this.data;
+	}
+
+	next_btn_clicked() {
+		const comfirm = () => {
+			this.refs.nextButton.tr.canvas.tweenTo(this.props.index, () => {
+				this.props.scrollTo(`.step${parseInt(this.props.index) + 1}`);
+				setTimeout(() => {
+					this.setState({ btn: false });
+				}, 1000);
+			});
+		};
+
+		if (this.type == 'radio') {
+			if (typeof this.data !== 'number')
+				Swal.fire({
+					title: '請選擇一個茶品',
+					text: '喜歡喝紅茶還是綠茶呢',
+					icon: 'warning',
+				});
+			else comfirm();
+		} else {
+			if (this.data.length == 0)
+				Swal.fire({
+					title: '請選擇一個配料',
+					text: '加個珍珠還是加片檸檬?',
+					icon: 'warning',
+				});
+			else comfirm();
+		}
+	}
+
 	append_submit_button() {
-		if (this.props.index == this.props.steps) return <NextStepButton />;
+		if (this.state.btn)
+			return (
+				<NextStepButton
+					ref='nextButton'
+					index={this.props.index}
+					clicked={this.next_btn_clicked.bind(this)}
+					text={'下一步'}
+				/>
+			);
+		else return <EmptyStepButton />;
+	}
+
+	clicked() {
+		switch (this.type) {
+			case 'radio':
+				this.data = this.tr.slick.index;
+				break;
+
+			case 'checkbox':
+				if (this.data.indexOf(this.tr.slick.index) == -1) {
+					this.data.push(this.tr.slick.index);
+				} else {
+					this.data = this.data.filter((e) => e !== this.tr.slick.index);
+				}
+				break;
+		}
+		this.refs.items.updateState(this.type, this.data);
 	}
 
 	render() {
 		return (
-			<div id='carousel'>
+			<div id='carousel' className={`step${this.props.index}`}>
 				<div className='container'>
 					<div className={`question t${this.props.index}`}>
 						{this.props.question}
@@ -157,7 +227,11 @@ export default class carousel extends React.Component {
 						<div className='res'>
 							<div className='slider-ctx'>
 								<div ref='slick' className='slick'>
-									<Items ref='items' step={this.props.index} />
+									<Items
+										ref='items'
+										step={this.props.index}
+										clicked={this.clicked.bind(this)}
+									/>
 								</div>
 								<div
 									ref='touch'

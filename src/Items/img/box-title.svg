@@ -1,11 +1,13 @@
 <!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="222.94px" height="30px" viewBox="0 0 222.94 30" style="overflow:visible;enable-background:new 0 0 222.94 30;"
+	 width="222.94px" height="60px" viewBox="0 0 222.94 60" style="overflow:visible;enable-background:new 0 0 222.94 60;"
 	 xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#eb9961;}
+	.st0{fill:#EB9961;}
+	.st1{fill:#D10737;}
 </style>
 <defs>
 </defs>
 <polygon class="st0" points="0,0 6.02,15 0,30 222.94,30 216.87,15.1 222.73,0 "/>
+<polygon class="st1" points="0,30 6.02,45 0,60 222.94,60 216.87,45.1 222.73,30 "/>
 </svg>

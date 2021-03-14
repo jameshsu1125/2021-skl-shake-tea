@@ -58,7 +58,9 @@
 		"jquery-easing": "0.0.1",
 		"jquery.waitforimages": "^2.4.0",
 		"lesca-click": "^1.0.7",
+		"lesca-user-agent": "^1.0.1",
 		"react-slick": "^0.28.1",
-		"slick-carousel": "^1.8.1"
+		"slick-carousel": "^1.8.1",
+		"sweetalert2": "^10.15.5"
 	}
 }

@@ -1,0 +1,27 @@
+export const Data = {
+	step3: [
+		{ text: '無糖' },
+		{ text: '三分糖' },
+		{ text: '半糖' },
+		{ text: '七分糖' },
+		{ text: '全糖' },
+	],
+	step4: [
+		{ text: '0杯' },
+		{ text: '1杯' },
+		{ text: '2杯' },
+		{ text: '3杯' },
+		{ text: '4杯' },
+		{ text: '5杯' },
+		{ text: '6杯' },
+		{ text: '7杯' },
+		{ text: '8杯' },
+		{ text: '9杯' },
+		{ text: '10杯' },
+		{ text: '11杯' },
+		{ text: '12杯' },
+		{ text: '13杯' },
+		{ text: '14杯' },
+		{ text: '15杯' },
+	],
+};

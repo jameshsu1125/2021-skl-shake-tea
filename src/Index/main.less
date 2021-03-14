@@ -19,43 +19,5 @@ body {
 		& > div {
 			display: inline-block;
 		}
-
-		.content {
-			position: relative;
-			width: 100%;
-			height: auto;
-			background-image: url('./img/bg.jpg');
-			background-position: center top;
-			margin: -5px 0;
-			overflow: hidden;
-
-			.parallax {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-
-				.item(@img,  @offset, @y) {
-					background-image: url(@img);
-					background-position-x: calc(50% @offset);
-					background-position-y: @y;
-				}
-
-				& > div {
-					position: absolute;
-					width: 100%;
-					height: 100%;
-					background-size: 60px;
-					background-repeat: no-repeat;
-				}
-
-				& > div:nth-child(1) {
-					.item('./img/i0.png', ~'+ 220px', 60%);
-				}
-
-				& > div:nth-child(2) {
-					.item('./img/i1.png', ~'+ 220px', 20%);
-				}
-			}
-		}
 	}
 }

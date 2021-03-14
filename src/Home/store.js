@@ -12,23 +12,216 @@ export default class store extends React.Component {
 		this.tr = {
 			init() {
 				this.store.init();
+				this.dialog.init();
+				this.txt.init();
+				this.drink1.init();
+				this.drink2.init();
+				this.btn.init();
 			},
 			in() {
+				$('html, body').animate({ scrollTop: 0 }, 100);
 				this.store.in();
+				this.dialog.in();
+				this.txt.in();
+				this.drink1.in();
+				this.drink2.in();
+				this.btn.in();
 			},
-			store: {
-				b: -1200,
-				time: 5000,
-				delay: 500,
+			btn: {
+				o: 0,
+				time: 500,
+				delay: 3500,
+				s: 0,
 				init() {
-					this.c = $(root.refs.main);
+					this.c = $(root.refs.btn);
 					this.tran();
 				},
 				in() {
 					$(this)
 						.delay(this.delay)
 						.animate(
-							{ b: 0 },
+							{ o: 1, s: 1 },
+							{
+								duration: this.time,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutBack',
+							}
+						);
+				},
+				tran() {
+					this.c.css({
+						transform: `scale(${this.s})`,
+						'-webkit-transform': `scale(${this.s})`,
+						'-moz-transform': `scale(${this.s})`,
+						'-o-transform': `scale(${this.s})`,
+						'-ms-transform': `scale(${this.s})`,
+						opacity: this.o,
+					});
+				},
+			},
+			drink2: {
+				b: -500,
+				time: 800,
+				delay: 2200,
+				r: -200,
+				s: 1,
+				r: 90,
+				init() {
+					this.c = $(root.refs.drink2);
+					this.tran();
+				},
+				in() {
+					$(this)
+						.delay(this.delay)
+						.animate(
+							{ b: 0, r: -30, r: 0 },
+							{
+								duration: this.time,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutQuart',
+							}
+						);
+				},
+				tran() {
+					this.c.css({
+						bottom: this.b + 'px',
+						right: this.r + 'px',
+						transform: `rotate(${this.r}deg) scale(${this.s})`,
+						'-webkit-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-moz-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-o-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-ms-transform': `rotate(${this.r}deg) scale(${this.s})`,
+					});
+				},
+			},
+			drink1: {
+				b: -500,
+				time: 800,
+				delay: 1800,
+				l: -200,
+				s: 1,
+				r: -90,
+				init() {
+					this.c = $(root.refs.drink1);
+					this.tran();
+				},
+				in() {
+					$(this)
+						.delay(this.delay)
+						.animate(
+							{ b: 0, l: -50, r: 0 },
+							{
+								duration: this.time,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutQuart',
+							}
+						);
+				},
+				tran() {
+					this.c.css({
+						bottom: this.b + 'px',
+						left: this.l + 'px',
+						transform: `rotate(${this.r}deg) scale(${this.s})`,
+						'-webkit-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-moz-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-o-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-ms-transform': `rotate(${this.r}deg) scale(${this.s})`,
+					});
+				},
+			},
+			txt: {
+				o: 0,
+				delay: 3000,
+				time: 1000,
+				init() {
+					this.c = $(root.refs.txt);
+					this.tran();
+				},
+				in() {
+					$(this)
+						.delay(this.delay)
+						.animate(
+							{ o: 1 },
+							{
+								duration: this.time,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutQuart',
+							}
+						);
+				},
+				tran() {
+					this.c.css({
+						opacity: this.o,
+					});
+				},
+			},
+			dialog: {
+				r: 90,
+				s: 0,
+				time: 2000,
+				delay: 5000,
+				init() {
+					this.c = $(root.refs.dialog);
+					this.tran();
+				},
+				in() {
+					$(this)
+						.delay(this.delay)
+						.animate(
+							{ s: 1, r: 0 },
+							{
+								duration: this.time,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutElastic',
+							}
+						);
+				},
+				tran() {
+					this.c.css({
+						transform: `rotate(${this.r}deg) scale(${this.s})`,
+						'-webkit-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-moz-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-o-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-ms-transform': `rotate(${this.r}deg) scale(${this.s})`,
+					});
+				},
+			},
+			store: {
+				b: -1200,
+				l: 30,
+				time: 2500,
+				delay: 500,
+				init() {
+					this.c = $(root.refs.main);
+					this.tran();
+					this.evt();
+				},
+				evt() {
+					this.resize();
+					$(window).resize(() => this.resize());
+				},
+				resize() {
+					let w = window.innerHeight,
+						r = w / 1000;
+					r = r > 1 ? 1 : r;
+					this.c.css({
+						transform: `scale(${r})`,
+						'-webkit-transform': `scale(${r})`,
+						'-moz-transform': `scale(${r})`,
+						'-o-transform': `scale(${r})`,
+						'-ms-transform': `scale(${r})`,
+					});
+				},
+				in() {
+					$(this)
+						.delay(this.delay)
+						.animate(
+							{ b: 0, l: 50 },
 							{
 								duration: this.time,
 								step: () => this.tran(),
@@ -40,20 +233,19 @@ export default class store extends React.Component {
 				tran() {
 					this.c.css({
 						'margin-bottom': this.b + 'px',
+						left: this.l + '%',
 					});
 				},
 			},
 		};
 	}
 
-	componentDidMount() {}
-
-	componentDidUpdate() {
-		//script
+	componentDidMount() {
+		this.tr.init();
 	}
 
-	componentWillUnmount() {
-		//script
+	in() {
+		this.tr.in();
 	}
 
 	render() {
@@ -65,10 +257,10 @@ export default class store extends React.Component {
 						<div></div>
 					</div>
 					<div className='plant'></div>
-					<div className='drink-2'></div>
-					<div className='drink-3'></div>
-					<div className='dialog'></div>
-					<div className='txt'>
+					<div ref='drink1' className='drink-2'></div>
+					<div ref='drink2' className='drink-3'></div>
+					<div ref='dialog' className='dialog'></div>
+					<div ref='txt' className='txt'>
 						<p>
 							今天的你一樣那麼努力
 							<br />
@@ -79,7 +271,12 @@ export default class store extends React.Component {
 							<br />
 							邀你打造自己的保險特調！
 						</p>
-						<div className='btn'>
+						<div
+							ref='btn'
+							onClick={() => {
+								this.props.clicked();
+							}}
+							className='btn'>
 							開始
 							<br />
 							客製
