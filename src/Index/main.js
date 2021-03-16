@@ -2,8 +2,8 @@ import React from 'react';
 import './main.less';
 
 import Home from './Header/main';
-import Nav from './../Nav/main';
-import Menu from './../Menu/main';
+import Nav from '../Components/Nav/main';
+import Menu from '../Components/Menu/main';
 import Content from './content';
 import Sign from '../Sign/main';
 import Carousel from './Carousel/main';

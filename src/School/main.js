@@ -1,7 +1,8 @@
 import React from 'react';
 import './main.less';
 
-import Nav from './../Nav/main';
+import Nav from '../Components/Nav/main';
+import Menu from '../Components/Menu/main';
 import Header from './Header/main';
 import Buttons from './Buttons/main';
 import Content from './Content/main';
@@ -11,6 +12,7 @@ export default class School extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
+		this.state = { menu: false };
 		//script
 	}
 
@@ -24,6 +26,17 @@ export default class School extends React.Component {
 
 	componentWillUnmount() {
 		//script
+	}
+
+	append_menu() {
+		if (this.state.menu)
+			return (
+				<Menu
+					close={() => {
+						this.setState({ menu: false });
+					}}
+				/>
+			);
 	}
 
 	render() {
@@ -69,6 +82,7 @@ export default class School extends React.Component {
 				<div className='top'>
 					<div></div>
 				</div>
+				{this.append_menu()}
 			</div>
 		);
 	}
