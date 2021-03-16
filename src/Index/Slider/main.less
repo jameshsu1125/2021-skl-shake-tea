@@ -1,0 +1,221 @@
+@r: 0.6;
+
+#Slider {
+	position: relative;
+	width: 100%;
+	height: calc(~'100vh - 54px');
+	box-sizing: border-box;
+	display: inline-block;
+	min-height: 620px;
+
+	.container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.5em;
+
+		.question {
+			@img: './img/s3.png';
+			width: 100%;
+			max-width: 620px;
+			height: image-height(@img);
+			background-repeat: no-repeat;
+			background-position: left;
+			text-align: left;
+			text-indent: 132px;
+			color: #000;
+			line-height: image-height(@img);
+		}
+
+		.t3 {
+			@img: './img/s3.png';
+			background-image: url(@img);
+		}
+
+		.t4 {
+			@img: './img/s4.png';
+			background-image: url(@img);
+		}
+
+		.answer {
+			position: relative;
+			width: 100%;
+			height: 230px;
+			margin-top: 30px;
+
+			.slider {
+				position: absolute;
+				width: 100%;
+				margin-top: 40px;
+
+				.sugers {
+					position: relative;
+					width: 100%;
+					height: 130px;
+
+					& > div {
+						position: absolute;
+						left: 50%;
+						bottom: 26px;
+					}
+
+					& > div:nth-child(1) {
+						@img: './img/suger0.png';
+						background-image: url(@img);
+						width: image-width(@img);
+						height: image-height(@img);
+						margin-left: -255px;
+					}
+
+					& > div:nth-child(2) {
+						@img: './img/suger1.png';
+						background-image: url(@img);
+						width: image-width(@img);
+						height: image-height(@img);
+						margin-left: -28px;
+					}
+
+					& > div:nth-child(3) {
+						@img: './img/suger2.png';
+						background-image: url(@img);
+						width: image-width(@img);
+						height: image-height(@img);
+						margin-left: 178px;
+					}
+				}
+
+				.components {
+					position: absolute;
+					width: 485px;
+					height: 5px;
+					left: 50%;
+					margin-left: 0 - 485px/2;
+					background-color: rgba(235, 153, 97, 0.5);
+					top: 132px;
+
+					.left {
+						left: 0;
+					}
+
+					.right {
+						right: 0;
+					}
+
+					.l {
+						left: 0;
+						margin-left: -41px;
+					}
+
+					.r {
+						right: 0;
+						margin-right: -41px;
+					}
+
+					.btn {
+						position: absolute;
+						width: 200px;
+						height: 400px;
+						margin-top: -200px;
+						margin-left: -90px;
+						left: 0;
+
+						cursor: grab;
+						&:active {
+							cursor: grabbing;
+						}
+						&:hover {
+							& > div {
+								transform: scale(1.2);
+							}
+						}
+
+						& > div {
+							transition: 0.3s;
+							animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+							position: absolute;
+							background-color: #d00737;
+							width: 30px;
+							height: 30px;
+							border-radius: 50%;
+							left: 50%;
+							top: 50%;
+							margin-top: -15px;
+							margin-left: -15px;
+							pointer-events: none;
+
+							@keyframes dia {
+								0% {
+									transform: rotate(0deg);
+								}
+								10% {
+									transform: rotate(-20deg);
+								}
+								20% {
+									transform: rotate(10deg);
+								}
+								30% {
+									transform: rotate(0deg);
+								}
+
+								60% {
+									margin-top: -114px;
+								}
+								80% {
+									margin-top: -134px;
+								}
+								100% {
+									margin-top: -114px;
+								}
+							}
+
+							.dialog {
+								position: absolute;
+								@img: './img/dialog.png';
+								background-image: url(@img);
+								width: image-width(@img);
+								height: image-height(@img);
+								margin-left: -47px;
+								margin-top: -114px;
+								pointer-events: none;
+								color: #fff;
+								line-height: image-height(@img) - 15px;
+								transform-origin: 61px 129px;
+								animation: dia 4s ease-in-out 0s infinite;
+							}
+						}
+					}
+
+					.num {
+						position: absolute;
+						width: 100px;
+						height: 30px;
+						top: 15px;
+						color: #333;
+						font-size: 0.8em;
+					}
+
+					.dot {
+						position: absolute;
+						width: 20px;
+						height: 20px;
+						background-color: #eb9961;
+						top: 50%;
+						margin-top: -10px;
+						border-radius: 50%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	#Slider {
+		height: calc(~'100vh - 90px');
+	}
+}

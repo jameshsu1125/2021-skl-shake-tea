@@ -47,12 +47,10 @@ export default class Content extends React.Component {
 					this.y = parseInt(this.tar.css('background-position-y'));
 					this.size = parseInt(this.tar.css('background-size'));
 					this.ps = this.size / (1000 - 0);
-
 					this.pan = (p) => {
 						this.py = this.y + this.size * p * this.ps;
 						this.tar.css('background-position-y', this.py + '%');
 					};
-					//console.log(this);
 				},
 			},
 		};

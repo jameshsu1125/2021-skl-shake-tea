@@ -1,0 +1,54 @@
+@import './../global.less';
+#School {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	user-select: none;
+	background-image: url('./img/Brick.png');
+
+	.ctx {
+		position: relative;
+		width: 100%;
+		min-height: 100vh;
+		//min-height: -webkit-fill-available;
+		background: linear-gradient(
+			180deg,
+			rgba(0, 0, 0, 0.1) 0px,
+			rgba(0, 0, 0, 0) 300px
+		);
+
+		& > div {
+			display: inline-block;
+		}
+	}
+
+	.top {
+		position: fixed;
+		width: 98px;
+		height: 98px;
+		background-color: #fff;
+		right: 12px;
+		bottom: 20px;
+		border-radius: 50%;
+		overflow: hidden;
+		cursor: pointer;
+
+		& > div {
+			width: 100%;
+			height: 100%;
+			background-color: #d10737;
+
+			mask-image: url('./img/top.png');
+			mask-position: center calc(~'50% - 0px');
+			mask-repeat: no-repeat;
+			transition: 0.2s;
+			pointer-events: none;
+		}
+
+		&:hover {
+			& > div {
+				mask-position: center calc(~'50% - 5px');
+			}
+		}
+	}
+}

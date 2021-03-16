@@ -1,6 +1,6 @@
 import React from 'react';
 import './main.less';
-
+import Parameter from 'lesca-url-parameters';
 import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
@@ -8,6 +8,15 @@ require('jquery.waitforimages');
 export default class Menu extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.filename = [
+			'index.html',
+			'index.html#play',
+			'video.html',
+			'school.html',
+			'plan.html',
+		];
+
 		const root = this;
 		this.tr = {
 			init() {
@@ -66,6 +75,25 @@ export default class Menu extends React.Component {
 
 	componentDidMount() {
 		this.tr.init().in();
+		this.addMenuBorder = () => {
+			let file = Parameter.file();
+			let hash = location.hash;
+			let index = 0;
+			for (let i = 0; i < this.filename.length; i++) {
+				if (file == this.filename[i]) {
+					index = i;
+					if (i == 0 && hash == '#play') {
+						index = 1;
+					}
+				}
+			}
+			let tar = $(this.refs.content).children('div');
+
+			tar.removeClass('on');
+			tar[index].classList.add('on');
+		};
+		this.addMenuBorder();
+		$(window).on('hashchange', () => this.addMenuBorder());
 	}
 
 	close() {
@@ -77,16 +105,28 @@ export default class Menu extends React.Component {
 			<div id='Menu'>
 				<div className='bg' onClick={this.close.bind(this)}></div>
 				<div ref='content' className='content'>
-					<div className='row'>
+					<div
+						className='row'
+						onClick={() => {
+							window.location.href = Parameter.root();
+						}}>
 						<span>首頁</span>
 					</div>
-					<div className='row'>
+					<div
+						className='row'
+						onClick={() => {
+							window.location.href = Parameter.root() + '#play';
+						}}>
 						<span>開始遊戲</span>
 					</div>
 					<div className='row'>
 						<span>廣告影片</span>
 					</div>
-					<div className='row'>
+					<div
+						className='row'
+						onClick={() => {
+							window.location.href = './school.html';
+						}}>
 						<span>手搖族小學堂</span>
 					</div>
 					<div className='row'>

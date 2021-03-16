@@ -1,14 +1,14 @@
 import React from 'react';
 import './main.less';
 
-import Home from './../Home/main';
+import Home from './Header/main';
 import Nav from './../Nav/main';
 import Menu from './../Menu/main';
 import Content from './content';
-import Sign from './../Sign/main';
-import Carousel from '../Carousel/main';
-import Slider from '../Slider/main';
-import Footer from './../Footer/main';
+import Sign from '../Sign/main';
+import Carousel from './Carousel/main';
+import Slider from './Slider/main';
+import Footer from './Footer/main';
 import Click from 'lesca-click';
 
 import $ from 'jquery';
@@ -124,7 +124,17 @@ export default class index extends React.Component {
 		if (this.state.content)
 			return (
 				<Content>
-					<Sign />
+					<Sign>
+						<div className='line3'>
+							歡迎光臨新光人壽「好時光。手搖客製所」
+							<br />
+							一杯飲料也能換一個保障、一份心安，
+							<br />
+							趕快來客製自己的 “好時光保險特調”！
+							<br />
+						</div>
+						<div></div>
+					</Sign>
 					{this.append_step1()}
 					{this.append_step2()}
 					{this.append_step3()}
@@ -134,6 +144,12 @@ export default class index extends React.Component {
 			);
 	}
 
+	home_start() {
+		this.setState({ content: true }, () => {
+			this.scrollTo('#Sign');
+		});
+	}
+
 	render() {
 		return (
 			<div id='index'>
@@ -141,15 +157,10 @@ export default class index extends React.Component {
 					open={() => {
 						this.setState({ menu: true });
 					}}
+					clicked={this.home_start.bind(this)}
 				/>
 				<div className='ctx'>
-					<Home
-						clicked={() => {
-							this.setState({ content: true }, () => {
-								this.scrollTo('#Sign');
-							});
-						}}
-					/>
+					<Home clicked={this.home_start.bind(this)} />
 					{this.append_content()}
 				</div>
 				{this.append_menu()}

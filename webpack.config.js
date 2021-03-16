@@ -11,6 +11,7 @@ module.exports = (env) => {
 	const config = {
 		entry: {
 			index: './src/index.js',
+			school: './src/school.js',
 		},
 		module: {
 			rules: [

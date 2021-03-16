@@ -29,6 +29,13 @@
 		border-radius: 7px;
 		box-sizing: border-box;
 
+		.on {
+			& > span {
+				padding: 0px 50px;
+				border-bottom: solid 3px @borderColor;
+			}
+		}
+
 		.row {
 			width: 100%;
 			font-size: 1.5em;
@@ -37,12 +44,12 @@
 			user-select: none;
 			cursor: pointer;
 
-			&:hover {
-				& > span {
-					padding: 0px 50px;
-					border-bottom: solid 3px @borderColor;
-				}
-			}
+			// &:hover {
+			// 	& > span {
+			// 		padding: 0px 50px;
+			// 		border-bottom: solid 3px @borderColor;
+			// 	}
+			// }
 		}
 
 		.close {

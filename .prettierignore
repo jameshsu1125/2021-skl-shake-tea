@@ -1,1 +1,4 @@
-/dist/bundle
+/dist/bundle/*
+
+#config 
+webpack.config.js

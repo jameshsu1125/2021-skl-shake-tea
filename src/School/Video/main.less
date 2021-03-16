@@ -1,0 +1,49 @@
+.school-video {
+	position: relative;
+	width: 100%;
+
+	& > div {
+		display: inline-block;
+	}
+
+	.frame {
+		position: relative;
+		@img: './img/frame.png';
+		background-image: url(@img);
+		width: image-width(@img);
+		height: image-height(@img);
+		margin-bottom: 65px;
+
+		.title {
+			position: absolute;
+			width: 635px;
+			height: 50px;
+			top: 70px;
+			line-height: 50px;
+			color: #fff;
+			font-size: 1.7em;
+			text-align: left;
+			margin-left: 52px;
+			text-indent: 10px;
+		}
+
+		.tag {
+			position: absolute;
+			width: 230px;
+			height: 53px;
+			font-size: 1.3em;
+			line-height: 53px;
+			color: #0066cf;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+
+			span {
+				font-size: 1.5em;
+				line-height: 53px;
+				margin-left: 3px;
+			}
+		}
+	}
+}

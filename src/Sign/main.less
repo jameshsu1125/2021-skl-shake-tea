@@ -13,11 +13,6 @@
 		width: image-width(@img);
 		height: 100%;
 
-		.text() {
-			color: #fff;
-			font-size: 1.7em;
-		}
-
 		& > div:nth-child(1) {
 			background-image: url(@light);
 			width: image-width(@light);
@@ -31,12 +26,30 @@
 			animation-iteration-count: infinite;
 		}
 
+		.line3 {
+			font-size: 1.7em;
+		}
+
+		.line2 {
+			font-size: 2em;
+		}
+
+		.school {
+			background-image: url('./img/school.png');
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
 		& > div:nth-child(2) {
 			position: absolute;
 			width: 100%;
-			height: 100%;
-			top: 55px;
-			.text();
+			height: calc(~'100% - 31px');
+			top: 31px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
 		}
 
 		& > div:nth-child(3) {
