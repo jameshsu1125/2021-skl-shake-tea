@@ -63,7 +63,7 @@ export default class store extends React.Component {
 				b: -500,
 				time: 800,
 				delay: 500,
-				r: -200,
+				x: -200,
 				s: 1,
 				r: 90,
 				init() {
@@ -74,7 +74,12 @@ export default class store extends React.Component {
 					$(this)
 						.delay(this.delay)
 						.animate(
-							{ b: 0, r: -30, r: 0 },
+							{
+								b: 0,
+								r: 0,
+								x: window.innerHeight > 900 ? 90 : 0,
+								s: window.innerHeight > 900 ? 1.3 : 1,
+							},
 							{
 								duration: this.time,
 								step: () => this.tran(),
@@ -86,7 +91,7 @@ export default class store extends React.Component {
 				tran() {
 					this.c.css({
 						bottom: this.b + 'px',
-						right: this.r + 'px',
+						right: this.x + 'px',
 						transform: `rotate(${this.r}deg) scale(${this.s})`,
 						'-webkit-transform': `rotate(${this.r}deg) scale(${this.s})`,
 						'-moz-transform': `rotate(${this.r}deg) scale(${this.s})`,
@@ -110,7 +115,7 @@ export default class store extends React.Component {
 					$(this)
 						.delay(this.delay)
 						.animate(
-							{ b: 0, l: -50, r: 0 },
+							{ b: 0, l: -50, r: 0, s: window.innerHeight > 900 ? 1.1 : 1 },
 							{
 								duration: this.time,
 								step: () => this.tran(),
@@ -191,8 +196,8 @@ export default class store extends React.Component {
 				},
 			},
 			store: {
-				b: -1200,
-				l: 30,
+				b: -300,
+				l: 40,
 				time: 1000,
 				delay: 0,
 				init() {

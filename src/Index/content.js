@@ -78,6 +78,7 @@ export default class Content extends React.Component {
 					<div></div>
 					<div></div>
 					<div></div>
+					<div></div>
 				</div>
 				{this.props.children}
 			</div>

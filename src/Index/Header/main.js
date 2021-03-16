@@ -35,7 +35,7 @@ export default class Header extends React.Component {
 	}
 
 	append_Effect() {
-		//if (!this.state.effect) return <Effect />;
+		if (!this.state.effect) return <Effect />;
 	}
 
 	render() {
@@ -43,7 +43,6 @@ export default class Header extends React.Component {
 			<div ref='main' id='home'>
 				<Background />
 				{this.append_Effect()}
-
 				<Store ref='store' clicked={this.props.clicked} />
 			</div>
 		);

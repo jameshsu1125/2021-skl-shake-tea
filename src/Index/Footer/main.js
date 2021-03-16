@@ -15,7 +15,7 @@ export default class Footer extends React.Component {
 				});
 			},
 			resize() {
-				if (UserAgent.get() === 'mobile') this.c.css('height', '0px');
+				if (UserAgent.get() === 'mobile') this.c.css('height', '110px');
 				else this.c.css('height', '250px');
 			},
 		};

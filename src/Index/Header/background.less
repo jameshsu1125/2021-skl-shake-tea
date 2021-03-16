@@ -1,4 +1,11 @@
 #home {
+	.anim(@delay) {
+		animation-duration: 2s;
+		animation-delay: @delay;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		animation-name: swing;
+	}
 	@keyframes swing {
 		0% {
 			top: 0px;
@@ -32,11 +39,22 @@
 			left: 50%;
 			margin-left: -440px;
 
-			animation-duration: 3s;
-			animation-delay: -30s;
-			animation-iteration-count: infinite;
-			animation-timing-function: linear;
-			animation-name: swing;
+			.anim(-30s);
+		}
+	}
+
+	.cloud2 {
+		@img: './img/cloud2.png';
+		height: image-height(@img);
+		margin-top: 50px;
+
+		& > div {
+			background-image: url(@img);
+			width: image-width(@img);
+			left: 50%;
+			margin-left: 250px;
+
+			.anim(1.5s);
 		}
 	}
 
@@ -51,73 +69,110 @@
 			left: 50%;
 			margin-left: -132px;
 
-			animation-duration: 3s;
-			animation-delay: -20s;
-			animation-iteration-count: infinite;
-			animation-timing-function: linear;
-			animation-name: swing;
+			.anim(0s);
 		}
 	}
 
 	.leaf-0 {
 		@img: './img/leaf.png';
 		height: image-height(@img);
-		margin-top: 73px;
+		margin-top: 103px;
 
 		& > div {
 			background-image: url(@img);
 			width: image-width(@img);
-			animation-duration: 50s;
-			animation-delay: -21s;
+			left: 50%;
+			margin-left: -180px;
+			.anim(-1s);
 		}
 	}
 
 	.leaf-1 {
 		@img: './img/leaf.png';
 		height: image-height(@img);
-		margin-top: 363px;
+		margin-top: 413px;
 
 		& > div {
 			background-image: url(@img);
 			width: image-width(@img);
-			animation-duration: 60s;
-			animation-delay: 0s;
 			transform: scale(-1, 1);
+
+			left: 50%;
+			margin-left: 370px;
+
+			.anim(0s);
 		}
 	}
 
 	.leaf-2 {
 		@img: './img/leaf-2.png';
 		height: image-height(@img);
-		margin-top: 323px;
+		margin-top: 373px;
 
 		& > div {
 			background-image: url(@img);
 			width: image-width(@img);
-			animation-duration: 80s;
-			animation-delay: -65s;
+
+			left: 50%;
+			margin-left: -480px;
+			transform: scale(1.4);
+			.anim(-60s);
 		}
 	}
 
 	.drink-1 {
 		@img: './img/drink-1.png';
 		height: image-height(@img);
-		margin-top: 400px;
+		margin-top: 260px;
 
 		& > div {
 			background-image: url(@img);
 			width: image-width(@img);
-			animation-duration: 30s;
-			animation-delay: -20s;
+
+			left: 50%;
+			margin-left: -450px;
+			animation-duration: 3s;
+			animation-delay: -1s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-name: swing;
 		}
 	}
 }
 
 @media only screen and (max-width: 750px) {
 	#home {
+		.cloud2 {
+			margin-top: 101px;
+
+			& > div {
+				margin-left: -180px;
+			}
+		}
 		.drink-0 {
 			margin-top: 100px;
-			transform: scale(2);
+			transform: scale(1.5);
+
+			& > div {
+				margin-left: 8px;
+			}
+		}
+
+		.leaf-0 {
+			margin-top: 270px;
+			transform: scale(1.3);
+
+			& > div {
+				margin-left: -50px;
+			}
+		}
+
+		.drink-1 {
+			margin-top: 160px;
+			transform: scale(1.2);
+			& > div {
+				margin-left: -290px;
+			}
 		}
 	}
 }

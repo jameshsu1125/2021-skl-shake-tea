@@ -8,6 +8,9 @@ export default class background extends React.Component {
 				<div className='cloud'>
 					<div></div>
 				</div>
+				<div className='cloud2'>
+					<div></div>
+				</div>
 				<div className='drink-0'>
 					<div></div>
 				</div>
