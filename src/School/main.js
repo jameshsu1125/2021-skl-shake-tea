@@ -11,21 +11,7 @@ import Video from './Video/main';
 export default class School extends React.Component {
 	constructor(props) {
 		super(props);
-		const root = this;
 		this.state = { menu: false };
-		//script
-	}
-
-	componentDidMount() {
-		//script
-	}
-
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
 	}
 
 	append_menu() {

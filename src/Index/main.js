@@ -5,7 +5,7 @@ import Home from './Header/main';
 import Nav from '../Components/Nav/main';
 import Menu from '../Components/Menu/main';
 import Content from './content';
-import Sign from '../Sign/main';
+import Sign from '../Components/Sign/main';
 import Carousel from './Carousel/main';
 import Slider from './Slider/main';
 import Footer from './Footer/main';
@@ -79,8 +79,19 @@ export default class index extends React.Component {
 					ref='step1'
 					index='1'
 					question='你喜歡的茶品基底？'
-					scrollTo={this.scrollTo.bind(this)}
-				/>
+					scrollTo={this.scrollTo.bind(this)}>
+					<Sign style={{ position: 'absolute' }}>
+						<div className='line3'>
+							歡迎光臨新光人壽「好時光。手搖客製所」
+							<br />
+							一杯飲料也能換一個保障、一份心安，
+							<br />
+							趕快來客製自己的 “好時光保險特調”！
+							<br />
+						</div>
+						<div></div>
+					</Sign>
+				</Carousel>
 			);
 	}
 
@@ -124,17 +135,6 @@ export default class index extends React.Component {
 		if (this.state.content)
 			return (
 				<Content>
-					<Sign>
-						<div className='line3'>
-							歡迎光臨新光人壽「好時光。手搖客製所」
-							<br />
-							一杯飲料也能換一個保障、一份心安，
-							<br />
-							趕快來客製自己的 “好時光保險特調”！
-							<br />
-						</div>
-						<div></div>
-					</Sign>
 					{this.append_step1()}
 					{this.append_step2()}
 					{this.append_step3()}

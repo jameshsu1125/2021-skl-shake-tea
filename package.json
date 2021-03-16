@@ -9,7 +9,7 @@
 		"build": "export NODE_ENV=production && webpack",
 		"rm": "rm -rf node_modules/ package-lock.json",
 		"unused": "webpack --mode production --env.unused=true",
-		"deploy": "gh-pages -d dist"
+		"deploy": "touch .nojekyll && gh-pages -d dist"
 	},
 	"private": "true",
 	"browserslist": {

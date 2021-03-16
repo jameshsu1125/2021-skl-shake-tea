@@ -1,6 +1,6 @@
 import React from 'react';
 import './main.less';
-import Sign from './../../Sign/main';
+import Sign from '../../Components/Sign/main';
 
 export default class Header extends React.Component {
 	constructor(props) {

@@ -1,16 +1,13 @@
 #home {
-	.anim {
-		animation-name: cloud;
-		animation-iteration-count: infinite;
-		animation-timing-function: linear;
-	}
-
-	@keyframes cloud {
-		from {
-			left: 100%;
+	@keyframes swing {
+		0% {
+			top: 0px;
 		}
-		to {
-			left: -20%;
+		50% {
+			top: 5px;
+		}
+		100% {
+			top: 0px;
 		}
 	}
 
@@ -21,7 +18,6 @@
 		& > div {
 			position: absolute;
 			height: 100%;
-			.anim;
 		}
 	}
 
@@ -33,8 +29,14 @@
 		& > div {
 			background-image: url(@img);
 			width: image-width(@img);
-			animation-duration: 90s;
+			left: 50%;
+			margin-left: -440px;
+
+			animation-duration: 3s;
 			animation-delay: -30s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-name: swing;
 		}
 	}
 
@@ -46,8 +48,14 @@
 		& > div {
 			background-image: url(@img);
 			width: image-width(@img);
-			animation-duration: 40s;
+			left: 50%;
+			margin-left: -132px;
+
+			animation-duration: 3s;
 			animation-delay: -20s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-name: swing;
 		}
 	}
 
@@ -101,6 +109,15 @@
 			width: image-width(@img);
 			animation-duration: 30s;
 			animation-delay: -20s;
+		}
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	#home {
+		.drink-0 {
+			margin-top: 100px;
+			transform: scale(2);
 		}
 	}
 }

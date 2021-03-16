@@ -221,8 +221,18 @@ export default class carousel extends React.Component {
 
 	render() {
 		return (
-			<div id='carousel' className={`step${this.props.index}`}>
-				<div className='container'>
+			<div
+				id='carousel'
+				className={`step${this.props.index}`}
+				style={this.props.children ? { minHeight: '1000px' } : {}}>
+				{this.props.children}
+				<div
+					className='container'
+					style={
+						this.props.children
+							? { paddingTop: '202px', boxSizing: 'border-box' }
+							: {}
+					}>
 					<div className={`question t${this.props.index}`}>
 						{this.props.question}
 					</div>

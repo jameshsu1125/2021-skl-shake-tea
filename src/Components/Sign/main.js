@@ -8,21 +8,9 @@ export default class Sign extends React.Component {
 		//script
 	}
 
-	componentDidMount() {
-		//script
-	}
-
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
-	}
-
 	render() {
 		return (
-			<div id='Sign'>
+			<div id='Sign' style={{ ...this.props.style }}>
 				<div>
 					<div></div>
 					{this.props.children}

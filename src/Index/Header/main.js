@@ -35,7 +35,7 @@ export default class Header extends React.Component {
 	}
 
 	append_Effect() {
-		if (!this.state.effect) return <Effect />;
+		//if (!this.state.effect) return <Effect />;
 	}
 
 	render() {
