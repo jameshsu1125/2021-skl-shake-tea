@@ -34,10 +34,10 @@ export default class Header extends React.Component {
 				<Sign size='small'>
 					<div className='plan'></div>
 				</Sign>
-				<div className='btn0'></div>
-				<div className='btn1'></div>
-				<div className='btn2'></div>
-				<div className='btn3'></div>
+				<div className='btn0' onClick={() => this.props.clicked('carousel')}></div>
+				<div className='btn1' onClick={() => this.props.clicked('plan-A')}></div>
+				<div className='btn2' onClick={() => this.props.clicked('plan-B')}></div>
+				<div className='btn3' onClick={() => this.props.clicked('plan-C')}></div>
 			</div>
 		);
 	}

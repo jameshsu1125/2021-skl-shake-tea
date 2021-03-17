@@ -4,6 +4,7 @@
 	width: 100%;
 	text-align: center;
 	user-select: none;
+	line-height: 0;
 
 	.ctx {
 		position: relative;
@@ -15,6 +16,7 @@
 			rgba(0, 0, 0, 0.1) 0px,
 			rgba(0, 0, 0, 0) 300px
 		);
+
 		& > div {
 			display: inline-block;
 		}
@@ -22,28 +24,9 @@
 		.content {
 			position: relative;
 			width: 100%;
-			background-color: red;
-			margin-top: -5px;
-			background-image: url('./img/brick.png');
-
-			.container {
-				position: relative;
-				width: 100%;
-				padding: 36px 0;
-				background: linear-gradient(
-					180deg,
-					rgba(0, 0, 0, 0.2) 0px,
-					rgba(0, 0, 0, 0) 30px
-				);
-
-				.frame {
-					display: inline-block;
-					@img: './img/frame.png';
-					background-image: url(@img);
-					width: image-width(@img);
-					height: image-height(@img);
-				}
-			}
+			height: auto;
+			margin: 0 0;
+			line-height: normal;
 		}
 	}
 }

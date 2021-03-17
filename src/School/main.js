@@ -2,6 +2,7 @@ import $ from 'jquery';
 import React from 'react';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
+import Top from './../Components/Top/main';
 import Buttons from './Buttons/main';
 import Content from './Content/main';
 import Header from './Header/main';
@@ -89,13 +90,11 @@ export default class School extends React.Component {
 						/>
 					</Content>
 				</div>
-				<div
-					className='top'
-					onClick={() => {
+				<Top
+					scrollto={() => {
 						this.scrollTo('#School');
-					}}>
-					<div></div>
-				</div>
+					}}
+				/>
 				{this.append_menu()}
 			</div>
 		);

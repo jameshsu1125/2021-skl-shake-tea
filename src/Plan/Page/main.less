@@ -1,0 +1,105 @@
+.plan-page {
+	position: relative;
+	width: 100%;
+	height: auto;
+	background-image: url('./img/brick.png');
+	overflow-x: hidden;
+
+	div {
+		outline: none;
+	}
+
+	.container {
+		position: relative;
+		width: 100%;
+		height: auto;
+		padding: 36px 0;
+		background: linear-gradient(
+			180deg,
+			rgba(0, 0, 0, 0.2) 0px,
+			rgba(0, 0, 0, 0) 30px
+		);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.plan-A {
+			@img: './img/A.png';
+			background-image: url(@img);
+		}
+
+		.plan-B {
+			@img: './img/B.png';
+			background-image: url(@img);
+		}
+
+		.plan-C {
+			@img: './img/C.png';
+			background-image: url(@img);
+		}
+
+		.plan {
+			@img: './img/A.png';
+			width: image-width(@img);
+			height: image-height(@img);
+			display: inline-block;
+			margin-left: -102px;
+		}
+
+		.items {
+			width: 520px;
+			background-color: rgba(17, 29, 89, 0.5);
+			padding: 48px;
+			box-sizing: border-box;
+			border-radius: 20px;
+
+			& > div {
+				float: left;
+				width: 158px;
+				height: 158px;
+				background-color: #f65e62;
+				border-radius: 50%;
+				margin: 27px;
+
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				color: #fff;
+				font-size: 1.8rem;
+				cursor: pointer;
+
+				box-shadow: 5px 5px 0px rgba(33, 33, 39, 0.5);
+
+				transition: 0.2s;
+
+				&:hover {
+					transform: scale(1.1);
+				}
+
+				span {
+					font-size: 1rem;
+				}
+			}
+		}
+
+		.plan-btn {
+			width: 100px;
+			height: 26px;
+			padding: 13px 44px;
+			border: solid 3px #fff;
+			margin-top: 50px;
+			border-radius: 55px;
+			color: #fff;
+			font-size: 1.5rem;
+			line-height: 26px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: #d10737;
+			}
+		}
+	}
+}

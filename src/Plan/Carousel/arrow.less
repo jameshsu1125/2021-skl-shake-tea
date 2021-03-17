@@ -1,0 +1,27 @@
+.plan-arrow {
+	position: absolute;
+	@img: './img/arrow.png';
+	background-image: url(@img);
+	width: image-width(@img);
+	height: image-height(@img) / 2;
+	top: 50%;
+	margin-top: 0 - image-height(@img) / 4;
+	z-index: 10;
+	pointer-events: auto;
+	cursor: pointer;
+
+	&:hover {
+		background-position-y: 0 - image-height(@img) / 2;
+	}
+}
+
+.plan-next {
+	right: 50%;
+	margin-right: -390px;
+	transform: scale(-1, 1);
+}
+
+.plan-prev {
+	left: 50%;
+	margin-left: -390px;
+}
