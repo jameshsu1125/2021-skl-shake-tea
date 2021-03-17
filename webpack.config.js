@@ -12,6 +12,7 @@ module.exports = (env) => {
 		entry: {
 			index: './src/index.js',
 			school: './src/school.js',
+			plan: './src/plan.js',
 		},
 		module: {
 			rules: [

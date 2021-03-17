@@ -1,17 +1,16 @@
+import $ from 'jquery';
+import Click from 'lesca-click';
 import React from 'react';
-import './main.less';
-
-import Home from './Header/main';
-import Nav from '../Components/Nav/main';
 import Menu from '../Components/Menu/main';
-import Content from './content';
+import Nav from '../Components/Nav/main';
 import Sign from '../Components/Sign/main';
 import Carousel from './Carousel/main';
-import Slider from './Slider/main';
+import Content from './content';
 import Footer from './Footer/main';
-import Click from 'lesca-click';
+import Home from './Header/main';
+import './main.less';
+import Slider from './Slider/main';
 
-import $ from 'jquery';
 require('jquery-easing');
 
 export default class index extends React.Component {

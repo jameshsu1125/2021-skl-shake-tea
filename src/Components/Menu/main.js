@@ -129,7 +129,11 @@ export default class Menu extends React.Component {
 						}}>
 						<span>手搖族小學堂</span>
 					</div>
-					<div className='row'>
+					<div
+						className='row'
+						onClick={() => {
+							window.location.href = './plan.html';
+						}}>
 						<span>好時光保險計畫</span>
 					</div>
 					<div className='row'>

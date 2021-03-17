@@ -1,6 +1,28 @@
 @img: './img/bg.png';
 @light: './img/light.png';
 
+@small: './img/bg2.png';
+@light2: './img/light2.png';
+
+.small {
+	height: image-height(@small) !important;
+	& > div {
+		width: image-width(@small) !important;
+		background-image: url(@small) !important;
+
+		& > div:nth-child(1) {
+			background-image: url(@light2) !important;
+			width: image-width(@light2) !important;
+			height: image-height(@light2) !important;
+		}
+
+		& > div:nth-child(2) {
+			height: calc(~'100% - 26px') !important;
+			top: 26px !important;
+		}
+	}
+}
+
 #Sign {
 	position: relative;
 	width: 100%;
@@ -36,6 +58,12 @@
 
 		.school {
 			background-image: url('./img/school.png');
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		.plan {
+			background-image: url('./img/plan.png');
 			background-repeat: no-repeat;
 			background-position: center;
 		}

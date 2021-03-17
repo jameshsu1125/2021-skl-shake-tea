@@ -1,13 +1,12 @@
+import $ from 'jquery';
 import React from 'react';
-import './main.less';
-
-import Nav from '../Components/Nav/main';
 import Menu from '../Components/Menu/main';
-import Header from './Header/main';
+import Nav from '../Components/Nav/main';
 import Buttons from './Buttons/main';
 import Content from './Content/main';
+import Header from './Header/main';
+import './main.less';
 import Video from './Video/main';
-import $ from 'jquery';
 
 export default class School extends React.Component {
 	constructor(props) {

@@ -65,7 +65,12 @@ export default class Nav extends React.Component {
 							}}>
 							手搖族小學堂
 						</div>
-						<div>好時光保險計畫</div>
+						<div
+							onClick={() => {
+								window.location.href = './plan.html';
+							}}>
+							好時光保險計畫
+						</div>
 						<div>諮詢專人</div>
 					</div>
 					<div className='han' onClick={this.props.open}>
