@@ -13,6 +13,7 @@ module.exports = (env) => {
 			index: './src/index.js',
 			school: './src/school.js',
 			plan: './src/plan.js',
+			video: './src/video.js',
 		},
 		module: {
 			rules: [

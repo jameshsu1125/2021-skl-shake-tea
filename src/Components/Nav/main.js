@@ -58,7 +58,12 @@ export default class Nav extends React.Component {
 							}}>
 							開始遊戲
 						</div>
-						<div>廣告影片</div>
+						<div
+							onClick={() => {
+								window.location.href = Parameter.root() + './video.html';
+							}}>
+							廣告影片
+						</div>
 						<div
 							onClick={() => {
 								window.location.href = './school.html';

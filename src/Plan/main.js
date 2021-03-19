@@ -12,7 +12,7 @@ import Page from './Page/main';
 export default class Plan extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { menu: false, content: 'plan-A' };
+		this.state = { menu: false, content: 'carousel' };
 	}
 
 	append_menu() {
@@ -100,7 +100,9 @@ export default class Plan extends React.Component {
 				<div className='ctx'>
 					<Header
 						clicked={(e) => {
-							this.setState({ content: e });
+							this.setState({ content: e }, () => {
+								this.scrollTo('.content');
+							});
 						}}
 					/>
 					<div className='content'>{this.append_content()}</div>

@@ -119,7 +119,11 @@ export default class Menu extends React.Component {
 						}}>
 						<span>開始遊戲</span>
 					</div>
-					<div className='row'>
+					<div
+						className='row'
+						onClick={() => {
+							window.location.href = './video.html';
+						}}>
 						<span>廣告影片</span>
 					</div>
 					<div
