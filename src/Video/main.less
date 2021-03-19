@@ -91,20 +91,26 @@
 				}
 			}
 
-			.frame {
-				position: relative;
+			@img: './img/frame.png';
+			.container {
 				display: inline-block;
-				@img: './img/frame.png';
-				background-image: url(@img);
+				position: relative;
 				width: image-width(@img);
 				height: image-height(@img);
 
-				.yt {
+				.frame {
 					position: absolute;
-					width: 677px;
-					height: 436px;
-					left: 16px;
-					top: 16px;
+					width: 100%;
+					height: 100%;
+					background-image: url(@img);
+
+					.yt {
+						position: absolute;
+						width: 677px;
+						height: 436px;
+						left: 16px;
+						top: 16px;
+					}
 				}
 			}
 		}

@@ -14,6 +14,7 @@ module.exports = (env) => {
 			school: './src/school.js',
 			plan: './src/plan.js',
 			video: './src/video.js',
+			result: './src/result.js',
 		},
 		module: {
 			rules: [

@@ -1,29 +1,51 @@
 import React from 'react';
 import './main.less';
 import Sign from '../../Components/Sign/main';
-
+import $ from 'jquery';
+require('jquery-easing');
+require('jquery.waitforimages');
 export default class Header extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
-		//script∏
+
+		this.tr = {
+			time: 1000,
+			h: 0,
+			init() {
+				this.c = $(root.refs.main);
+				this.tran();
+			},
+			tran() {
+				this.c.css({
+					height: this.h + 'px',
+				});
+			},
+			in() {
+				$(this).animate(
+					{ h: 490 },
+					{
+						duration: this.time,
+						step: () => this.tran(),
+						complete: () => this.tran(),
+						easing: 'easeInOutQuart',
+					}
+				);
+			},
+		};
 	}
 
 	componentDidMount() {
-		//script
-	}
-
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
+		this.tr.init();
+		$(this.refs.header).waitForImages({
+			finished: () => this.tr.in(),
+			waitForAll: true,
+		});
 	}
 
 	render() {
 		return (
-			<div id='Header'>
+			<div ref='main' id='Header'>
 				<div className='bg'>
 					<div></div>
 					<div></div>

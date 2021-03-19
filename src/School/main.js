@@ -8,11 +8,25 @@ import Content from './Content/main';
 import Header from './Header/main';
 import './main.less';
 import Video from './Video/main';
+require('jquery-easing');
+require('jquery.waitforimages');
 
 export default class School extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { menu: false };
+	}
+
+	componentDidMount() {
+		$(this.refs.main).waitForImages({
+			finished: () => {
+				for (let i = 1; i < 6; i++) {
+					this.refs['v' + i].in();
+				}
+			},
+			each: (e) => {},
+			waitForAll: true,
+		});
 	}
 
 	append_menu() {
@@ -38,7 +52,7 @@ export default class School extends React.Component {
 
 		$('html, body').animate(
 			{
-				scrollTop: top.top,
+				scrollTop: top.top == 0 ? 0 : top.top - 20,
 			},
 			time > 1000 ? 1000 : time,
 			'easeOutQuart'
@@ -47,7 +61,7 @@ export default class School extends React.Component {
 
 	render() {
 		return (
-			<div id='School'>
+			<div ref='main' id='School'>
 				<Nav
 					open={() => {
 						this.setState({ menu: true });
@@ -59,30 +73,35 @@ export default class School extends React.Component {
 					</Header>
 					<Content>
 						<Video
+							ref='v1'
 							index='1'
 							tag='保險新手筆記'
 							title='別把保險當存錢!最適合新鮮社畜的保險規劃'
 							yt-id='vXe2tUs5r88'
 						/>
 						<Video
+							ref='v2'
 							index='2'
 							tag='保險新手筆記'
 							title='別再沈溺蜜月期！新婚小夫妻如何細水長流？'
 							yt-id='bmZXyzAZuIU'
 						/>
 						<Video
+							ref='v3'
 							index='3'
 							tag='保險新手筆記'
 							title='別再靠北過日子！三明治族該怎麼規劃投保？'
 							yt-id='vXe2tUs5r88'
 						/>
 						<Video
+							ref='v4'
 							index='4'
 							tag='保險新手筆記'
 							title='別再靠北過日子！三明治族該怎麼規劃投保？'
 							yt-id='vXe2tUs5r88'
 						/>
 						<Video
+							ref='v5'
 							index='5'
 							tag='保險新手筆記'
 							title='別保了什麼都不知道！3招快速了解你的所有保單'

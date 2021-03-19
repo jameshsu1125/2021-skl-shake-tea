@@ -1,10 +1,17 @@
 import React from 'react';
 import './main.less';
 
+import $ from 'jquery';
+require('jquery-easing');
+
 export default class Video extends React.Component {
+	in() {
+		$(this.refs.main).animate({ opacity: 1 }, 1000, 'easeOutQuart');
+	}
+
 	render() {
 		return (
-			<div id={`video${this.props.index}`} className='school-video'>
+			<div ref='main' id={`video${this.props.index}`} className='school-video'>
 				<div className='frame'>
 					<div className='tag'>
 						{`${this.props.tag} #`}

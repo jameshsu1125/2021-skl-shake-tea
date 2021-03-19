@@ -36,12 +36,18 @@ export default class index extends React.Component {
 	}
 
 	check_data() {
-		let result = '';
+		let op = [];
 		for (var i = 1; i < 5; i++) {
 			let v = this.refs[`step${i}`].getData();
-			result += `第${i}題:選${v == 'string' ? v : v.toString()}\n`;
+			op.push(v);
 		}
-		alert(result);
+
+		let data = btoa(JSON.stringify(op));
+		window.location.href = `./result.html?data=${data}`;
+
+		//const score = require('./../_config').calcScore(op);
+		//console.log(score);
+		//window.location.href = './result.html';
 	}
 
 	scrollTo(e) {

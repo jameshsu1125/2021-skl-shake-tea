@@ -1,15 +1,62 @@
+import $ from 'jquery';
 import React from 'react';
-import './main.less';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
-import Top from './../Components/Top/main';
-import $ from 'jquery';
+import './main.less';
+require('jquery-easing');
+require('jquery.waitforimages');
 
 export default class Video extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { menu: false };
+		this.state = { menu: false, yt: false };
 		this['yt-id'] = 'nPqJuMDMGOs';
+
+		const root = this;
+		this.tr = {
+			init() {
+				this.frame.init();
+			},
+			in() {
+				this.frame.in();
+			},
+			frame: {
+				t: -500,
+				o: 0,
+				time: 700,
+				init() {
+					this.c = $(root.refs.frame);
+					this.tran();
+				},
+				in() {
+					$(this).animate(
+						{ o: 1, t: 16 },
+						{
+							duration: this.time,
+							step: () => this.tran(),
+							complete: () => {
+								this.tran();
+								root.setState({ yt: true });
+							},
+							easing: 'easeOutBack',
+						}
+					);
+				},
+				tran() {
+					this.c.css({
+						top: this.t + 'px',
+					});
+				},
+			},
+		};
+	}
+
+	componentDidMount() {
+		this.tr.init();
+		$(this.refs.main).waitForImages({
+			finished: () => this.tr.in(),
+			waitForAll: true,
+		});
 	}
 
 	append_menu() {
@@ -42,9 +89,22 @@ export default class Video extends React.Component {
 		);
 	}
 
+	append_yt() {
+		if (this.state.yt)
+			return (
+				<iframe
+					width='677'
+					height='436'
+					src={`https://www.youtube.com/embed/${this['yt-id']}`}
+					frameBorder='0'
+					allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+					allowFullScreen></iframe>
+			);
+	}
+
 	render() {
 		return (
-			<div id='Video'>
+			<div ref='main' id='Video'>
 				<Nav
 					open={() => {
 						this.setState({ menu: true });
@@ -59,15 +119,9 @@ export default class Video extends React.Component {
 							<div></div>
 							<div></div>
 						</div>
-						<div className='frame'>
-							<div className='yt'>
-								<iframe
-									width='677'
-									height='436'
-									src={`https://www.youtube.com/embed/${this['yt-id']}`}
-									frameBorder='0'
-									allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-									allowFullScreen></iframe>
+						<div className='container'>
+							<div ref='frame' className='frame'>
+								<div className='yt'>{this.append_yt()}</div>
 							</div>
 						</div>
 					</div>
