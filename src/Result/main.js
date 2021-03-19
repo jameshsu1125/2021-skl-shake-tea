@@ -6,6 +6,9 @@ import './main.less';
 import Taste from './Taste/main';
 import Satisfy from './Satisfy/main';
 import Heavy from './Heavy/main';
+import $ from 'jquery';
+require('jquery-easing');
+require('jquery.waitforimages');
 
 export default class Result extends React.Component {
 	constructor(props) {
@@ -20,6 +23,48 @@ export default class Result extends React.Component {
 			window.location.href = Parameters.root();
 		}
 		this.state = { menu: false, content: score.index, score: score.score };
+
+		const root = this;
+		this.tr = {
+			init() {
+				this.frame.init();
+			},
+			in() {
+				this.frame.in();
+			},
+			frame: {
+				t: window.innerHeight,
+				time: 1000,
+				init() {
+					this.c = $(root.refs.frame);
+					this.tran();
+				},
+				in() {
+					$(this).animate(
+						{ t: 82 },
+						{
+							duration: this.time,
+							step: () => this.tran(),
+							complete: () => this.tran(),
+							easing: 'easeOutQuart',
+						}
+					);
+				},
+				tran() {
+					this.c.css({
+						'margin-top': this.t + 'px',
+					});
+				},
+			},
+		};
+	}
+
+	componentDidMount() {
+		this.tr.init();
+		$(this.refs.main).waitForImages({
+			finished: () => this.tr.in(),
+			waitForAll: true,
+		});
 	}
 
 	append_menu() {
@@ -47,7 +92,7 @@ export default class Result extends React.Component {
 
 	render() {
 		return (
-			<div id='Result'>
+			<div ref='main' id='Result'>
 				<Nav
 					open={() => {
 						this.setState({ menu: true });
@@ -89,7 +134,7 @@ export default class Result extends React.Component {
 							</div>
 						</div>
 						<div className='row'>
-							<div className='frame'>
+							<div ref='frame' className='frame'>
 								<div></div>
 								<div></div>
 								<div></div>

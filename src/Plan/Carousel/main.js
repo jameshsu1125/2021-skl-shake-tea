@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
@@ -5,6 +6,8 @@ import 'slick-carousel/slick/slick.css';
 import Arrow from './arrow';
 import Item from './item';
 import './main.less';
+require('jquery-easing');
+require('jquery.waitforimages');
 
 export default class Carousel extends React.Component {
 	constructor(props) {
@@ -29,12 +32,48 @@ export default class Carousel extends React.Component {
 				</div>
 			),
 		};
+
+		const root = this;
+		this.tr = {
+			o: 0,
+			time: 1000,
+			init() {
+				this.c = $(root.refs.container);
+				this.tran();
+			},
+			in() {
+				$(this)
+					.delay(200)
+					.animate(
+						{ o: 1 },
+						{
+							duration: this.time,
+							step: () => this.tran(),
+							complete: () => this.tran(),
+							easing: 'easeOutQuart',
+						}
+					);
+			},
+			tran() {
+				this.c.css({
+					opacity: this.o,
+				});
+			},
+		};
+	}
+
+	componentDidMount() {
+		this.tr.init();
+		$(this.refs.main).waitForImages({
+			finished: () => this.tr.in(),
+			waitForAll: true,
+		});
 	}
 
 	render() {
 		return (
-			<div className='plan-carousel'>
-				<div className='container'>
+			<div ref='main' className='plan-carousel'>
+				<div ref='container' className='container'>
 					<Slider {...this.setting}>
 						<Item
 							index='1'

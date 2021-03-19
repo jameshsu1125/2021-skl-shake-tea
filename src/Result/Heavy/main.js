@@ -1,33 +1,69 @@
 import React from 'react';
 import './main.less';
+import $ from 'jquery';
+require('jquery-easing');
+require('jquery.waitforimages');
 
 export default class Heavy extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
-		//script
-		console.log(this.props);
+		this.tr = {
+			init() {
+				this.pop.init();
+			},
+			in() {
+				this.pop.in();
+			},
+			pop: {
+				s: 0,
+				r: 30,
+				time: 1400,
+				init() {
+					this.c = $(root.refs.pop);
+					this.tran();
+				},
+				in() {
+					$(this)
+						.delay(1000)
+						.animate(
+							{ s: 1, r: 0 },
+							{
+								duration: this.time,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutElastic',
+							}
+						);
+				},
+				tran() {
+					this.c.css({
+						transform: `rotate(${this.r}deg) scale(${this.s})`,
+						'-webkit-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-moz-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-o-transform': `rotate(${this.r}deg) scale(${this.s})`,
+						'-ms-transform': `rotate(${this.r}deg) scale(${this.s})`,
+					});
+				},
+			},
+		};
 	}
 
 	componentDidMount() {
-		//script
-	}
-
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
+		this.tr.init();
+		$(this.refs.main).waitForImages({
+			finished: () => this.tr.in(),
+			waitForAll: true,
+		});
 	}
 
 	render() {
 		return (
-			<div id='Heavy'>
+			<div ref='main' id='Heavy'>
 				<div className='keyv'>
 					<div className='title'></div>
 					<div className='item'></div>
-					<div className='pop'></div>
+					<div ref='pop' className='pop'></div>
 				</div>
 				<div className='border'></div>
 				<div className='cups'></div>

@@ -27,7 +27,7 @@ module.exports = {
 			i = 0;
 
 		if (s < 448) i = 0;
-		else if (s >= 448 && i < 1000) i = 1;
+		else if (s >= 448 && s < 1000) i = 1;
 		else i = 2;
 
 		return {
