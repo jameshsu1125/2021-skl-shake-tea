@@ -26,6 +26,7 @@ export default class School extends React.Component {
 					this.refs['v' + i].in();
 				}
 				this.setState({ loading: false });
+				this.refs.header.tr.in();
 			},
 			each: (e) => {},
 			waitForAll: true,
@@ -75,7 +76,7 @@ export default class School extends React.Component {
 					}}
 				/>
 				<div className='ctx'>
-					<Header>
+					<Header ref='header'>
 						<Buttons scrollTo={this.scrollTo.bind(this)} />
 					</Header>
 					<Content>

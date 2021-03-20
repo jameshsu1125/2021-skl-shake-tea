@@ -35,10 +35,6 @@ export default class Header extends React.Component {
 
 	componentDidMount() {
 		this.tr.init();
-		$(this.refs.main).waitForImages({
-			finished: () => this.tr.in(),
-			waitForAll: true,
-		});
 	}
 
 	render() {

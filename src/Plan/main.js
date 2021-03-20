@@ -22,6 +22,7 @@ export default class Plan extends React.Component {
 		$(this.refs.main).waitForImages({
 			finished: () => {
 				this.setState({ loading: false });
+				this.refs.header.tr.in();
 			},
 			waitForAll: true,
 		});
@@ -115,6 +116,7 @@ export default class Plan extends React.Component {
 				/>
 				<div className='ctx'>
 					<Header
+						ref='header'
 						clicked={(e) => {
 							this.setState({ content: e }, () => {
 								this.scrollTo('.content');
