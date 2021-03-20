@@ -91,12 +91,12 @@ export default class Result extends React.Component {
 	append_content() {
 		switch (this.state.content) {
 			case 0:
-			default:
-				return <Taste score={this.state.score} />;
 			case 1:
-				return <Satisfy score={this.state.score} />;
+			default:
 			case 2:
-				return <Heavy score={this.state.score} />;
+				return <Taste score={this.state.score} index={this.state.content} />;
+			//return <Satisfy score={this.state.score} />;
+			//return <Heavy score={this.state.score} />;
 		}
 	}
 
@@ -162,8 +162,20 @@ export default class Result extends React.Component {
 						</div>
 						<div className='row'>
 							<div className='btn'>諮詢專人</div>
-							<div className='btn'>產品DM</div>
-							<div className='btn'>看廣告片</div>
+							<div
+								onClick={() => {
+									window.location.href = './plan.html';
+								}}
+								className='btn'>
+								產品DM
+							</div>
+							<div
+								onClick={() => {
+									window.location.href = './video.html';
+								}}
+								className='btn'>
+								看廣告片
+							</div>
 						</div>
 					</div>
 				</div>

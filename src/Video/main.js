@@ -4,6 +4,7 @@ import React from 'react';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
 import Loading from 'lesca-react-loading';
+import Sign from './../Components/Sign/main';
 import './main.less';
 require('jquery-easing');
 require('jquery.waitforimages');
@@ -128,6 +129,9 @@ export default class Video extends React.Component {
 							<div></div>
 							<div></div>
 						</div>
+						<Sign size='small'>
+							<div className='video'></div>
+						</Sign>
 						<div className='container'>
 							<div ref='frame' className='frame'>
 								<div className='yt'>{this.append_yt()}</div>

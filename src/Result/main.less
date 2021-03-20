@@ -192,18 +192,18 @@
 
 				.frame {
 					position: relative;
-					width: 632px;
+					width: 874px;
 					height: auto;
 					background-color: #111;
 
 					left: 50%;
-					margin-left: 0 - 632px/2;
+					margin-left: 0 - 874px/2;
 					margin-bottom: 30px;
 					margin-right: 0;
 					margin-top: 82px;
 
 					display: grid;
-					grid-template-columns: 33px 566px 33px;
+					grid-template-columns: 33px 808px 33px;
 					grid-template-rows: 33px auto 33px;
 					grid-gap: 0px;
 
@@ -274,6 +274,13 @@
 		.ctx {
 			.content {
 				min-height: calc(~'100vh - 90px');
+				.row {
+					.frame {
+						width: 632px;
+						grid-template-columns: 33px 566px 33px;
+						margin-left: 0 - 632px/2;
+					}
+				}
 			}
 		}
 	}
