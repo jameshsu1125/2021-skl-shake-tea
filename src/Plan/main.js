@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import Landscape from 'lesca-react-landscape';
+import Loading from 'lesca-react-loading';
 import React from 'react';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
@@ -6,13 +8,23 @@ import Top from './../Components/Top/main';
 import Carousel from './Carousel/main';
 import Header from './Header/main';
 import './main.less';
-
 import Page from './Page/main';
+require('jquery-easing');
+require('jquery.waitforimages');
 
 export default class Plan extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { menu: false, content: 'carousel' };
+		this.state = { menu: false, content: 'carousel', loading: true };
+	}
+
+	componentDidMount() {
+		$(this.refs.main).waitForImages({
+			finished: () => {
+				this.setState({ loading: false });
+			},
+			waitForAll: true,
+		});
 	}
 
 	append_menu() {
@@ -89,9 +101,13 @@ export default class Plan extends React.Component {
 		);
 	}
 
+	append_loading() {
+		if (this.state.loading) return <Loading text='Loading now...' />;
+	}
+
 	render() {
 		return (
-			<div id='Plan'>
+			<div ref='main' id='Plan'>
 				<Nav
 					open={() => {
 						this.setState({ menu: true });
@@ -113,6 +129,8 @@ export default class Plan extends React.Component {
 					}}
 				/>
 				{this.append_menu()}
+				{this.append_loading()}
+				<Landscape dw='750' />
 			</div>
 		);
 	}

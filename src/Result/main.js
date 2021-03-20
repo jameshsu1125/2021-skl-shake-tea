@@ -1,12 +1,14 @@
+import $ from 'jquery';
+import Landscape from 'lesca-react-landscape';
 import Parameters from 'lesca-url-parameters';
+import Loading from 'lesca-react-loading';
 import React from 'react';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
-import './main.less';
-import Taste from './Taste/main';
-import Satisfy from './Satisfy/main';
 import Heavy from './Heavy/main';
-import $ from 'jquery';
+import './main.less';
+import Satisfy from './Satisfy/main';
+import Taste from './Taste/main';
 require('jquery-easing');
 require('jquery.waitforimages');
 
@@ -22,7 +24,12 @@ export default class Result extends React.Component {
 			alert('資料有錯,請重新在試');
 			window.location.href = Parameters.root();
 		}
-		this.state = { menu: false, content: score.index, score: score.score };
+		this.state = {
+			menu: false,
+			content: score.index,
+			score: score.score,
+			loading: true,
+		};
 
 		const root = this;
 		this.tr = {
@@ -62,7 +69,10 @@ export default class Result extends React.Component {
 	componentDidMount() {
 		this.tr.init();
 		$(this.refs.main).waitForImages({
-			finished: () => this.tr.in(),
+			finished: () => {
+				this.tr.in();
+				this.setState({ loading: false });
+			},
 			waitForAll: true,
 		});
 	}
@@ -88,6 +98,10 @@ export default class Result extends React.Component {
 			case 2:
 				return <Heavy score={this.state.score} />;
 		}
+	}
+
+	append_loading() {
+		if (this.state.loading) return <Loading text='Loading now...' />;
 	}
 
 	render() {
@@ -154,6 +168,8 @@ export default class Result extends React.Component {
 					</div>
 				</div>
 				{this.append_menu()}
+				{this.append_loading()}
+				<Landscape dw='750' />
 			</div>
 		);
 	}

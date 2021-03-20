@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import Click from 'lesca-click';
+import Landscape from 'lesca-react-landscape';
+import Loading from 'lesca-react-loading';
 import React from 'react';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
@@ -12,6 +14,7 @@ import './main.less';
 import Slider from './Slider/main';
 
 require('jquery-easing');
+require('jquery.waitforimages');
 
 export default class index extends React.Component {
 	constructor(props) {
@@ -20,8 +23,17 @@ export default class index extends React.Component {
 		Click.init();
 		Click.preventDefault = false;
 
-		this.state = { menu: false, step: 0, content: false };
+		this.state = { menu: false, step: 0, content: false, loading: true };
 		this.carousel = { ...this.state.carousel };
+	}
+
+	componentDidMount() {
+		$(this.refs.main).waitForImages({
+			finished: () => {
+				this.setState({ loading: false });
+			},
+			waitForAll: true,
+		});
 	}
 
 	append_menu() {
@@ -41,13 +53,8 @@ export default class index extends React.Component {
 			let v = this.refs[`step${i}`].getData();
 			op.push(v);
 		}
-
 		let data = btoa(JSON.stringify(op));
 		window.location.href = `./result.html?data=${data}`;
-
-		//const score = require('./../_config').calcScore(op);
-		//console.log(score);
-		//window.location.href = './result.html';
 	}
 
 	scrollTo(e) {
@@ -155,9 +162,13 @@ export default class index extends React.Component {
 		});
 	}
 
+	append_loading() {
+		if (this.state.loading) return <Loading text='Loading now...' />;
+	}
+
 	render() {
 		return (
-			<div id='index'>
+			<div ref='main' id='index'>
 				<Nav
 					open={() => {
 						this.setState({ menu: true });
@@ -169,6 +180,8 @@ export default class index extends React.Component {
 					{this.append_content()}
 				</div>
 				{this.append_menu()}
+				{this.append_loading()}
+				<Landscape dw='750' />
 			</div>
 		);
 	}

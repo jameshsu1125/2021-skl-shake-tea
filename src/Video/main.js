@@ -1,7 +1,9 @@
 import $ from 'jquery';
+import Landscape from 'lesca-react-landscape';
 import React from 'react';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
+import Loading from 'lesca-react-loading';
 import './main.less';
 require('jquery-easing');
 require('jquery.waitforimages');
@@ -9,7 +11,7 @@ require('jquery.waitforimages');
 export default class Video extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { menu: false, yt: false };
+		this.state = { menu: false, yt: false, loading: true };
 		this['yt-id'] = 'nPqJuMDMGOs';
 
 		const root = this;
@@ -54,7 +56,10 @@ export default class Video extends React.Component {
 	componentDidMount() {
 		this.tr.init();
 		$(this.refs.main).waitForImages({
-			finished: () => this.tr.in(),
+			finished: () => {
+				this.tr.in();
+				this.setState({ loading: false });
+			},
 			waitForAll: true,
 		});
 	}
@@ -102,6 +107,10 @@ export default class Video extends React.Component {
 			);
 	}
 
+	append_loading() {
+		if (this.state.loading) return <Loading text='Loading now...' />;
+	}
+
 	render() {
 		return (
 			<div ref='main' id='Video'>
@@ -127,6 +136,8 @@ export default class Video extends React.Component {
 					</div>
 				</div>
 				{this.append_menu()}
+				{this.append_loading()}
+				<Landscape dw='750' />
 			</div>
 		);
 	}

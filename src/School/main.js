@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import Landscape from 'lesca-react-landscape';
+import Loading from 'lesca-react-loading';
 import React from 'react';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
@@ -14,7 +16,7 @@ require('jquery.waitforimages');
 export default class School extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { menu: false };
+		this.state = { menu: false, loading: true };
 	}
 
 	componentDidMount() {
@@ -23,6 +25,7 @@ export default class School extends React.Component {
 				for (let i = 1; i < 6; i++) {
 					this.refs['v' + i].in();
 				}
+				this.setState({ loading: false });
 			},
 			each: (e) => {},
 			waitForAll: true,
@@ -57,6 +60,10 @@ export default class School extends React.Component {
 			time > 1000 ? 1000 : time,
 			'easeOutQuart'
 		);
+	}
+
+	append_loading() {
+		if (this.state.loading) return <Loading text='Loading now...' />;
 	}
 
 	render() {
@@ -115,6 +122,8 @@ export default class School extends React.Component {
 					}}
 				/>
 				{this.append_menu()}
+				{this.append_loading()}
+				<Landscape dw='750' />
 			</div>
 		);
 	}
