@@ -1,0 +1,54 @@
+@color1: #f9550c;
+.taste1 {
+	.keyv {
+		.title {
+			@img: './img/1/title.png';
+			background-image: url(@img);
+			& > div {
+				background-color: @color1;
+			}
+		}
+		.drink {
+			@img: './img/1/drink.png';
+			background-image: url(@img);
+			width: image-width(@img);
+			height: image-height(@img);
+			left: 36px;
+			bottom: -31px;
+		}
+		.cups {
+			@img: './img/1/cups.png';
+			background-image: url(@img);
+		}
+		.pop {
+			@img: './img/1/pop.png';
+			& > div {
+				background-image: url(@img);
+			}
+		}
+	}
+	.headline {
+		@img: './img/1/headline.png';
+		background-image: url(@img);
+	}
+	.checkboxs {
+		.row {
+			.checkbox {
+				& > div {
+					background-color: @color1;
+				}
+			}
+			.product-btn {
+				background-color: @color1;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.taste1 {
+		.drink {
+			left: -27px !important;
+		}
+	}
+}

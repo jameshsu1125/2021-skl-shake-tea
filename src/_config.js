@@ -19,6 +19,80 @@ module.exports = {
 			r: 3,
 		},
 	},
+	result_box: [
+		{
+			data: [
+				{
+					head: '好時光住院',
+					body: '住院主約<br>日額1千元',
+					color: 'red',
+				},
+				{
+					head: '好時光實支',
+					body: '實支附約<br>HS-10',
+					color: 'green',
+				},
+			],
+		},
+		{
+			data: [
+				{
+					head: '好時光住院',
+					body: '住院主約<br>日額1千元',
+					color: 'red',
+				},
+				{
+					head: '好時光傷害',
+					body: '傷害主約<br>保額100萬',
+					color: 'red',
+				},
+				{
+					head: '好時光實支',
+					body: '實支附約<br>HS-10',
+					color: 'green',
+				},
+				{
+					head: '好時光手術',
+					body: '手術附約<br>保額1千元',
+					color: 'green',
+				},
+			],
+		},
+		{
+			data: [
+				{
+					head: '好時光住院',
+					body: '住院主約<br>日額1千元',
+					color: 'red',
+				},
+				{
+					head: '好時光傷害',
+					body: '傷害主約<br>保額100萬',
+					color: 'red',
+				},
+				{
+					head: '好時光長照',
+					body: '長照主約<br>保額2萬元',
+					color: 'red',
+				},
+				{
+					head: '好時光壽險',
+					body: '壽險主約<br>保額100萬',
+					color: 'red',
+				},
+				{
+					head: '好時光實支',
+					body: '實支附約<br>HS-10',
+					color: 'green',
+				},
+				{
+					head: '好時光手術',
+					body: '手術附約<br>保額1千元',
+					color: 'green',
+				},
+			],
+		},
+	],
 	calcScore: function (data) {
 		let Q1 = [50, 50, 60, 80, 70][data[0] || 0],
 			Q2 = data[1].length * 20,

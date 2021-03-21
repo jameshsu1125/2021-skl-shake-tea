@@ -1,0 +1,47 @@
+@color0: #ffbc00;
+
+.taste0 {
+	.keyv {
+		.title {
+			@img: './img/0/title.png';
+			background-image: url(@img);
+			& > div {
+				background-color: @color0;
+			}
+		}
+		.drink {
+			@img: './img/0/drink.png';
+			background-image: url(@img);
+			width: image-width(@img);
+			height: image-height(@img);
+			left: 76px;
+			bottom: -33px;
+		}
+		.cups {
+			@img: './img/0/cups.png';
+			background-image: url(@img);
+		}
+		.pop {
+			@img: './img/0/pop.png';
+			& > div {
+				background-image: url(@img);
+			}
+		}
+	}
+	.headline {
+		@img: './img/0/headline.png';
+		background-image: url(@img);
+	}
+	.checkboxs {
+		.row {
+			.checkbox {
+				& > div {
+					background-color: @color0;
+				}
+			}
+			.product-btn {
+				background-color: @color0;
+			}
+		}
+	}
+}

@@ -9,13 +9,15 @@ import Carousel from './Carousel/main';
 import Header from './Header/main';
 import './main.less';
 import Page from './Page/main';
+
 require('jquery-easing');
 require('jquery.waitforimages');
 
 export default class Plan extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { menu: false, content: 'carousel', loading: true };
+		let hash = window.location.hash.slice(1) || 'carousel';
+		this.state = { menu: false, content: hash, loading: true };
 	}
 
 	componentDidMount() {

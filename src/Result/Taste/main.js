@@ -1,12 +1,18 @@
-import React from 'react';
-import './main.less';
 import $ from 'jquery';
+import { Dollar } from 'lesca-number';
+import React from 'react';
+import ReactParser from 'react-html-parser';
+import './main.less';
 require('jquery-easing');
 require('jquery.waitforimages');
+import db from './../db';
 
 export default class Taste extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.state = { cost: 0, cost_m: 0 };
+
 		const root = this;
 		this.tr = {
 			init() {
@@ -55,6 +61,32 @@ export default class Taste extends React.Component {
 			finished: () => this.tr.in(),
 			waitForAll: true,
 		});
+		this.select_change();
+	}
+
+	append_box() {
+		let data = require('./../../_config').result_box[this.props.index].data;
+		return data.map((e, i) => (
+			<div key={i} className={`box ${e.color}`}>
+				<div>{e.head}</div>
+				<div>{ReactParser(e.body)}</div>
+			</div>
+		));
+	}
+
+	append_age() {
+		return [...new Array(31).keys()].map((e) => (
+			<option key={e} value={e + 15}>
+				{e + 15}
+			</option>
+		));
+	}
+
+	select_change() {
+		const age = this.refs.age.value || '30',
+			gen = this.refs.gender.value || 'male';
+		const cost = db[gen].filter((e) => e.age == age)[0].data[this.props.index];
+		this.setState({ cost: cost, cost_m: Math.ceil(cost / 12) });
 	}
 
 	render() {
@@ -81,7 +113,7 @@ export default class Taste extends React.Component {
 						</div>
 						<div className='txt'>看看你每月的手搖費</div>
 						<div className='dollor'>
-							<div>$1000</div>
+							<div>{`$${Dollar(this.props.score)}`}</div>
 						</div>
 					</div>
 					<div className='row'>
@@ -89,30 +121,18 @@ export default class Taste extends React.Component {
 							<div></div>
 						</div>
 						<div className='txt'>最適合你的保險方案</div>
-						<div className='product-btn'>
+						<div
+							onClick={() => {
+								let hash = ['plan-A', 'plan-B', 'plan-C'];
+								window.location.href = `./plan.html#${hash[this.props.index] || ''}`;
+							}}
+							className='product-btn'>
 							品味好時光保險組合<div></div>
 						</div>
 					</div>
 				</div>
 				<div className='boxs'>
-					<div className='boxs-c'>
-						<div className='box red'>
-							<div>好時光住院</div>
-							<div>
-								住院主約
-								<br />
-								日額1千元
-							</div>
-						</div>
-						<div className='box green'>
-							<div>好時光實支</div>
-							<div>
-								實支附約
-								<br />
-								HS-10
-							</div>
-						</div>
-					</div>
+					<div className='boxs-c'>{this.append_box()}</div>
 				</div>
 				<div className='calc'>
 					<div className='row'>
@@ -121,24 +141,30 @@ export default class Taste extends React.Component {
 					</div>
 					<div className='row'>
 						<div className='age'>
-							<select>
-								<option>30</option>
+							<select
+								ref='age'
+								defaultValue='30'
+								onChange={this.select_change.bind(this)}>
+								{this.append_age()}
 							</select>
 						</div>
 						<div className='txt'>歲</div>
 						<div className='gender'>
-							<select>
-								<option>男性</option>
-								<option>女性</option>
+							<select
+								ref='gender'
+								defaultValue='male'
+								onChange={this.select_change.bind(this)}>
+								<option value='male'>男性</option>
+								<option value='female'>女性</option>
 							</select>
 						</div>
 					</div>
 					<div className='row pd-l'>
 						<div className='pay'>
-							<div>$14,800</div>
+							<div ref='cost'>{`$${Dollar(this.state.cost)}`}</div>
 						</div>
 						<div className='pay_monly'>
-							<div>$14,800</div>
+							<div ref='cost_m'>{`$${Dollar(this.state.cost_m)}`}</div>
 						</div>
 					</div>
 					<div className='row pd-l'>

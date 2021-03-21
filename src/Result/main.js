@@ -5,9 +5,7 @@ import Loading from 'lesca-react-loading';
 import React from 'react';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
-import Heavy from './Heavy/main';
 import './main.less';
-import Satisfy from './Satisfy/main';
 import Taste from './Taste/main';
 require('jquery-easing');
 require('jquery.waitforimages');
@@ -91,12 +89,12 @@ export default class Result extends React.Component {
 	append_content() {
 		switch (this.state.content) {
 			case 0:
-			case 1:
 			default:
+				return <Taste score={this.state.score} index={this.state.content} />;
+			case 1:
+				return <Taste score={this.state.score} index={this.state.content} />;
 			case 2:
 				return <Taste score={this.state.score} index={this.state.content} />;
-			//return <Satisfy score={this.state.score} />;
-			//return <Heavy score={this.state.score} />;
 		}
 	}
 
