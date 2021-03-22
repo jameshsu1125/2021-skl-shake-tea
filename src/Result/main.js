@@ -13,11 +13,13 @@ require('jquery.waitforimages');
 export default class Result extends React.Component {
 	constructor(props) {
 		super(props);
-		let score;
+		let score, name, gender, age;
 		try {
-			score = require('./../_config').calcScore(
-				JSON.parse(atob(Parameters.get('data')))
-			);
+			let s = JSON.parse(atob(Parameters.get('data')));
+			score = require('./../_config').calcScore(s);
+			name = s[4];
+			gender = s[5];
+			age = s[6];
 		} catch {
 			alert('資料有錯,請重新在試');
 			window.location.href = Parameters.root();
@@ -27,6 +29,9 @@ export default class Result extends React.Component {
 			content: score.index,
 			score: score.score,
 			loading: true,
+			name,
+			gender,
+			age,
 		};
 
 		const root = this;
@@ -89,12 +94,18 @@ export default class Result extends React.Component {
 	append_content() {
 		switch (this.state.content) {
 			case 0:
-			default:
-				return <Taste score={this.state.score} index={this.state.content} />;
-			case 1:
-				return <Taste score={this.state.score} index={this.state.content} />;
 			case 2:
-				return <Taste score={this.state.score} index={this.state.content} />;
+			case 1:
+			default:
+				return (
+					<Taste
+						score={this.state.score}
+						index={this.state.content}
+						name={this.state.name}
+						age={this.state.age}
+						gender={this.state.gender}
+					/>
+				);
 		}
 	}
 

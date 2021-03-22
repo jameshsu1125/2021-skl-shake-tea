@@ -12,6 +12,7 @@ import Footer from './Footer/main';
 import Home from './Header/main';
 import './main.less';
 import Slider from './Slider/main';
+import Profile from './Profile/main';
 
 require('jquery-easing');
 require('jquery.waitforimages');
@@ -23,7 +24,13 @@ export default class index extends React.Component {
 		Click.init();
 		Click.preventDefault = false;
 
-		this.state = { menu: false, step: 0, content: false, loading: true };
+		this.state = {
+			menu: false,
+			step: 0,
+			content: false,
+			loading: true,
+			profile: false,
+		};
 		this.carousel = { ...this.state.carousel };
 	}
 
@@ -53,33 +60,45 @@ export default class index extends React.Component {
 			let v = this.refs[`step${i}`].getData();
 			op.push(v);
 		}
-		let data = btoa(JSON.stringify(op));
-		window.location.href = `./result.html?data=${data}`;
+		return op;
+	}
+
+	getProfile() {
+		this.pageData = this.check_data();
+		this.setState({ profile: true });
+		this.scrollToBy('#index', () => {
+			this.setState({ content: false });
+		});
+	}
+
+	scrollToBy(e, cb) {
+		let top = $(e)?.offset(),
+			nowTop =
+				window.pageYOffset ||
+				document.documentElement.scrollTop ||
+				document.body.scrollTop,
+			time = Math.abs(top?.top - nowTop);
+		if (!top) return;
+		top.top -= window.innerWidth > 750 ? 54 : 90;
+		$('html, body').animate(
+			{
+				scrollTop: top.top,
+			},
+			time > 1000 ? 1000 : time,
+			'easeOutQuart',
+			() => {
+				if (cb) cb();
+				else this.refs['step' + this.state.step].setState({ btn: true });
+			}
+		);
 	}
 
 	scrollTo(e) {
 		let step = this.state.step;
-		if (step == 4) this.check_data();
+		if (step == 4) this.getProfile();
 		else {
 			this.setState({ step: step + 1 }, () => {
-				let top = $(e)?.offset(),
-					nowTop =
-						window.pageYOffset ||
-						document.documentElement.scrollTop ||
-						document.body.scrollTop,
-					time = Math.abs(top?.top - nowTop);
-				if (!top) return;
-				top.top -= window.innerWidth > 750 ? 54 : 90;
-				$('html, body').animate(
-					{
-						scrollTop: top.top,
-					},
-					time > 1000 ? 1000 : time,
-					'easeOutQuart',
-					() => {
-						this.refs['step' + this.state.step].setState({ btn: true });
-					}
-				);
+				this.scrollToBy(e);
 			});
 		}
 	}
@@ -166,6 +185,16 @@ export default class index extends React.Component {
 		if (this.state.loading) return <Loading text='Loading now...' />;
 	}
 
+	profile_end(name, gender, age) {
+		let data = [...this.pageData, name, gender, age];
+		let base64 = btoa(JSON.stringify(data));
+		window.location.href = `./result.html?data=${base64}`;
+	}
+
+	append_profile() {
+		if (this.state.profile) return <Profile end={this.profile_end.bind(this)} />;
+	}
+
 	render() {
 		return (
 			<div ref='main' id='index'>
@@ -178,6 +207,7 @@ export default class index extends React.Component {
 				<div className='ctx'>
 					<Home clicked={this.home_start.bind(this)} />
 					{this.append_content()}
+					{this.append_profile()}
 				</div>
 				{this.append_menu()}
 				{this.append_loading()}

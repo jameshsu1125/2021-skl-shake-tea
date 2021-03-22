@@ -137,13 +137,13 @@ export default class Taste extends React.Component {
 				<div className='calc'>
 					<div className='row'>
 						<div className='arrow'></div>
-						<div className='txt'>你的保費試算：</div>
+						<div className='txt'>{`${this.props.name || '你'}的保費試算：`}</div>
 					</div>
 					<div className='row'>
 						<div className='age'>
 							<select
 								ref='age'
-								defaultValue='30'
+								defaultValue={this.props.age}
 								onChange={this.select_change.bind(this)}>
 								{this.append_age()}
 							</select>
@@ -152,7 +152,7 @@ export default class Taste extends React.Component {
 						<div className='gender'>
 							<select
 								ref='gender'
-								defaultValue='male'
+								defaultValue={this.props.gender}
 								onChange={this.select_change.bind(this)}>
 								<option value='male'>男性</option>
 								<option value='female'>女性</option>
