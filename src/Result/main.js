@@ -15,7 +15,7 @@ export default class Result extends React.Component {
 		super(props);
 		let score, name, gender, age;
 		try {
-			let s = JSON.parse(atob(Parameters.get('data')));
+			let s = require('./../Components/atobtoa').toJson(Parameters.get('data'));
 			score = require('./../_config').calcScore(s);
 			name = s[4];
 			gender = s[5];

@@ -32,6 +32,7 @@ export default class index extends React.Component {
 			profile: false,
 		};
 		this.carousel = { ...this.state.carousel };
+		this.pageData = [0, [0], 0, 0];
 	}
 
 	componentDidMount() {
@@ -187,7 +188,7 @@ export default class index extends React.Component {
 
 	profile_end(name, gender, age) {
 		let data = [...this.pageData, name, gender, age];
-		let base64 = btoa(JSON.stringify(data));
+		let base64 = require('./../Components/atobtoa').toBase64(data);
 		window.location.href = `./result.html?data=${base64}`;
 	}
 
