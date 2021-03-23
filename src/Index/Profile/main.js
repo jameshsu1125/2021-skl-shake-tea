@@ -12,9 +12,139 @@ export default class Profile extends React.Component {
 			init() {
 				this.board.init();
 				this.radio.init();
+				this.pen.init();
 			},
 			in() {
 				this.board.in();
+				this.pen.in();
+			},
+			pen: {
+				r: 20,
+				t: -10,
+				delay: 500,
+				time: 1200,
+				index: 0,
+				init() {
+					this.c = $(root.refs.pen);
+					this.h = this.c.height();
+					this.tran();
+				},
+				in() {
+					$(this)
+						.delay(this.delay)
+						.animate(
+							{ r: 0, t: 0 },
+							{
+								duration: this.time,
+								step: () => this.tran(),
+								complete: () => {
+									this.tran();
+									this.loop();
+								},
+								easing: 'easeOutElastic',
+							}
+						);
+				},
+				loop() {
+					$(this)
+						.delay(2000)
+						.queue(function () {
+							this.index = 1;
+							this.tran();
+							$(this).dequeue();
+						})
+						.animate(
+							{ r: 30, t: 10 },
+							{
+								duration: this.time / 3,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutQuart',
+							}
+						)
+						.animate(
+							{ r: 34 },
+							{
+								duration: 100,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutBack',
+							}
+						)
+						.animate(
+							{ r: 28 },
+							{
+								duration: 100,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutBack',
+							}
+						)
+						.animate(
+							{ r: 34 },
+							{
+								duration: 100,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutBack',
+							}
+						)
+						.animate(
+							{ r: 28 },
+							{
+								duration: 100,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutBack',
+							}
+						)
+						.animate(
+							{ r: 34 },
+							{
+								duration: 100,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutBack',
+							}
+						)
+						.animate(
+							{ r: 28 },
+							{
+								duration: 100,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutBack',
+							}
+						)
+						.queue(function () {
+							this.index = 0;
+							this.tran();
+							$(this).dequeue();
+						})
+						.animate(
+							{ r: 0, t: 0 },
+							{
+								duration: this.time,
+								step: () => this.tran(),
+								complete: () => {
+									this.tran();
+									this.loop();
+								},
+								easing: 'easeOutElastic',
+							}
+						);
+				},
+				tran() {
+					this.c.css({
+						transform: `rotate(${this.r}deg)`,
+						'-webkit-transform': `rotate(${this.r}deg)`,
+						'-moz-transform': `rotate(${this.r}deg)`,
+						'-o-transform': `rotate(${this.r}deg)`,
+						'-ms-transform': `rotate(${this.r}deg)`,
+						top: this.t + 'px',
+						'background-position-y': 0 - this.index * this.h + 'px',
+					});
+				},
 			},
 			radio: {
 				selected: 'male',
@@ -108,7 +238,7 @@ export default class Profile extends React.Component {
 						<div></div>
 						<div></div>
 						<div></div>
-						<div></div>
+						<div ref='pen'></div>
 						<div></div>
 					</div>
 					<div className='profile-ctx'>
