@@ -13,6 +13,7 @@ import Home from './Header/main';
 import './main.less';
 import Slider from './Slider/main';
 import Profile from './Profile/main';
+import Atobtoa from 'lesca-atobtoa';
 
 require('jquery-easing');
 require('jquery.waitforimages');
@@ -188,8 +189,7 @@ export default class index extends React.Component {
 
 	profile_end(name, gender, age) {
 		let data = [...this.pageData, name, gender, age];
-		let base64 = require('./../Components/atobtoa').toBase64(data);
-		window.location.href = `./result.html?data=${base64}`;
+		window.location.href = `./result.html?data=${Atobtoa.toBase64(data)}`;
 	}
 
 	append_profile() {

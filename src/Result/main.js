@@ -1,7 +1,8 @@
 import $ from 'jquery';
+import Atobtoa from 'lesca-atobtoa';
 import Landscape from 'lesca-react-landscape';
-import Parameters from 'lesca-url-parameters';
 import Loading from 'lesca-react-loading';
+import Parameters from 'lesca-url-parameters';
 import React from 'react';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
@@ -9,29 +10,22 @@ import './main.less';
 import Taste from './Taste/main';
 require('jquery-easing');
 require('jquery.waitforimages');
+import Swal from 'sweetalert2';
 
 export default class Result extends React.Component {
 	constructor(props) {
 		super(props);
-		let score, name, gender, age;
-		try {
-			let s = require('./../Components/atobtoa').toJson(Parameters.get('data'));
-			score = require('./../_config').calcScore(s);
-			name = s[4];
-			gender = s[5];
-			age = s[6];
-		} catch {
-			alert('資料有錯,請重新在試');
-			window.location.href = Parameters.root();
-		}
+		const parameters = Atobtoa.toJson(Parameters.get('data'));
+		const score = require('./../_config').calcScore(parameters);
+
 		this.state = {
 			menu: false,
 			content: score.index,
 			score: score.score,
 			loading: true,
-			name,
-			gender,
-			age,
+			name: parameters[4],
+			gender: parameters[5],
+			age: parameters[6],
 		};
 
 		const root = this;

@@ -57,6 +57,7 @@
 		"jquery": "^3.5.0",
 		"jquery-easing": "0.0.1",
 		"jquery.waitforimages": "^2.4.0",
+		"lesca-atobtoa": "^1.0.0",
 		"lesca-click": "^1.0.7",
 		"lesca-number": "^1.1.2",
 		"lesca-react-landscape": "^1.0.1",

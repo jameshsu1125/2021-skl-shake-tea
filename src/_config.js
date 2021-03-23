@@ -105,7 +105,7 @@ module.exports = {
 		else i = 2;
 
 		return {
-			score: s,
+			score: s || 0,
 			index: i,
 		};
 	},
