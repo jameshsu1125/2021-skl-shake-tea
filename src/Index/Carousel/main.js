@@ -17,6 +17,7 @@ export default class carousel extends React.Component {
 		this.num = Data['step' + this.props.index]?.length || 0;
 		this.type = this.props.index == '1' ? 'radio' : 'checkbox';
 		this.data = this.type == 'radio' ? '' : [];
+		this.isClicked = false;
 
 		const root = this;
 		this.tr = {
@@ -158,6 +159,8 @@ export default class carousel extends React.Component {
 
 	next_btn_clicked() {
 		const comfirm = () => {
+			if (this.isClicked) return;
+			this.isClicked = true;
 			this.refs.nextButton.tr.canvas.tweenTo(this.props.index, () => {
 				this.props.scrollTo(`.step${parseInt(this.props.index) + 1}`);
 				setTimeout(() => {
