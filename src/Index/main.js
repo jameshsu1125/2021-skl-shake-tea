@@ -30,7 +30,7 @@ export default class index extends React.Component {
 			step: 0,
 			content: false,
 			loading: true,
-			profile: true,
+			profile: false,
 		};
 		this.carousel = { ...this.state.carousel };
 		this.pageData = [0, [0], 0, 0];

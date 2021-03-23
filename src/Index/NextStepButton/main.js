@@ -7,6 +7,8 @@ export default class NextStepButton extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.isClicked = false;
+
 		const root = this;
 		this.tr = {
 			init() {
@@ -126,6 +128,8 @@ export default class NextStepButton extends React.Component {
 	}
 
 	clicked() {
+		if (this.isClicked) return;
+		this.isClicked = true;
 		this.props.clicked();
 	}
 
