@@ -7,18 +7,6 @@ export default class dots extends React.Component {
 		this.state = { index: 0 };
 	}
 
-	componentDidMount() {
-		//script
-	}
-
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
-	}
-
 	append() {
 		return [...new Array(this.props.num).keys()].map((e, i) => (
 			<div key={i} className={i == this.state.index ? 'active' : ''}></div>

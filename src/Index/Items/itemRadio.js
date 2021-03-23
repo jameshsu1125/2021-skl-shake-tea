@@ -1,7 +1,7 @@
-import React from 'react';
 import $ from 'jquery';
-require('jquery-easing');
+import React from 'react';
 import Config from './../../_config';
+require('jquery-easing');
 
 export default class itemRadio extends React.Component {
 	constructor(props) {

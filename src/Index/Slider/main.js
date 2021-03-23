@@ -1,10 +1,10 @@
-import React from 'react';
-import './main.less';
-import { Data } from './data';
-import NextStepButton from '../NextStepButton/main';
-import EmptyStepButton from '../NextStepButton/emptyStep';
-
 import $ from 'jquery';
+import React from 'react';
+import EmptyStepButton from '../NextStepButton/emptyStep';
+import NextStepButton from '../NextStepButton/main';
+import { Data } from './data';
+import './main.less';
+
 require('jquery-easing');
 
 export default class Slider extends React.Component {
@@ -44,7 +44,6 @@ export default class Slider extends React.Component {
 						px = e.pageX || e.changedTouches[0].clientX;
 						dx = 0;
 					};
-
 					Click.ex_up = (e) => {
 						Click.ex_down = () => {};
 						Click.ex_move = () => {};
@@ -52,7 +51,6 @@ export default class Slider extends React.Component {
 						Click.preventDefault = false;
 						this.btnx = parseInt(this.c.css('left'));
 					};
-
 					Click.ex_move = (e) => {
 						if (!this.is) return;
 						if (Click.is_press && px != 0) {

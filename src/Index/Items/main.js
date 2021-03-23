@@ -1,11 +1,7 @@
 import React from 'react';
-import './main.less';
-import Item from './item';
-
-import $ from 'jquery';
-require('jquery-easing');
-
 import { Data } from './data';
+import Item from './item';
+import './main.less';
 
 export default class Items extends React.Component {
 	constructor(props) {

@@ -2,12 +2,12 @@
 	.ctx {
 		.content {
 			position: relative;
+			overflow: hidden;
+			margin: -5px 0;
 			width: 100%;
 			height: auto;
 			background-image: url('./img/bg.jpg');
 			background-position: center top;
-			margin: -5px 0;
-			overflow: hidden;
 			line-height: normal;
 
 			.parallax {
@@ -26,7 +26,6 @@
 					position: absolute;
 					width: 100%;
 					height: 100%;
-
 					background-repeat: no-repeat;
 				}
 
@@ -47,8 +46,9 @@
 				}
 
 				& > div:nth-child(5) {
-					.item('./img/i4.png', ~'+ 16px', 2%, 75px);
 					opacity: 0.7;
+
+					.item('./img/i4.png', ~'+ 16px', 2%, 75px);
 				}
 
 				& > div:nth-child(6) {
@@ -56,13 +56,15 @@
 				}
 
 				& > div:nth-child(7) {
-					.item('./img/i6.png', ~'- 253px', 30%, 155px);
 					opacity: 0.4;
+
+					.item('./img/i6.png', ~'- 253px', 30%, 155px);
 				}
 
 				& > div:nth-child(8) {
-					.item('./img/i7.png', ~'+ 277px', 57%, 178px);
 					opacity: 0.3;
+
+					.item('./img/i7.png', ~'+ 277px', 57%, 178px);
 				}
 
 				& > div:nth-child(9) {
@@ -70,8 +72,9 @@
 				}
 
 				& > div:nth-child(10) {
-					.item('./img/i9.png', ~'- 107px', 8%, 173px);
 					opacity: 0.3;
+
+					.item('./img/i9.png', ~'- 107px', 8%, 173px);
 				}
 
 				& > div:nth-child(11) {
@@ -83,8 +86,9 @@
 				}
 
 				& > div:nth-child(13) {
-					.item('./img/i4.png', ~'- 114px', 66%, 75px);
 					opacity: 0.5;
+
+					.item('./img/i4.png', ~'- 114px', 66%, 75px);
 				}
 
 				& > div:nth-child(14) {

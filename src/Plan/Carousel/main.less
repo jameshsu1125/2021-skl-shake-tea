@@ -1,19 +1,19 @@
 .plan-carousel {
 	position: relative;
+	overflow-x: hidden;
 	width: 100%;
 	height: auto;
 	background-image: url('./img/brick.png');
-	overflow-x: hidden;
 
 	div {
 		outline: none;
 	}
 
 	ul > li > button {
-		background-color: #8d8888;
-		border-radius: 50%;
 		width: 10px;
 		height: 10px;
+		border-radius: 50%;
+		background-color: #8d8888;
 
 		&::before {
 			content: '';
@@ -31,9 +31,9 @@
 
 	.container {
 		position: relative;
+		padding: 36px 0;
 		width: 100%;
 		height: auto;
-		padding: 36px 0;
 		background: linear-gradient(
 			180deg,
 			rgba(0, 0, 0, 0.2) 0px,

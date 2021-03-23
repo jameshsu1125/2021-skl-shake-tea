@@ -2,10 +2,10 @@ import $ from 'jquery';
 import { Dollar } from 'lesca-number';
 import React from 'react';
 import ReactParser from 'react-html-parser';
+import db from './../db';
 import './main.less';
 require('jquery-easing');
 require('jquery.waitforimages');
-import db from './../db';
 
 export default class Taste extends React.Component {
 	constructor(props) {

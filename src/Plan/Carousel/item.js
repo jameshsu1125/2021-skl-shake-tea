@@ -1,6 +1,6 @@
 import React from 'react';
-import './item.less';
 import ReactHtmlParser from 'react-html-parser';
+import './item.less';
 
 export default class item extends React.Component {
 	render() {

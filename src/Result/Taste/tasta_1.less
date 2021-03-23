@@ -2,23 +2,26 @@
 .taste1 {
 	.keyv {
 		.title {
-			@img: './img/1/title.png';
 			background-image: url(@img);
+
+			@img: './img/1/title.png';
 			& > div {
 				background-color: @color1;
 			}
 		}
 		.drink {
-			@img: './img/1/drink.png';
-			background-image: url(@img);
+			bottom: -31px;
+			left: 36px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 36px;
-			bottom: -31px;
+			background-image: url(@img);
+
+			@img: './img/1/drink.png';
 		}
 		.cups {
-			@img: './img/1/cups.png';
 			background-image: url(@img);
+
+			@img: './img/1/cups.png';
 		}
 		.pop {
 			@img: './img/1/pop.png';
@@ -28,8 +31,9 @@
 		}
 	}
 	.headline {
-		@img: './img/1/headline.png';
 		background-image: url(@img);
+
+		@img: './img/1/headline.png';
 	}
 	.checkboxs {
 		.row {

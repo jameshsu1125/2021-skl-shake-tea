@@ -3,7 +3,6 @@
 	width: 100%;
 	height: auto;
 	border: none;
-
 	cursor: grab;
 	&:active {
 		cursor: grabbing;
@@ -12,17 +11,19 @@
 	.frame {
 		position: relative;
 		display: inline-block;
-		@img: './img/frame.png';
-		background-image: url(@img);
 		width: image-width(@img);
 		height: image-height(@img);
+		background-image: url(@img);
+
+		@img: './img/frame.png';
 
 		.bg1 {
-			@img: './img/bg1.png';
-			background-image: url(@img);
 			width: image-width(@img);
 			height: image-height(@img);
+			background-image: url(@img);
 			background-position: 20px 200px;
+
+			@img: './img/bg1.png';
 
 			.headline {
 				background-image: url('./img/title-bg-01.png');
@@ -36,11 +37,12 @@
 		}
 
 		.bg2 {
-			@img: './img/bg2.png';
-			background-image: url(@img);
 			width: image-width(@img);
 			height: image-height(@img);
+			background-image: url(@img);
 			background-position: 20px 150px;
+
+			@img: './img/bg2.png';
 
 			.headline {
 				background-image: url('./img/title-bg-02.png');
@@ -54,11 +56,12 @@
 		}
 
 		.bg3 {
-			@img: './img/bg3.png';
-			background-image: url(@img);
 			width: image-width(@img);
 			height: image-height(@img);
+			background-image: url(@img);
 			background-position: 20px 180px;
+
+			@img: './img/bg3.png';
 
 			.headline {
 				background-image: url('./img/title-bg-03.png');
@@ -72,11 +75,12 @@
 		}
 
 		.bg4 {
-			@img: './img/bg4.png';
-			background-image: url(@img);
 			width: image-width(@img);
 			height: image-height(@img);
+			background-image: url(@img);
 			background-position: 20px 200px;
+
+			@img: './img/bg4.png';
 
 			.headline {
 				background-image: url('./img/title-bg-04.png');
@@ -90,11 +94,12 @@
 		}
 
 		.bg5 {
-			@img: './img/bg5.png';
-			background-image: url(@img);
 			width: image-width(@img);
 			height: image-height(@img);
+			background-image: url(@img);
 			background-position: 20px 210px;
+
+			@img: './img/bg5.png';
 
 			.headline {
 				background-image: url('./img/title-bg-05.png');
@@ -108,11 +113,12 @@
 		}
 
 		.bg6 {
-			@img: './img/bg6.png';
-			background-image: url(@img);
 			width: image-width(@img);
 			height: image-height(@img);
+			background-image: url(@img);
 			background-position: 20px 170px;
+
+			@img: './img/bg6.png';
 
 			.headline {
 				background-image: url('./img/title-bg-06.png');
@@ -127,10 +133,10 @@
 
 		.plan-contents {
 			position: absolute;
+			margin: 70px 20px;
 			width: calc(~'100% - 40px');
 			height: calc(~'100% - 92px');
 			border-radius: 20px;
-			margin: 70px 20px;
 			background-repeat: no-repeat;
 
 			& > div {
@@ -138,60 +144,57 @@
 			}
 
 			.headline {
+				margin-top: 130px;
 				width: 100%;
 				height: 97px;
-				margin-top: 130px;
-				background-repeat: no-repeat;
 				background-position: center;
-				line-height: 97px;
+				background-repeat: no-repeat;
 				color: #fff;
 				font-size: 2.4rem;
+				line-height: 97px;
 			}
 
 			.subline {
 				position: relative;
 				display: inline-block;
+				margin-top: 216px;
 				width: 355px;
 				height: 65px;
-				margin-top: 216px;
-				background-repeat: no-repeat;
-				background-position: center;
-				line-height: 65px;
-				color: #fff;
-				font-size: 1.8rem;
 				background-image: linear-gradient(
 					to right,
 					white 33%,
 					rgba(255, 255, 255, 0) 0%
 				);
+				background-position: center;
 				background-position: bottom;
 				background-size: 10px 1px;
+				background-repeat: no-repeat;
 				background-repeat: repeat-x;
+				color: #fff;
+				font-size: 1.8rem;
+				line-height: 65px;
 			}
 
 			.item {
 				position: absolute;
+				box-sizing: border-box;
+				padding: 12px 37px;
 				width: 100%;
 				height: 563px;
-				padding: 12px 37px;
-				box-sizing: border-box;
 
 				& > div {
+					display: flex;
 					float: left;
+					align-items: center;
+					flex-direction: column;
+					justify-content: center;
+					margin: 16px;
 					width: 150px;
 					height: 150px;
 					border-radius: 50%;
-					margin: 16px;
-
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					align-items: center;
-
 					color: #fff;
 					font-size: 1.8rem;
 					cursor: pointer;
-
 					transition: 0.2s;
 
 					&:hover {

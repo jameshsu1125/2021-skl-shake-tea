@@ -1,134 +1,139 @@
 #Header {
 	position: relative;
+	overflow: hidden;
+	margin-top: 65px;
 	width: 100%;
 	height: 490px;
-	margin-top: 65px;
 	background-image: url('./img/bg.png');
-	overflow: hidden;
 
 	& > div {
 		position: absolute;
 	}
 
 	.bg {
+		top: 0;
 		width: 100%;
 		height: 100%;
-		top: 0;
 
 		& > div {
 			position: absolute;
 		}
 
 		& > div:nth-child(1) {
-			@img: './img/b0.png';
-			background-image: url(@img);
-			width: image-width(@img);
-			height: image-height(@img);
 			top: -61px;
 			left: -51px;
+			width: image-width(@img);
+			height: image-height(@img);
+			background-image: url(@img);
+
+			@img: './img/b0.png';
 		}
 
 		& > div:nth-child(2) {
-			@img: './img/b1.png';
-			background-image: url(@img);
+			right: -60px;
+			bottom: -141px;
 			width: image-width(@img);
 			height: image-height(@img);
-			bottom: -141px;
-			right: -60px;
+			background-image: url(@img);
+
+			@img: './img/b1.png';
 		}
 
 		& > div:nth-child(3) {
-			@img: './img/b2.png';
-			background-image: url(@img);
-			width: image-width(@img);
-			height: image-height(@img);
 			bottom: -31px;
 			left: 40px;
+			width: image-width(@img);
+			height: image-height(@img);
+			background-image: url(@img);
+
+			@img: './img/b2.png';
 		}
 	}
 
 	.btn0 {
-		@img: './img/btn0.png';
-		background-image: url(@img);
-		width: image-width(@img);
-		height: image-height(@img);
 		left: 50%;
 		margin-top: 124px;
 		margin-left: -339px;
+		width: image-width(@img);
+		height: image-height(@img);
+		background-image: url(@img);
+		cursor: pointer;
 		transition: 0.2s;
 
-		cursor: pointer;
+		@img: './img/btn0.png';
 		&:hover {
 			transform: scale(1.1);
 		}
 	}
 
 	.btn1 {
-		@img: './img/btn1.png';
-		background-image: url(@img);
-		width: image-width(@img);
-		height: image-height(@img);
 		left: 50%;
 		margin-top: 251px;
 		margin-left: -257px;
+		width: image-width(@img);
+		height: image-height(@img);
+		background-image: url(@img);
+		cursor: pointer;
 		transition: 0.2s;
 
-		cursor: pointer;
+		@img: './img/btn1.png';
 		&:hover {
 			transform: scale(1.1);
 		}
 	}
 
 	.btn2 {
-		@img: './img/btn2.png';
-		background-image: url(@img);
-		width: image-width(@img);
-		height: image-height(@img);
 		left: 50%;
 		margin-top: 325px;
 		margin-left: -257px;
+		width: image-width(@img);
+		height: image-height(@img);
+		background-image: url(@img);
+		cursor: pointer;
 		transition: 0.2s;
 
-		cursor: pointer;
+		@img: './img/btn2.png';
 		&:hover {
 			transform: scale(1.1);
 		}
 	}
 
 	.btn3 {
-		@img: './img/btn3.png';
-		background-image: url(@img);
-		width: image-width(@img);
-		height: image-height(@img);
 		left: 50%;
 		margin-top: 396px;
 		margin-left: -257px;
+		width: image-width(@img);
+		height: image-height(@img);
+		background-image: url(@img);
+		cursor: pointer;
 		transition: 0.2s;
 
-		cursor: pointer;
+		@img: './img/btn3.png';
 		&:hover {
 			transform: scale(1.1);
 		}
 	}
 
 	.i0 {
-		@img: './img/i0.png';
-		background-image: url(@img);
-		width: image-width(@img);
-		height: image-height(@img);
 		left: 50%;
 		margin-top: 294px;
 		margin-left: -316px;
+		width: image-width(@img);
+		height: image-height(@img);
+		background-image: url(@img);
+
+		@img: './img/i0.png';
 	}
 
 	.i1 {
-		@img: './img/i1.png';
-		background-image: url(@img);
+		bottom: -2px;
+		left: 50%;
+		margin-left: 86px;
 		width: image-width(@img);
 		height: image-height(@img);
-		left: 50%;
-		bottom: -2px;
-		margin-left: 86px;
+		background-image: url(@img);
+
+		@img: './img/i1.png';
 	}
 }
 

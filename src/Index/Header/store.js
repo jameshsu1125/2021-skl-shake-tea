@@ -1,7 +1,7 @@
+import $ from 'jquery';
 import React from 'react';
 import './store.less';
 
-import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
 

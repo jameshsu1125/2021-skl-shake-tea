@@ -1,9 +1,9 @@
 import $ from 'jquery';
 import Landscape from 'lesca-react-landscape';
+import Loading from 'lesca-react-loading';
 import React from 'react';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
-import Loading from 'lesca-react-loading';
 import Sign from './../Components/Sign/main';
 import './main.less';
 require('jquery-easing');

@@ -2,56 +2,58 @@
 
 #Slider {
 	position: relative;
+	display: inline-block;
+	box-sizing: border-box;
+	min-height: 620px;
 	width: 100%;
 	height: calc(~'100vh - 54px');
-	box-sizing: border-box;
-	display: inline-block;
-	min-height: 620px;
 
 	.container {
 		position: relative;
-		width: 100%;
-		height: 100%;
-
 		display: flex;
+		align-items: center;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
+		width: 100%;
+		height: 100%;
 		font-size: 1.5em;
 
 		.question {
-			@img: './img/s3.png';
-			width: 100%;
 			max-width: 620px;
+			width: 100%;
 			height: image-height(@img);
-			background-repeat: no-repeat;
 			background-position: left;
+			background-repeat: no-repeat;
+			color: #000;
 			text-align: left;
 			text-indent: 132px;
-			color: #000;
 			line-height: image-height(@img);
+
+			@img: './img/s3.png';
 		}
 
 		.t3 {
-			@img: './img/s3.png';
 			background-image: url(@img);
+
+			@img: './img/s3.png';
 		}
 
 		.t4 {
-			@img: './img/s4.png';
 			background-image: url(@img);
+
+			@img: './img/s4.png';
 		}
 
 		.answer {
 			position: relative;
+			margin-top: 30px;
 			width: 100%;
 			height: 230px;
-			margin-top: 30px;
 
 			.slider {
 				position: absolute;
-				width: 100%;
 				margin-top: 40px;
+				width: 100%;
 
 				.sugers {
 					position: relative;
@@ -60,43 +62,46 @@
 
 					& > div {
 						position: absolute;
-						left: 50%;
 						bottom: 26px;
+						left: 50%;
 					}
 
 					& > div:nth-child(1) {
-						@img: './img/suger0.png';
-						background-image: url(@img);
+						margin-left: -255px;
 						width: image-width(@img);
 						height: image-height(@img);
-						margin-left: -255px;
+						background-image: url(@img);
+
+						@img: './img/suger0.png';
 					}
 
 					& > div:nth-child(2) {
-						@img: './img/suger1.png';
-						background-image: url(@img);
+						margin-left: -40px;
 						width: image-width(@img);
 						height: image-height(@img);
-						margin-left: -40px;
+						background-image: url(@img);
+
+						@img: './img/suger1.png';
 					}
 
 					& > div:nth-child(3) {
-						@img: './img/suger2.png';
-						background-image: url(@img);
+						margin-left: 178px;
 						width: image-width(@img);
 						height: image-height(@img);
-						margin-left: 178px;
+						background-image: url(@img);
+
+						@img: './img/suger2.png';
 					}
 				}
 
 				.components {
 					position: absolute;
-					width: 485px;
-					height: 5px;
+					top: 132px;
 					left: 50%;
 					margin-left: 0 - 485px/2;
+					width: 485px;
+					height: 5px;
 					background-color: rgba(235, 153, 97, 0.5);
-					top: 132px;
 
 					.left {
 						left: 0;
@@ -118,12 +123,11 @@
 
 					.btn {
 						position: absolute;
-						width: 200px;
-						height: 400px;
+						left: 0;
 						margin-top: -200px;
 						margin-left: -90px;
-						left: 0;
-
+						width: 200px;
+						height: 400px;
 						cursor: grab;
 						&:active {
 							cursor: grabbing;
@@ -135,17 +139,17 @@
 						}
 
 						& > div {
-							transition: 0.3s;
-							animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 							position: absolute;
-							background-color: #d00737;
+							top: 50%;
+							left: 50%;
+							margin-top: -15px;
+							margin-left: -15px;
 							width: 30px;
 							height: 30px;
 							border-radius: 50%;
-							left: 50%;
-							top: 50%;
-							margin-top: -15px;
-							margin-left: -15px;
+							background-color: #d00737;
+							transition: 0.3s;
+							animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 							pointer-events: none;
 
 							@keyframes dia {
@@ -175,38 +179,39 @@
 
 							.dialog {
 								position: absolute;
-								@img: './img/dialog.png';
-								background-image: url(@img);
+								margin-top: -114px;
+								margin-left: -47px;
 								width: image-width(@img);
 								height: image-height(@img);
-								margin-left: -47px;
-								margin-top: -114px;
-								pointer-events: none;
+								background-image: url(@img);
 								color: #fff;
 								line-height: image-height(@img) - 15px;
 								transform-origin: 61px 129px;
 								animation: dia 4s ease-in-out 0s infinite;
+								pointer-events: none;
+
+								@img: './img/dialog.png';
 							}
 						}
 					}
 
 					.num {
 						position: absolute;
+						top: 15px;
 						width: 100px;
 						height: 30px;
-						top: 15px;
 						color: #333;
 						font-size: 0.8em;
 					}
 
 					.dot {
 						position: absolute;
-						width: 20px;
-						height: 20px;
-						background-color: #eb9961;
 						top: 50%;
 						margin-top: -10px;
+						width: 20px;
+						height: 20px;
 						border-radius: 50%;
+						background-color: #eb9961;
 					}
 				}
 			}

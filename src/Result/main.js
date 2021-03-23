@@ -10,7 +10,6 @@ import './main.less';
 import Taste from './Taste/main';
 require('jquery-easing');
 require('jquery.waitforimages');
-import Swal from 'sweetalert2';
 
 export default class Result extends React.Component {
 	constructor(props) {

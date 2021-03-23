@@ -4,14 +4,15 @@
 .item_radio {
 	.shadow {
 		position: absolute;
-		@img: './img/shadow.png';
-		background-image: url(@img);
-		width: image-width(@img);
-		height: image-height(@img);
+		top: 399px;
 		left: 50%;
 		margin-left: 0 - image-width(@img) / 2;
-		top: 399px;
+		width: image-width(@img);
+		height: image-height(@img);
+		background-image: url(@img);
 		opacity: 0.6;
+
+		@img: './img/shadow.png';
 	}
 
 	@keyframes shake {
@@ -43,46 +44,50 @@
 
 	.cup {
 		position: absolute;
-		@img: './img/cup.png';
-		width: image-width(@img);
-		height: image-height(@img);
+		top: 102px;
 		left: 50%;
 		margin-left: 0 - image-width(@img) / 2;
-		top: 102px;
+		width: image-width(@img);
+		height: image-height(@img);
 		transform-origin: center bottom;
 		animation: shake 5s ease-out infinite;
 
+		@img: './img/cup.png';
+
 		.frame {
 			position: absolute;
+			top: 0;
 			width: 100%;
 			height: 100%;
-			@img: './img/cup.png';
 			background-image: url(@img);
-			top: 0;
+
+			@img: './img/cup.png';
 		}
 
 		.water {
 			position: absolute;
-			@img: './img/liquid-1.png';
-			width: image-width(@img);
-			height: image-height(@img);
+			top: 127px;
 			left: 50%;
 			margin-left: 0 - image-width(@img) / 2;
-			top: 127px;
+			width: image-width(@img);
+			height: image-height(@img);
 			background-position-x: 0px;
-			mask-image: url('./img/water-mask.png');
 			animation: water 10s linear infinite;
+
+			@img: './img/liquid-1.png';
+			mask-image: url('./img/water-mask.png');
 		}
 
 		.ice {
 			position: absolute;
-			@img: './img/ice.png';
-			background-image: url(@img);
-			width: image-width(@img);
-			height: image-height(@img);
 			right: 31px;
 			margin-top: 187px;
+			width: image-width(@img);
+			height: image-height(@img);
+			background-image: url(@img);
 			animation: ice 5s ease-in-out infinite;
+
+			@img: './img/ice.png';
 		}
 
 		@keyframes ice {
@@ -111,125 +116,140 @@
 	.front2,
 	.back {
 		position: absolute;
-		width: @w;
-		height: @h;
 		left: 50%;
 		margin-left: 0 - @w / 2;
-	}
-
-	.item {
+		width: @w;
+		height: @h;
 	}
 }
 
 .t1_1 {
-	//background-image: url('./img/s1_1.png');
 	.water {
-		@img: './img/liquid-1.png';
 		background-image: url(@img);
+
+		@img: './img/liquid-1.png';
 	}
 
 	.front {
-		@img: './img/front-s1-c1-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s1-c1-f0.png';
 	}
 
 	.front2 {
-		@img: './img/front-s1-c1-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s1-c1-f1.png';
 	}
 
 	.back {
-		@img: './img/back-s1-c1.png';
 		background-image: url(@img);
+
+		@img: './img/back-s1-c1.png';
 	}
 }
 
 .t1_2 {
-	//background-image: url('./img/s1_2.png');
 	.water {
-		@img: './img/liquid-2.png';
 		background-image: url(@img);
+
+		@img: './img/liquid-2.png';
 	}
 
 	.front {
-		@img: './img/front-s1-c2-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s1-c2-f0.png';
 	}
 
 	.front2 {
-		@img: './img/front-s1-c2-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s1-c2-f1.png';
 	}
 
 	.back {
-		@img: './img/back-s1-c2.png';
 		background-image: url(@img);
+
+		@img: './img/back-s1-c2.png';
 	}
 }
 
 .t1_3 {
 	.water {
-		@img: './img/liquid-3.png';
 		background-image: url(@img);
+
+		@img: './img/liquid-3.png';
 	}
 
 	.front {
-		@img: './img/front-s1-c3-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s1-c3-f0.png';
 	}
 
 	.front2 {
-		@img: './img/front-s1-c3-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s1-c3-f1.png';
 	}
 
 	.back {
-		@img: './img/back-s1-c3.png';
 		background-image: url(@img);
+
+		@img: './img/back-s1-c3.png';
 	}
 }
 
 .t1_4 {
 	.water {
-		@img: './img/liquid-4.png';
 		background-image: url(@img);
+
+		@img: './img/liquid-4.png';
 	}
 
 	.front {
-		@img: './img/front-s1-c4-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s1-c4-f0.png';
 	}
 
 	.front2 {
-		@img: './img/front-s1-c4-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s1-c4-f1.png';
 	}
 
 	.back {
-		@img: './img/back-s1-c4.png';
 		background-image: url(@img);
+
+		@img: './img/back-s1-c4.png';
 	}
 }
 
 .t1_5 {
 	.water {
-		@img: './img/liquid-5.png';
 		background-image: url(@img);
+
+		@img: './img/liquid-5.png';
 	}
 
 	.front {
-		@img: './img/front-s1-c5-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s1-c5-f0.png';
 	}
 
 	.front2 {
-		@img: './img/front-s1-c5-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s1-c5-f1.png';
 	}
 
 	.back {
-		@img: './img/back-s1-c5.png';
 		background-image: url(@img);
+
+		@img: './img/back-s1-c5.png';
 	}
 }
 
@@ -237,16 +257,16 @@
 
 @keyframes shad {
 	0% {
-		transform: scale(1);
 		opacity: 1;
+		transform: scale(1);
 	}
 	50% {
-		transform: scale(1.2);
 		opacity: 0.6;
+		transform: scale(1.2);
 	}
 	100% {
-		transform: scale(1);
 		opacity: 1;
+		transform: scale(1);
 	}
 }
 
@@ -269,206 +289,241 @@
 	.shadow,
 	.item {
 		position: absolute;
-		width: @w;
-		height: @h;
+		top: 24px;
 		left: 50%;
 		margin-left: 0 - @w / 2;
-		top: 24px;
+		width: @w;
+		height: @h;
 	}
 }
 
 .t2_1 {
 	.back {
-		@img: './img/back-s2-c1.png';
 		background-image: url(@img);
+
+		@img: './img/back-s2-c1.png';
 	}
 	.front {
-		@img: './img/front-s2-c1-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c1-f0.png';
 	}
 	.front2 {
-		@img: './img/front-s2-c1-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c1-f1.png';
 	}
 
 	.shadow {
-		@img: './img/shadow-s2-c1.png';
 		background-image: url(@img);
 		transform-origin: 236px 372px;
 		animation: shad 5s ease-in-out 0s infinite;
+
+		@img: './img/shadow-s2-c1.png';
 	}
 
 	.item {
-		@img: './img/papo.png';
 		background-image: url(@img);
 		animation: item 5s ease-in-out 0s infinite;
+
+		@img: './img/papo.png';
 	}
 }
 
 .t2_2 {
 	.back {
-		@img: './img/back-s2-c2.png';
 		background-image: url(@img);
+
+		@img: './img/back-s2-c2.png';
 	}
 	.front {
-		@img: './img/front-s2-c2-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c2-f0.png';
 	}
 	.front2 {
-		@img: './img/front-s2-c2-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c2-f1.png';
 	}
 
 	.shadow {
-		@img: './img/shadow-s2-c2.png';
 		background-image: url(@img);
 		transform-origin: 236px 372px;
 		animation: shad 5s ease-in-out 0s infinite;
+
+		@img: './img/shadow-s2-c2.png';
 	}
 
 	.item {
-		@img: './img/pudding.png';
 		background-image: url(@img);
 		animation: item 5s ease-in-out 0s infinite;
+
+		@img: './img/pudding.png';
 	}
 }
 
 .t2_3 {
 	.back {
-		@img: './img/back-s2-c3.png';
 		background-image: url(@img);
+
+		@img: './img/back-s2-c3.png';
 	}
 	.front {
-		@img: './img/front-s2-c3-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c3-f0.png';
 	}
 	.front2 {
-		@img: './img/front-s2-c3-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c3-f1.png';
 	}
 
 	.shadow {
-		@img: './img/shadow-s2-c2.png';
 		background-image: url(@img);
 		transform-origin: 236px 372px;
 		animation: shad 5s ease-in-out 0s infinite;
+
+		@img: './img/shadow-s2-c2.png';
 	}
 
 	.item {
-		@img: './img/konjac.png';
 		background-image: url(@img);
 		animation: item 5s ease-in-out 0s infinite;
+
+		@img: './img/konjac.png';
 	}
 }
 
 .t2_4 {
 	.back {
-		@img: './img/back-s2-c4.png';
 		background-image: url(@img);
+
+		@img: './img/back-s2-c4.png';
 	}
 	.front {
-		@img: './img/front-s2-c4-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c4-f0.png';
 	}
 	.front2 {
-		@img: './img/front-s2-c4-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c4-f1.png';
 	}
 
 	.shadow {
-		@img: './img/shadow-s2-c2.png';
 		background-image: url(@img);
 		transform-origin: 236px 372px;
 		animation: shad 5s ease-in-out 0s infinite;
+
+		@img: './img/shadow-s2-c2.png';
 	}
 
 	.item {
-		@img: './img/strawberry.png';
 		background-image: url(@img);
 		animation: item 5s ease-in-out 0s infinite;
+
+		@img: './img/strawberry.png';
 	}
 }
 
 .t2_5 {
 	.back {
-		@img: './img/back-s2-c5.png';
 		background-image: url(@img);
+
+		@img: './img/back-s2-c5.png';
 	}
 	.front {
-		@img: './img/front-s2-c5-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c5-f0.png';
 	}
 	.front2 {
-		@img: './img/front-s2-c5-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c5-f1.png';
 	}
 
 	.shadow {
-		@img: './img/shadow-s2-c2.png';
 		background-image: url(@img);
 		transform-origin: 236px 372px;
 		animation: shad 5s ease-in-out 0s infinite;
+
+		@img: './img/shadow-s2-c2.png';
 	}
 
 	.item {
-		@img: './img/lemon.png';
 		background-image: url(@img);
 		animation: item 5s ease-in-out 0s infinite;
+
+		@img: './img/lemon.png';
 	}
 }
 
 .t2_6 {
 	.back {
-		@img: './img/back-s2-c6.png';
 		background-image: url(@img);
+
+		@img: './img/back-s2-c6.png';
 	}
 	.front {
-		@img: './img/front-s2-c6-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c6-f0.png';
 	}
 	.front2 {
-		@img: './img/front-s2-c6-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c6-f1.png';
 	}
 
 	.shadow {
-		@img: './img/shadow-s2-c2.png';
 		background-image: url(@img);
 		transform-origin: 236px 372px;
 		animation: shad 5s ease-in-out 0s infinite;
+
+		@img: './img/shadow-s2-c2.png';
 	}
 
 	.item {
-		@img: './img/yakult.png';
 		background-image: url(@img);
 		animation: item 5s ease-in-out 0s infinite;
+
+		@img: './img/yakult.png';
 	}
 }
 
 .t2_7 {
 	.back {
-		@img: './img/back-s2-c7.png';
 		background-image: url(@img);
+
+		@img: './img/back-s2-c7.png';
 	}
 	.front {
-		@img: './img/front-s2-c7-f0.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c7-f0.png';
 	}
 	.front2 {
-		@img: './img/front-s2-c7-f1.png';
 		background-image: url(@img);
+
+		@img: './img/front-s2-c7-f1.png';
 	}
 
 	.shadow {
-		@img: './img/shadow-s2-c2.png';
 		background-image: url(@img);
 		transform-origin: 236px 372px;
 		animation: shad 5s ease-in-out 0s infinite;
+
+		@img: './img/shadow-s2-c2.png';
 	}
 
 	.item {
-		@img: './img/milk.png';
 		background-image: url(@img);
 		animation: item 5s ease-in-out 0s infinite;
+
+		@img: './img/milk.png';
 	}
 }

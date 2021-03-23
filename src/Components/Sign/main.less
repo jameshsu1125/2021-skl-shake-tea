@@ -1,6 +1,5 @@
 @img: './img/bg.png';
 @light: './img/light.png';
-
 @small: './img/bg2.png';
 @light2: './img/light2.png';
 
@@ -11,14 +10,14 @@
 		background-image: url(@small) !important;
 
 		& > div:nth-child(1) {
-			background-image: url(@light2) !important;
 			width: image-width(@light2) !important;
 			height: image-height(@light2) !important;
+			background-image: url(@light2) !important;
 		}
 
 		& > div:nth-child(2) {
-			height: calc(~'100% - 26px') !important;
 			top: 26px !important;
+			height: calc(~'100% - 26px') !important;
 		}
 	}
 }
@@ -31,17 +30,16 @@
 	& > div {
 		position: relative;
 		display: inline-block;
-		background-image: url(@img);
 		width: image-width(@img);
 		height: 100%;
+		background-image: url(@img);
 
 		& > div:nth-child(1) {
-			background-image: url(@light);
-			width: image-width(@light);
-			height: image-height(@light);
 			margin-top: 29px;
 			margin-left: -2px;
-
+			width: image-width(@light);
+			height: image-height(@light);
+			background-image: url(@light);
 			animation-name: light;
 			animation-duration: 2s;
 			animation-timing-function: ease-in-out;
@@ -58,44 +56,44 @@
 
 		.school {
 			background-image: url('./img/school.png');
-			background-repeat: no-repeat;
 			background-position: center;
+			background-repeat: no-repeat;
 		}
 
 		.video {
 			background-image: url('./img/video.png');
-			background-repeat: no-repeat;
 			background-position: center;
+			background-repeat: no-repeat;
 		}
 
 		.plan {
 			background-image: url('./img/plan.png');
-			background-repeat: no-repeat;
 			background-position: center;
+			background-repeat: no-repeat;
 		}
 
 		& > div:nth-child(2) {
 			position: absolute;
-			width: 100%;
-			height: calc(~'100% - 31px');
 			top: 31px;
 			display: flex;
+			align-items: center;
 			flex-direction: column;
 			justify-content: center;
-			align-items: center;
+			width: 100%;
+			height: calc(~'100% - 31px');
 			color: #fff;
 		}
 
 		& > div:nth-child(3) {
 			position: absolute;
-			@img: './img/border.png';
-			background-image: url(@img);
-			width: image-width(@img);
-			height: image-height(@img);
 			top: 167px;
 			left: 316px;
-
+			width: image-width(@img);
+			height: image-height(@img);
+			background-image: url(@img);
 			animation: showHide 2s ease-in-out 0s infinite;
+
+			@img: './img/border.png';
 		}
 	}
 

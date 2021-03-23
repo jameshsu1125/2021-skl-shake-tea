@@ -7,8 +7,8 @@
 		position: relative;
 		float: left;
 		width: 100%;
-		background-repeat: no-repeat;
 		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	.keyv {
@@ -19,46 +19,51 @@
 		}
 
 		.title {
-			@img: './img/0/title.png';
+			top: 21px;
+			left: 38px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 38px;
-			top: 21px;
 			background-repeat: no-repeat;
+
+			@img: './img/0/title.png';
 
 			& > div {
 				position: absolute;
-				@img: './img/title-line.png';
-				mask-image: url(@img);
+				top: 20px;
+				left: -34px;
 				width: image-width(@img);
 				height: 78px;
-				left: -34px;
-				top: 20px;
+
+				@img: './img/title-line.png';
+				mask-image: url(@img);
 				mask-position: 0px 0px;
 				mask-repeat: no-repeat;
 			}
 		}
 
 		.drink {
-			@img: './img/0/drink.png';
 			transform-origin: center bottom;
+
+			@img: './img/0/drink.png';
 		}
 
 		.cups {
-			@img: './img/0/cups.png';
-			width: image-width(@img);
-			height: image-height(@img);
 			bottom: -175px;
 			left: 10px;
+			width: image-width(@img);
+			height: image-height(@img);
+
+			@img: './img/0/cups.png';
 		}
 
 		.pop {
-			@img: './img/0/pop.png';
+			top: 30px;
+			left: 381px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 381px;
-			top: 30px;
 			transform-origin: 9px 253px;
+
+			@img: './img/0/pop.png';
 
 			& > div {
 				width: 100%;
@@ -69,18 +74,20 @@
 
 	hr {
 		width: 90%;
-		@img: './img/hr.png';
-		background-image: url(@img);
 		height: image-height(@img);
 		border: none;
+		background-image: url(@img);
 		background-size: 100% 100%;
+
+		@img: './img/hr.png';
 	}
 
 	.headline {
-		@img: './img/0/headline.png';
-		height: image-height(@img);
 		margin-top: 200px;
 		margin-bottom: 20px;
+		height: image-height(@img);
+
+		@img: './img/0/headline.png';
 	}
 
 	.checkboxs {
@@ -88,78 +95,82 @@
 
 		.row {
 			float: left;
-			width: 100%;
 			padding: 17px 38px;
+			width: 100%;
 
 			& > div {
-				float: left;
 				position: relative;
+				float: left;
 			}
 
 			.checkbox {
+				margin-top: 10px;
 				width: 20px;
 				height: 20px;
 				border: solid #fff 3px;
-				margin-top: 10px;
 
 				& > div {
 					position: absolute;
-					@img: './img/check.png';
-					width: image-width(@img);
-					height: image-height(@img);
 					top: -15px;
 					left: 1px;
+					width: image-width(@img);
+					height: image-height(@img);
+
+					@img: './img/check.png';
 					mask-image: url(@img);
 				}
 			}
 
 			.txt {
+				margin-left: 20px;
 				color: #fff;
 				font-size: 1.9rem;
-				margin-left: 20px;
 			}
 
 			.dollor {
-				@img: './img/dollor.png';
-				background-image: url(@img);
+				margin: 9px 48px;
 				width: image-width(@img);
 				height: image-height(@img);
-				margin: 9px 48px;
+				background-image: url(@img);
+
+				@img: './img/dollor.png';
 
 				& > div {
+					box-sizing: border-box;
+					padding: 0px 0px 0px 50px;
 					width: 100%;
 					height: 100%;
 					color: #fff;
+					color: #333;
 					font-size: 1.9rem;
 					line-height: 58px;
-					padding: 0px 0px 0px 50px;
-					box-sizing: border-box;
-					color: #333;
 				}
 			}
 
 			.product-btn {
-				@img: './img/btn-bg.png';
-				mask-image: url(@img);
+				margin: 9px 32px;
 				width: image-width(@img);
 				height: image-height(@img);
-				margin: 9px 32px;
-				text-align: left;
-				line-height: image-height(@img);
 				color: #fff;
-				font-size: 1.9rem;
+				text-align: left;
 				text-indent: 26px;
+				font-size: 1.9rem;
+				line-height: image-height(@img);
 				cursor: pointer;
 				transition: 0.2s;
 
+				@img: './img/btn-bg.png';
+				mask-image: url(@img);
+
 				& > div {
 					float: right;
-					@img: './img/link.png';
-					background-image: url(@img);
-					width: image-width(@img);
-					height: image-height(@img);
 					margin-top: 17px;
 					margin-right: 23px;
+					width: image-width(@img);
+					height: image-height(@img);
+					background-image: url(@img);
+
+					@img: './img/link.png';
 				}
 
 				&:hover {
@@ -174,11 +185,11 @@
 
 		.boxs-c {
 			display: inline-block;
-			width: 395px;
-			padding: 21px 30px;
-			background-color: rgba(255, 255, 255, 0.1);
-			border-radius: 30px;
 			margin-bottom: 20px;
+			padding: 21px 30px;
+			width: 395px;
+			border-radius: 30px;
+			background-color: rgba(255, 255, 255, 0.1);
 
 			.red {
 				background-color: #f65e62;
@@ -190,31 +201,30 @@
 
 			.box {
 				display: inline-block;
-				width: 152px;
-				height: 128px;
-
-				border-radius: 30px;
-				padding: 8px;
 				box-sizing: border-box;
 				margin: 9px 21px;
-				color: #fff;
+				padding: 8px;
+				width: 152px;
+				height: 128px;
+				border-radius: 30px;
 				box-shadow: 5px 5px 0px #383e41;
+				color: #fff;
 
 				& > div:nth-child(1) {
 					float: left;
 					width: 100%;
-					font-size: 1.5rem;
 					height: 46px;
-					line-height: 46px;
 					border-bottom: solid 2px #fff;
+					font-size: 1.5rem;
+					line-height: 46px;
 				}
 
 				& > div:nth-child(2) {
 					float: left;
+					padding-top: 6px;
 					width: 100%;
 					font-size: 1.3rem;
 					line-height: 28px;
-					padding-top: 6px;
 				}
 			}
 		}
@@ -229,118 +239,123 @@
 
 		.row {
 			float: left;
-			width: 100%;
 			padding: 8px 38px;
+			width: 100%;
 
 			& > div {
-				float: left;
 				position: relative;
+				float: left;
 			}
 
 			.arrow {
-				@img: './img/arrow.png';
-				background-image: url(@img);
+				margin-top: 7px;
 				width: image-width(@img);
 				height: image-height(@img);
-				margin-top: 7px;
+				background-image: url(@img);
+
+				@img: './img/arrow.png';
 			}
 
 			.txt {
+				margin-left: 20px;
 				color: #fff;
 				font-size: 1.9rem;
-				margin-left: 20px;
 			}
 
 			.age {
-				@img: './img/line_1.png';
-				background-image: url(@img);
+				margin-left: 81px;
 				width: image-width(@img);
 				height: 50px;
-				margin-left: 81px;
-				background-repeat: no-repeat;
+				background-image: url(@img);
 				background-position: center bottom;
+				background-repeat: no-repeat;
+
+				@img: './img/line_1.png';
 
 				& > select {
 					width: 100%;
 					height: 100%;
-					background-color: transparent;
 					border: none;
+					background-color: transparent;
 					color: #fff;
-					font-size: 2rem;
 					text-align: center;
+					font-size: 2rem;
 				}
 			}
 
 			.gender {
-				@img: './img/line_2.png';
-				background-image: url(@img);
+				margin-left: 20px;
 				width: image-width(@img);
 				height: image-height(@img);
 				height: 50px;
-				margin-left: 20px;
-				background-repeat: no-repeat;
+				background-image: url(@img);
 				background-position: center bottom;
+				background-repeat: no-repeat;
+
+				@img: './img/line_2.png';
 
 				& > select {
 					width: 100%;
 					height: 100%;
-					background-color: transparent;
 					border: none;
+					background-color: transparent;
 					color: #fff;
-					font-size: 2rem;
 					text-align: center;
 					text-indent: 10px;
+					font-size: 2rem;
 				}
 			}
 
 			.pay {
-				@img: './img/pay.png';
-				background-image: url(@img);
-				width: image-width(@img);
-				height: image-height(@img);
 				margin-right: 10px;
 				margin-left: 20px;
+				width: image-width(@img);
+				height: image-height(@img);
+				background-image: url(@img);
+
+				@img: './img/pay.png';
 
 				& > div {
+					box-sizing: border-box;
+					padding: 0px 0px 0px 50px;
 					width: 100%;
 					height: 100%;
 					color: #fff;
+					color: #333;
 					font-size: 1.9rem;
 					line-height: 50px;
-					padding: 0px 0px 0px 50px;
-					box-sizing: border-box;
-					color: #333;
 				}
 			}
 
 			.pay_monly {
-				@img: './img/pay_monly.png';
-				background-image: url(@img);
-				width: image-width(@img);
-				height: image-height(@img);
 				margin-top: 10px;
 				margin-left: 20px;
+				width: image-width(@img);
+				height: image-height(@img);
+				background-image: url(@img);
+
+				@img: './img/pay_monly.png';
 
 				& > div {
+					box-sizing: border-box;
+					padding: 0px 0px 0px 88px;
 					width: 100%;
 					height: 100%;
 					color: #fff;
+					color: #d10737;
 					font-size: 1.9rem;
 					line-height: 50px;
-					padding: 0px 0px 0px 88px;
-					box-sizing: border-box;
-					color: #d10737;
 				}
 			}
 		}
 	}
 
 	.desc {
-		text-align: left;
-		color: #fff;
-		font-size: 1.2rem;
-		text-indent: 50px;
 		margin: 20px 0;
+		color: #fff;
+		text-align: left;
+		text-indent: 50px;
+		font-size: 1.2rem;
 	}
 }
 

@@ -1,10 +1,10 @@
-import React from 'react';
-import './main.less';
-import Background from './background';
-import Store from './store';
-import Effect from './effect';
-
 import $ from 'jquery';
+import React from 'react';
+import Background from './background';
+import Effect from './effect';
+import './main.less';
+import Store from './store';
+
 require('jquery-easing');
 require('jquery.waitforimages');
 

@@ -1,7 +1,7 @@
+import $ from 'jquery';
+import Parameter from 'lesca-url-parameters';
 import React from 'react';
 import './main.less';
-import Parameter from 'lesca-url-parameters';
-import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
 

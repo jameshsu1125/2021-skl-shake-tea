@@ -9,51 +9,52 @@
 
 	.frame {
 		position: relative;
-		@img: './img/frame.png';
-		background-image: url(@img);
+		margin-bottom: 65px;
 		width: image-width(@img);
 		height: image-height(@img);
-		margin-bottom: 65px;
+		background-image: url(@img);
+
+		@img: './img/frame.png';
 
 		.title {
 			position: absolute;
+			top: 70px;
+			margin-left: 52px;
 			width: 635px;
 			height: 50px;
-			top: 70px;
-			line-height: 50px;
 			color: #fff;
-			font-size: 1.7em;
 			text-align: left;
-			margin-left: 52px;
 			text-indent: 10px;
+			font-size: 1.7em;
+			line-height: 50px;
 		}
 
 		.tag {
 			position: absolute;
-			width: 230px;
-			height: 53px;
-			font-size: 1.3em;
-			line-height: 53px;
-			color: #0066cf;
 			display: flex;
+			align-items: center;
 			flex-direction: row;
 			justify-content: center;
-			align-items: center;
+			width: 230px;
+			height: 53px;
+			color: #0066cf;
+			font-size: 1.3em;
+			line-height: 53px;
 
 			span {
+				margin-left: 3px;
 				font-size: 1.5em;
 				line-height: 53px;
-				margin-left: 3px;
 			}
 		}
 
 		.yt {
 			position: absolute;
+			margin-top: 150px;
+			margin-left: 37px;
 			width: 665px;
 			height: 422px;
 			background-color: #000;
-			margin-top: 150px;
-			margin-left: 37px;
 		}
 	}
 }

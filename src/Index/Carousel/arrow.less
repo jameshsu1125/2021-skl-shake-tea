@@ -2,16 +2,16 @@
 
 ._slick_arrow {
 	position: absolute;
-	@img: './img/arrow.png';
-	background-image: url(@img);
+	top: 187px;
+	z-index: 1;
 	width: image-width(@img);
 	height: image-height(@img) / 2;
-	background-size: 100%;
+	background-image: url(@img);
 	background-position-y: 0px;
-	top: 187px;
+	background-size: 100%;
 	cursor: pointer;
 
-	z-index: 1;
+	@img: './img/arrow.png';
 
 	&:hover {
 		background-position-y: 0 - image-height(@img) / 2;
@@ -24,7 +24,7 @@
 }
 
 .next {
-	transform: scale(-1, 1);
 	right: 50%;
 	margin-right: -290px;
+	transform: scale(-1, 1);
 }

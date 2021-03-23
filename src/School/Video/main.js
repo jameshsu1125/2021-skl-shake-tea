@@ -1,7 +1,7 @@
+import $ from 'jquery';
 import React from 'react';
 import './main.less';
 
-import $ from 'jquery';
 require('jquery-easing');
 
 export default class Video extends React.Component {

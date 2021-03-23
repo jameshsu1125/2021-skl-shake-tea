@@ -1,26 +1,28 @@
 #home {
 	.store {
 		position: absolute;
-		@img: './img/store.png';
-		background-image: url(@img);
+		bottom: 0px;
+		left: 50%;
+		display: inline-block;
+		margin-left: -415.5px;
 		width: image-width(@img);
 		height: image-height(@img);
-		display: inline-block;
-		left: 50%;
-		margin-left: -415.5px;
-		bottom: 0px;
+		background-image: url(@img);
 		transform-origin: center bottom;
+
+		@img: './img/store.png';
 
 		& > div {
 			position: absolute;
 		}
 
 		.light2 {
-			@img: './img/l1-all.png';
+			top: 87px;
 			//background-image: url(@img);
 			width: image-width(@img);
 			height: image-height(@img);
-			top: 87px;
+
+			@img: './img/l1-all.png';
 
 			& > div {
 				position: absolute;
@@ -33,23 +35,25 @@
 				}
 
 				& > div:nth-child(1) {
-					@img: './img/i1-1.png';
-					background-image: url(@img);
+					top: 22px;
+					left: 27px;
 					width: image-width(@img);
 					height: image-height(@img);
-					left: 27px;
-					top: 22px;
+					background-image: url(@img);
 					opacity: 0.87;
+
+					@img: './img/i1-1.png';
 				}
 
 				& > div:nth-child(2) {
-					@img: './img/i1-2.png';
-					background-image: url(@img);
+					top: -16px;
+					left: -9px;
 					width: image-width(@img);
 					height: image-height(@img);
-					left: -9px;
-					top: -16px;
+					background-image: url(@img);
 					animation: lightBlank 1s infinite;
+
+					@img: './img/i1-2.png';
 				}
 			}
 
@@ -72,42 +76,46 @@
 		}
 
 		.light1 {
-			@img: './img/l0-all.png';
+			top: 96px;
+			left: 647px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 647px;
-			top: 96px;
+
+			@img: './img/l0-all.png';
 
 			& > div {
 				position: absolute;
 			}
 
 			& > div:nth-child(1) {
-				@img: './img/l0-2.png';
-				background-image: url(@img);
+				top: 21px;
+				left: -4px;
 				width: image-width(@img);
 				height: image-height(@img);
-				left: -4px;
-				top: 21px;
+				background-image: url(@img);
 				animation: lightBlank 1s infinite;
+
+				@img: './img/l0-2.png';
 			}
 
 			& > div:nth-child(2) {
-				@img: './img/l0-1.png';
-				background-image: url(@img);
+				top: 15px;
+				left: 34px;
 				width: image-width(@img);
 				height: image-height(@img);
-				left: 34px;
-				top: 15px;
+				background-image: url(@img);
+
+				@img: './img/l0-1.png';
 			}
 
 			& > div:nth-child(3) {
-				@img: './img/l0-3.png';
-				background-image: url(@img);
+				top: 73px;
+				left: 51px;
 				width: image-width(@img);
 				height: image-height(@img);
-				left: 51px;
-				top: 73px;
+				background-image: url(@img);
+
+				@img: './img/l0-3.png';
 			}
 		}
 
@@ -181,73 +189,78 @@
 		}
 
 		.plant {
-			@img: './img/plant.png';
-			background-image: url(@img);
+			right: 110px;
+			bottom: -24px;
 			width: image-width(@img);
 			height: image-height(@img);
-			bottom: -24px;
-			right: 110px;
+			background-image: url(@img);
+
+			@img: './img/plant.png';
 		}
 
 		.drink-2 {
-			@img: './img/drink-2.png';
-			background-image: url(@img);
-			width: image-width(@img);
-			height: image-height(@img);
 			bottom: 0px;
 			left: -50px;
+			width: image-width(@img);
+			height: image-height(@img);
+			background-image: url(@img);
 			transform-origin: 250px 393px;
+
+			@img: './img/drink-2.png';
 		}
 
 		.drink-3 {
-			@img: './img/drink-3.png';
-			background-image: url(@img);
+			right: -30px;
+			bottom: 0px;
 			width: image-width(@img);
 			height: image-height(@img);
-			bottom: 0px;
-			right: -30px;
+			background-image: url(@img);
 			transform-origin: 62px 290px;
+
+			@img: './img/drink-3.png';
 		}
 
 		.dialog {
-			@img: './img/dialog.png';
-			background-image: url(@img);
+			top: -118px;
+			left: 434px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 434px;
-			top: -118px;
+			background-image: url(@img);
 			transform-origin: 11px 339px;
+
+			@img: './img/dialog.png';
 		}
 
 		.txt {
+			top: 236px;
+			left: 136px;
 			width: 466px;
 			height: 370px;
-			left: 136px;
-			top: 236px;
 			color: #fff;
 			font-size: 27px;
 
 			.btn {
 				position: absolute;
+				left: 150px;
+				box-sizing: border-box;
+				padding: 20px;
 				width: 135px;
 				height: 135px;
-				background-color: #d10737;
 				border-radius: 50%;
-				padding: 20px;
-				font-size: 1.1em;
-				box-sizing: border-box;
-				text-align: center;
+				background-color: #d10737;
 				box-shadow: 3px 8px 0px rgba(0, 0, 0, 0.5);
-				left: 150px;
-				line-height: 1.2em;
+				text-align: center;
 				letter-spacing: 1px;
-				user-select: none;
+				font-size: 1.1em;
+				line-height: 1.2em;
 				cursor: pointer;
 				transition: 0.1s;
 
+				user-select: none;
+
 				&:hover {
-					background-color: #a30127;
 					margin-top: 8px;
+					background-color: #a30127;
 					box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 				}
 
@@ -266,7 +279,6 @@
 				& > div {
 					font-size: 1rem;
 					transform: rotate(45deg);
-
 					animation-name: btn;
 					animation-duration: 1s;
 					animation-timing-function: ease-in-out;

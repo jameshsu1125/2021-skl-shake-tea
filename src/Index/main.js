@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Atobtoa from 'lesca-atobtoa';
 import Click from 'lesca-click';
 import Landscape from 'lesca-react-landscape';
 import Loading from 'lesca-react-loading';
@@ -11,9 +12,8 @@ import Content from './content';
 import Footer from './Footer/main';
 import Home from './Header/main';
 import './main.less';
-import Slider from './Slider/main';
 import Profile from './Profile/main';
-import Atobtoa from 'lesca-atobtoa';
+import Slider from './Slider/main';
 
 require('jquery-easing');
 require('jquery.waitforimages');

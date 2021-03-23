@@ -1,23 +1,19 @@
+import $ from 'jquery';
 import React from 'react';
-import './main.less';
-
-import NextStepButton from './../NextStepButton/main';
-import EmptyStepButton from './../NextStepButton/emptyStep';
+import Swal from 'sweetalert2';
+import { Data } from './../Items/data';
 import Items from './../Items/main';
+import EmptyStepButton from './../NextStepButton/emptyStep';
+import NextStepButton from './../NextStepButton/main';
 import Arrow from './arrow';
 import Dots from './dots';
-import { Data } from './../Items/data';
-
-import $ from 'jquery';
+import './main.less';
 require('jquery-easing');
-import Swal from 'sweetalert2';
 
 export default class carousel extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.state = { btn: false };
-
 		this.num = Data['step' + this.props.index]?.length || 0;
 		this.type = this.props.index == '1' ? 'radio' : 'checkbox';
 		this.data = this.type == 'radio' ? '' : [];
@@ -173,7 +169,7 @@ export default class carousel extends React.Component {
 		if (this.type == 'radio') {
 			if (typeof this.data !== 'number')
 				Swal.fire({
-					title: '請選擇一個茶品',
+					title: '請選擇一個茶品基底',
 					text: '喜歡喝紅茶還是綠茶呢',
 					icon: 'warning',
 				});
@@ -182,7 +178,7 @@ export default class carousel extends React.Component {
 			if (this.data.length == 0)
 				Swal.fire({
 					title: '請選擇一個配料',
-					text: '加個珍珠還是加片檸檬?',
+					text: '加個珍珠還是來個蒟蒻?',
 					icon: 'warning',
 				});
 			else comfirm();

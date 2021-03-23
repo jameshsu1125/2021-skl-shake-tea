@@ -4,8 +4,8 @@
 @selectColor: ~'rgba(255,115,131,.75)';
 
 .slider-items {
-	float: left;
 	position: relative;
+	float: left;
 	width: 100vw;
 	height: 464px;
 
@@ -16,24 +16,23 @@
 
 	.box {
 		position: absolute;
+		left: 50%;
 		display: inline-block;
+		margin-top: 24px;
+		margin-left: -520px/2;
 		width: 520px;
 		height: 440px - 24px;
 		border: @unselectborder;
 		border-radius: 30px;
 		background-color: @unselectColor;
-
-		left: 50%;
-		margin-left: -520px/2;
-		margin-top: 24px;
 	}
 
 	.template {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background-repeat: no-repeat;
 		background-position: center bottom;
+		background-repeat: no-repeat;
 	}
 
 	@keyframes selected {
@@ -59,21 +58,21 @@
 
 	.checkbox {
 		position: absolute;
+		bottom: 0px;
+		left: 50%;
+		z-index: 3;
+		overflow: hidden;
+		margin-left: 195px;
 		width: 75px;
 		height: 75px;
 		border: @unselectborder;
-		background-color: #f9bda3;
 		border-radius: 50%;
-		bottom: 0px;
-		left: 50%;
-		margin-left: 195px;
-		overflow: hidden;
+		background-color: #f9bda3;
 		cursor: pointer;
-		z-index: 3;
 
 		&:hover {
-			background-color: #f6454c;
 			border: @selectBorder;
+			background-color: #f6454c;
 
 			& > div {
 				background-color: #fff;
@@ -84,6 +83,7 @@
 			width: 100%;
 			height: 100%;
 			background-color: #fbd1bf;
+
 			mask-image: url('./img/checkbox.png');
 			mask-size: 70%;
 			mask-repeat: no-repeat;
@@ -97,17 +97,18 @@
 
 	.title {
 		position: absolute;
-		@img: './img/box-title.svg';
-		background-image: url(@img);
-		width: image-width(@img) * 2;
-		height: image-height(@img) * 2 / 2;
-		background-size: 100%;
-		background-position-y: 0;
-		color: #fff;
 		top: 0px;
 		left: 50%;
 		margin-left: 0 - image-width(@img);
+		width: image-width(@img) * 2;
+		height: image-height(@img) * 2 / 2;
+		background-image: url(@img);
+		background-position-y: 0;
+		background-size: 100%;
+		color: #fff;
 		line-height: image-height(@img) * 2 / 2;
 		filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+
+		@img: './img/box-title.svg';
 	}
 }

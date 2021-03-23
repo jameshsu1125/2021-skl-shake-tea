@@ -1,7 +1,7 @@
+import $ from 'jquery';
 import React from 'react';
 import './content.less';
 
-import $ from 'jquery';
 require('jquery-easing');
 
 export default class Content extends React.Component {

@@ -1,7 +1,8 @@
+import $ from 'jquery';
+import UserAgent from 'lesca-user-agent';
 import React from 'react';
 import './main.less';
-import UserAgent from 'lesca-user-agent';
-import $ from 'jquery';
+
 export default class Footer extends React.Component {
 	constructor(props) {
 		super(props);

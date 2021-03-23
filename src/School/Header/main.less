@@ -1,96 +1,104 @@
 #Header {
 	position: relative;
+	overflow: hidden;
+	margin-top: 54px;
 	width: 100%;
 	height: 450px;
-	margin-top: 54px;
-	overflow: hidden;
 
 	.bg {
 		position: absolute;
+		top: 0;
 		width: 100%;
 		height: 100%;
-		top: 0;
 
 		& > div {
 			position: absolute;
 		}
 
 		& > div:nth-child(1) {
-			@img: './img/0.png';
-			background-image: url(@img);
+			bottom: -80px;
+			left: 50%;
+			margin-left: -390px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 50%;
-			bottom: -80px;
-			margin-left: -390px;
+			background-image: url(@img);
+
+			@img: './img/0.png';
 		}
 
 		& > div:nth-child(2) {
-			@img: './img/1.png';
-			background-image: url(@img);
+			bottom: 80px;
+			left: 50%;
+			margin-left: 120px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 50%;
-			bottom: 80px;
-			margin-left: 120px;
+			background-image: url(@img);
+
+			@img: './img/1.png';
 		}
 
 		& > div:nth-child(3) {
-			@img: './img/2.png';
-			background-image: url(@img);
+			bottom: -23px;
+			left: 50%;
+			margin-left: -300px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 50%;
-			bottom: -23px;
-			margin-left: -300px;
+			background-image: url(@img);
+
+			@img: './img/2.png';
 		}
 
 		& > div:nth-child(4) {
-			@img: './img/3.png';
-			background-image: url(@img);
+			bottom: 87px;
+			left: 50%;
+			margin-left: -262px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 50%;
-			bottom: 87px;
-			margin-left: -262px;
+			background-image: url(@img);
+
+			@img: './img/3.png';
 		}
 
 		& > div:nth-child(5) {
-			@img: './img/4.png';
-			background-image: url(@img);
+			bottom: 240px;
+			left: 50%;
+			margin-left: -122px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 50%;
-			bottom: 240px;
-			margin-left: -122px;
+			background-image: url(@img);
+
+			@img: './img/4.png';
 		}
 
 		& > div:nth-child(6) {
-			@img: './img/5.png';
-			background-image: url(@img);
+			bottom: 150px;
+			left: 50%;
+			margin-left: -272px;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 50%;
-			bottom: 150px;
-			margin-left: -272px;
+			background-image: url(@img);
+
+			@img: './img/5.png';
 		}
 
 		& > div:nth-child(7) {
-			@img: './img/6.png';
-			background-image: url(@img);
-			width: image-width(@img);
-			height: image-height(@img);
 			right: 0;
 			bottom: 0;
+			width: image-width(@img);
+			height: image-height(@img);
+			background-image: url(@img);
+
+			@img: './img/6.png';
 		}
 
 		& > div:nth-child(8) {
-			@img: './img/7.png';
-			background-image: url(@img);
+			bottom: 0;
+			left: 0;
 			width: image-width(@img);
 			height: image-height(@img);
-			left: 0;
-			bottom: 0;
+			background-image: url(@img);
+
+			@img: './img/7.png';
 		}
 	}
 }

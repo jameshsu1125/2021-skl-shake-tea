@@ -1,10 +1,8 @@
+import $ from 'jquery';
 import React from 'react';
 import './main.less';
-import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
-
-import swal from 'sweetalert2';
 
 export default class Profile extends React.Component {
 	constructor(props) {

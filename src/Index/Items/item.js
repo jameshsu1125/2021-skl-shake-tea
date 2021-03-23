@@ -1,14 +1,9 @@
 import React from 'react';
 import './item.less';
-
-import Radio from './itemRadio';
 import Checkbox from './itemCheckbox';
+import Radio from './itemRadio';
 
 export default class item extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	reset() {
 		this.refs.item?.reset();
 	}

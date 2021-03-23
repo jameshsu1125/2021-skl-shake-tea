@@ -9,7 +9,6 @@ import Carousel from './Carousel/main';
 import Header from './Header/main';
 import './main.less';
 import Page from './Page/main';
-
 require('jquery-easing');
 require('jquery.waitforimages');
 
