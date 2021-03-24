@@ -13,7 +13,7 @@ export default class Video extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { menu: false, yt: false, loading: true };
-		this['yt-id'] = 'nPqJuMDMGOs';
+		this['yt-id'] = require('./../_config').video['yt-id'];
 
 		const root = this;
 		this.tr = {
@@ -78,10 +78,7 @@ export default class Video extends React.Component {
 
 	scrollTo(e) {
 		let top = $(e)?.offset(),
-			nowTop =
-				window.pageYOffset ||
-				document.documentElement.scrollTop ||
-				document.body.scrollTop,
+			nowTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
 			time = Math.abs(top?.top - nowTop);
 		if (!top) return;
 		top.top -= window.innerWidth > 750 ? 54 : 90;
@@ -99,49 +96,49 @@ export default class Video extends React.Component {
 		if (this.state.yt)
 			return (
 				<iframe
-					width='677'
-					height='436'
+					width="677"
+					height="436"
 					src={`https://www.youtube.com/embed/${this['yt-id']}`}
-					frameBorder='0'
-					allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+					frameBorder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowFullScreen></iframe>
 			);
 	}
 
 	append_loading() {
-		if (this.state.loading) return <Loading text='Loading now...' />;
+		if (this.state.loading) return <Loading text="Loading now..." />;
 	}
 
 	render() {
 		return (
-			<div ref='main' id='Video'>
+			<div ref="main" id="Video">
 				<Nav
 					open={() => {
 						this.setState({ menu: true });
 					}}
 				/>
-				<div className='ctx'>
-					<div className='content'>
-						<div className='pattern'>
+				<div className="ctx">
+					<div className="content">
+						<div className="pattern">
 							<div></div>
 							<div></div>
 							<div></div>
 							<div></div>
 							<div></div>
 						</div>
-						<Sign size='small'>
-							<div className='video'></div>
+						<Sign size="small">
+							<div className="video"></div>
 						</Sign>
-						<div className='container'>
-							<div ref='frame' className='frame'>
-								<div className='yt'>{this.append_yt()}</div>
+						<div className="container">
+							<div ref="frame" className="frame">
+								<div className="yt">{this.append_yt()}</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				{this.append_menu()}
 				{this.append_loading()}
-				<Landscape dw='750' />
+				<Landscape dw="750" />
 			</div>
 		);
 	}

@@ -22,7 +22,7 @@ export default class School extends React.Component {
 	componentDidMount() {
 		$(this.refs.main).waitForImages({
 			finished: () => {
-				for (let i = 1; i < 6; i++) {
+				for (let i = 0; i < 5; i++) {
 					this.refs['v' + i].in();
 				}
 				this.setState({ loading: false });
@@ -46,17 +46,15 @@ export default class School extends React.Component {
 
 	scrollTo(e) {
 		let top = $(e)?.offset(),
-			nowTop =
-				window.pageYOffset ||
-				document.documentElement.scrollTop ||
-				document.body.scrollTop,
-			time = Math.abs(top?.top - nowTop);
+			nowTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
+			time = Math.abs(top?.top - nowTop),
+			gap = window.innerWidth > 1000 ? 20 : 25;
 		if (!top) return;
-		top.top -= window.innerWidth > 750 ? 54 : 90;
+		top.top -= window.innerWidth > 1000 ? 54 : 90;
 
 		$('html, body').animate(
 			{
-				scrollTop: top.top == 0 ? 0 : top.top - 20,
+				scrollTop: top.top == 0 ? 0 : top.top - gap,
 			},
 			time > 1000 ? 1000 : time,
 			'easeOutQuart'
@@ -64,57 +62,25 @@ export default class School extends React.Component {
 	}
 
 	append_loading() {
-		if (this.state.loading) return <Loading text='Loading now...' />;
+		if (this.state.loading) return <Loading text="Loading now..." />;
 	}
 
 	render() {
 		return (
-			<div ref='main' id='School'>
+			<div ref="main" id="School">
 				<Nav
 					open={() => {
 						this.setState({ menu: true });
 					}}
 				/>
-				<div className='ctx'>
-					<Header ref='header'>
+				<div className="ctx">
+					<Header ref="header">
 						<Buttons scrollTo={this.scrollTo.bind(this)} />
 					</Header>
 					<Content>
-						<Video
-							ref='v1'
-							index='1'
-							tag='保險新手筆記'
-							title='別把保險當存錢!最適合新鮮社畜的保險規劃'
-							yt-id='vXe2tUs5r88'
-						/>
-						<Video
-							ref='v2'
-							index='2'
-							tag='保險新手筆記'
-							title='別再沈溺蜜月期！新婚小夫妻如何細水長流？'
-							yt-id='bmZXyzAZuIU'
-						/>
-						<Video
-							ref='v3'
-							index='3'
-							tag='保險新手筆記'
-							title='別再靠北過日子！三明治族該怎麼規劃投保？'
-							yt-id='vXe2tUs5r88'
-						/>
-						<Video
-							ref='v4'
-							index='4'
-							tag='保險新手筆記'
-							title='別再靠北過日子！三明治族該怎麼規劃投保？'
-							yt-id='vXe2tUs5r88'
-						/>
-						<Video
-							ref='v5'
-							index='5'
-							tag='保險新手筆記'
-							title='別保了什麼都不知道！3招快速了解你的所有保單'
-							yt-id='vXe2tUs5r88'
-						/>
+						{require('./../_config').school.map((e, i) => (
+							<Video key={i} ref={`v${i}`} index={i} tag={e.tag} title={e.title} yt-id={e['yt-id']} />
+						))}
 					</Content>
 				</div>
 				<Top
@@ -124,7 +90,7 @@ export default class School extends React.Component {
 				/>
 				{this.append_menu()}
 				{this.append_loading()}
-				<Landscape dw='750' />
+				<Landscape dw="750" />
 			</div>
 		);
 	}
