@@ -89,6 +89,10 @@ export default class Taste extends React.Component {
 		this.setState({ cost: cost, cost_m: Math.ceil(cost / 12) });
 	}
 
+	append_btn_label() {
+		return ['品味', '滿足', '嗜嚼'][this.props.index] + '好時光保險組合';
+	}
+
 	render() {
 		return (
 			<div ref='main' id='Taste' className={`taste${this.props.index}`}>
@@ -111,7 +115,7 @@ export default class Taste extends React.Component {
 						<div className='checkbox'>
 							<div></div>
 						</div>
-						<div className='txt'>看看你每月的手搖費</div>
+						<div className='txt'>看看你每月的手搖消費</div>
 						<div className='dollor'>
 							<div>{`$${Dollar(this.props.score)}`}</div>
 						</div>
@@ -127,7 +131,8 @@ export default class Taste extends React.Component {
 								window.location.href = `./plan.html#${hash[this.props.index] || ''}`;
 							}}
 							className='product-btn'>
-							品味好時光保險組合<div></div>
+							{this.append_btn_label()}
+							<div></div>
 						</div>
 					</div>
 				</div>
@@ -141,19 +146,13 @@ export default class Taste extends React.Component {
 					</div>
 					<div className='row'>
 						<div className='age'>
-							<select
-								ref='age'
-								defaultValue={this.props.age}
-								onChange={this.select_change.bind(this)}>
+							<select ref='age' defaultValue={this.props.age} onChange={this.select_change.bind(this)}>
 								{this.append_age()}
 							</select>
 						</div>
 						<div className='txt'>歲</div>
 						<div className='gender'>
-							<select
-								ref='gender'
-								defaultValue={this.props.gender}
-								onChange={this.select_change.bind(this)}>
+							<select ref='gender' defaultValue={this.props.gender} onChange={this.select_change.bind(this)}>
 								<option value='male'>男性</option>
 								<option value='female'>女性</option>
 							</select>
@@ -168,10 +167,10 @@ export default class Taste extends React.Component {
 						</div>
 					</div>
 					<div className='row pd-l'>
-						<div className='txt'>保障更齊全</div>
+						<div className='txt'>小保費，大保障!</div>
 					</div>
 				</div>
-				<div className='desc'>*詳細保險內容及實際保險費用依條款說明為主</div>
+				<div className='desc'>*詳細保險內容及實際保險費用請依保單條款為準。</div>
 			</div>
 		);
 	}

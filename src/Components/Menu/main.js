@@ -9,13 +9,7 @@ export default class Menu extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.filename = [
-			'index.html',
-			'index.html#play',
-			'video.html',
-			'school.html',
-			'plan.html',
-		];
+		this.filename = ['index.html', 'index.html#play', 'video.html', 'school.html', 'plan.html'];
 
 		const root = this;
 		this.tr = {
@@ -138,7 +132,7 @@ export default class Menu extends React.Component {
 						onClick={() => {
 							window.location.href = './plan.html';
 						}}>
-						<span>好時光保險計畫</span>
+						<span>我的好時光保險計畫</span>
 					</div>
 					<div className='row'>
 						<span>諮詢專人</span>

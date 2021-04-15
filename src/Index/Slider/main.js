@@ -4,6 +4,7 @@ import EmptyStepButton from '../NextStepButton/emptyStep';
 import NextStepButton from '../NextStepButton/main';
 import { Data } from './data';
 import './main.less';
+import HTMLParser from 'react-html-parser';
 
 require('jquery-easing');
 
@@ -121,9 +122,7 @@ export default class Slider extends React.Component {
 		return (
 			<div id='Slider' className={`step${this.props.index}`}>
 				<div className='container'>
-					<div className={`question t${this.props.index}`}>
-						{this.props.question}
-					</div>
+					<div className={`question t${this.props.index}`}>{this.props.question}</div>
 					<div className='answer'>
 						<div className='slider'>
 							{this.append_suger()}
@@ -135,7 +134,7 @@ export default class Slider extends React.Component {
 								<div ref='btn' className='btn'>
 									<div>
 										<div ref='dialog' className='dialog'>
-											{this.state.text}
+											{HTMLParser(this.state.text)}
 										</div>
 									</div>
 								</div>

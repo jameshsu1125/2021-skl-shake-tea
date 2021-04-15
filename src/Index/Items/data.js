@@ -9,7 +9,7 @@ export const Data = {
 			className: 't1_2',
 		},
 		{
-			title: '品味那磨好拿鐵',
+			title: '品味那麼好拿鐵',
 			className: 't1_3',
 		},
 		{

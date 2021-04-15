@@ -1,11 +1,5 @@
 export const Data = {
-	step3: [
-		{ text: '無糖' },
-		{ text: '三分糖' },
-		{ text: '半糖' },
-		{ text: '七分糖' },
-		{ text: '全糖' },
-	],
+	step3: [{ text: '無糖' }, { text: '三分糖' }, { text: '半糖' }, { text: '七分糖' }, { text: '全糖' }],
 	step4: [
 		{ text: '0杯' },
 		{ text: '1杯' },
@@ -22,6 +16,6 @@ export const Data = {
 		{ text: '12杯' },
 		{ text: '13杯' },
 		{ text: '14杯' },
-		{ text: '15杯' },
+		{ text: '15杯<br /><span>(含)以上</span>' },
 	],
 };
