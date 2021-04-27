@@ -51,7 +51,7 @@ export default class Plan extends React.Component {
 						index='A'
 						data={[
 							{ text: '好時光<br>住院醫療', color: '#f65e62' },
-							{ text: '好時光<br>實支醫療', color: '#00b4a0' },
+							{ text: '好時光<br>實支醫療<br><span>(附約)</span>', color: '#00b4a0' },
 						]}
 					/>
 				);
@@ -62,7 +62,7 @@ export default class Plan extends React.Component {
 						data={[
 							{ text: '好時光<br>住院醫療', color: '#f65e62' },
 							{ text: '好時光<br>定期傷害', color: '#f65e62' },
-							{ text: '好時光<br>實支醫療', color: '#00b4a0' },
+							{ text: '好時光<br>實支醫療<br><span>(附約)</span>', color: '#00b4a0' },
 							{ text: '好時光<br>手術醫療', color: '#00b4a0' },
 						]}
 					/>
@@ -76,7 +76,7 @@ export default class Plan extends React.Component {
 							{ text: '好時光<br>定期傷害', color: '#f65e62' },
 							{ text: '好時光<br>定期長照', color: '#f65e62' },
 							{ text: '好時光<br>定期壽險', color: '#f65e62' },
-							{ text: '好時光<br>實支醫療', color: '#00b4a0' },
+							{ text: '好時光<br>實支醫療<br><span>(附約)</span>', color: '#00b4a0' },
 							{ text: '好時光<br>手術醫療', color: '#00b4a0' },
 						]}
 					/>
@@ -86,10 +86,7 @@ export default class Plan extends React.Component {
 
 	scrollTo(e) {
 		let top = $(e)?.offset(),
-			nowTop =
-				window.pageYOffset ||
-				document.documentElement.scrollTop ||
-				document.body.scrollTop,
+			nowTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
 			time = Math.abs(top?.top - nowTop);
 		if (!top) return;
 		top.top -= window.innerWidth > 750 ? 54 : 90;

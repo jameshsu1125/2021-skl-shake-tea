@@ -163,7 +163,17 @@ export default class Result extends React.Component {
 							</div>
 						</div>
 						<div className='row'>
-							<div className='btn'>諮詢專人</div>
+							<div
+								className='btn'
+								onClick={() => {
+									const { content } = this.state;
+
+									['s', 'f', 'c'].map((e, i) => {
+										if (i == content) window.open(`https://campaign.skl.com.tw/skl-${e}goodtime`);
+									});
+								}}>
+								諮詢專人
+							</div>
 							<div
 								onClick={() => {
 									window.location.href = './plan.html';

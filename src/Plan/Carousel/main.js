@@ -24,11 +24,9 @@ export default class Carousel extends React.Component {
 			appendDots: (dots) => (
 				<div
 					style={{
-						bottom: '20px',
+						bottom: '60px',
 					}}>
-					<ul style={{ display: 'inline-block', paddingInlineStart: '0px' }}>
-						{dots}
-					</ul>
+					<ul style={{ display: 'inline-block', paddingInlineStart: '0px' }}>{dots}</ul>
 				</div>
 			),
 		};
@@ -77,7 +75,7 @@ export default class Carousel extends React.Component {
 					<Slider {...this.setting}>
 						<Item
 							index='1'
-							headline='住院醫療 (主約)'
+							headline='住院醫療 <span>(主約)</span>'
 							subline='準備好，疫起不擔心'
 							items={[
 								'住院<br>日額',
@@ -92,49 +90,46 @@ export default class Carousel extends React.Component {
 						/>
 						<Item
 							index='2'
-							headline='實支醫療 (主約)'
+							headline='實支醫療 <span>(附約)<span>'
 							subline='自費支出，不怕負擔'
-							items={[
-								'每日<br>病房',
-								'醫療<br>費用',
-								'手術<br>費用',
-								'門診<br>手術費用',
-							]}
+							items={['實支實付<br>或日額給付<br><span>（二擇一）</span>', '門診<br>手術費用', '無住院<br>理賠獎勵']}
 						/>
 						<Item
 							index='3'
-							headline='傷害醫療 (主約)'
+							headline='定期傷害 <span>(主約)<span>'
 							subline='意外、明天誰先到？'
 							items={[
 								'意外<br>身故<br><span>（假日加倍）</span>',
 								'意外<br>住院',
 								'意外<br>失能',
-								'意外住院<br>慰問保險',
+								'意外住院<br>慰問',
+								'無理賠<br>獎勵',
 							]}
 						/>
 						<Item
 							index='4'
-							headline='手術醫療 (副約)'
+							headline='手術醫療 <span>(附約)<span>'
 							subline='處置、醫材全納入'
-							items={[
-								'手術',
-								'特定<br>手術',
-								'處置',
-								'特定住院<br>處置',
-								'特定醫材<br>補助保險',
-							]}
+							items={['手術', '特定<br>手術', '住院/門診<br>處置', '特定住院<br>處置', '特定醫材<br>補助', '無理賠<br>獎勵']}
 						/>
 						<Item
 							index='5'
-							headline='長照醫療 (主約)'
+							headline='長期照顧定期健康保險<span>(主約)</span>'
 							subline='年輕長照漸普及！'
-							items={['長照', '完全<br>失能', '一次及分期<br>給付保障']}
+							items={[
+								'長期照顧<br>一次給付',
+								'長期照顧<br>分期給付',
+								'完全失能<br>一次給付',
+								'完全失能<br>分期給付',
+								'保險費的<br>豁免',
+								'健康促進<br>回饋',
+							]}
 						/>
 						<Item
 							index='6'
-							headline='壽險醫療 (主約)'
+							headline='壽險醫療 <span>(主約)<span>'
 							subline='留給我愛的人！'
-							items={['身障', '完全失能<br>保障']}
+							items={['身故/喪葬<br>費用', '完全失能', '健康促進<br>回饋']}
 						/>
 					</Slider>
 				</div>

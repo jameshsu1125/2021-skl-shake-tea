@@ -58,7 +58,17 @@ export default class Page extends React.Component {
 							</div>
 						))}
 					</div>
-					<div className='plan-btn'>諮詢專人</div>
+					<div
+						onClick={(e) => {
+							const { index } = this.props;
+							const charAt = index?.charCodeAt(0) - 65;
+							['s', 'f', 'c'].map((e, i) => {
+								if (i == charAt) window.open(`https://campaign.skl.com.tw/skl-${e}goodtime`);
+							});
+						}}
+						className='plan-btn'>
+						諮詢專人
+					</div>
 				</div>
 			</div>
 		);
