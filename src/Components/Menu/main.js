@@ -134,7 +134,11 @@ export default class Menu extends React.Component {
 						}}>
 						<span>我的好時光保險計畫</span>
 					</div>
-					<div className='row'>
+					<div
+						className='row'
+						onClick={() => {
+							window.open('https://campaign.skl.com.tw/skl-goodtime');
+						}}>
 						<span>諮詢專人</span>
 					</div>
 					<div className='close' onClick={this.close.bind(this)}>

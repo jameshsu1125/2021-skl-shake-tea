@@ -6,13 +6,7 @@ import $ from 'jquery';
 export default class Nav extends React.Component {
 	constructor(props) {
 		super(props);
-		this.filename = [
-			'index.html',
-			'index.html#play',
-			'video.html',
-			'school.html',
-			'plan.html',
-		];
+		this.filename = ['index.html', 'index.html#play', 'video.html', 'school.html', 'plan.html'];
 	}
 
 	componentDidMount() {
@@ -76,7 +70,12 @@ export default class Nav extends React.Component {
 							}}>
 							好時光保險計畫
 						</div>
-						<div>諮詢專人</div>
+						<div
+							onClick={() => {
+								window.open('https://campaign.skl.com.tw/skl-goodtime');
+							}}>
+							諮詢專人
+						</div>
 					</div>
 					<div className='han' onClick={this.props.open}>
 						<div></div>
