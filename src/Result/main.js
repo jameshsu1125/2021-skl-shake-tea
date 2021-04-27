@@ -167,9 +167,8 @@ export default class Result extends React.Component {
 								className='btn'
 								onClick={() => {
 									const { content } = this.state;
-
 									['s', 'f', 'c'].map((e, i) => {
-										if (i == content) window.open(`https://campaign.skl.com.tw/skl-${e}goodtime`);
+										if (i === content) window.open(`https://campaign.skl.com.tw/skl-${e}goodtime`);
 									});
 								}}>
 								諮詢專人
