@@ -104,10 +104,10 @@ module.exports = {
 		},
 	],
 	calcScore: function (data) {
-		let Q1 = [50, 50, 60, 80, 70][data[0] || 0],
-			Q2 = data[1].length * 20,
-			Q4 = data[3] * 4;
-		let s = (Q1 + Q2) * Q4,
+		let Q1 = [40, 40, 50, 70, 60][data[0] || 0], // 飲料價格
+			Q2 = data[1].length * 20, // 加料一樣加多少20
+			Q4 = data[3] * 4; // 一個月4週
+		let s = (Q1 + Q2) * Q4, // (飲料價格 + 加料) x 杯束
 			i = 0;
 
 		if (s < 448) i = 0;
