@@ -114,7 +114,7 @@ export default class Carousel extends React.Component {
 						/>
 						<Item
 							index='5'
-							headline='長期照顧定期健康保險<span>(主約)</span>'
+							headline='定期長照'
 							subline='年輕長照漸普及！'
 							items={[
 								'長期照顧<br>一次給付',
@@ -127,7 +127,7 @@ export default class Carousel extends React.Component {
 						/>
 						<Item
 							index='6'
-							headline='壽險醫療 <span>(主約)<span>'
+							headline='定期壽險<span>(主約)<span>'
 							subline='留給我愛的人！'
 							items={['身故/喪葬<br>費用', '完全失能', '健康促進<br>回饋']}
 						/>
