@@ -20,7 +20,7 @@ module.exports = {
 		},
 	},
 	video: {
-		'yt-id': 'nPqJuMDMGOs',
+		'yt-id': 'V_L5nLbZmOc',
 	},
 	school: [
 		{ 'yt-id': 'vXe2tUs5r88', title: '別把保險當存錢!最適合新鮮社畜的保險規劃', tag: '保險新手筆記' },
