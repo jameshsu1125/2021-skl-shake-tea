@@ -220,35 +220,17 @@ export default class carousel extends React.Component {
 
 	render() {
 		return (
-			<div
-				id='carousel'
-				className={`step${this.props.index}`}
-				style={this.props.children ? { minHeight: '1000px' } : {}}>
+			<div id='carousel' className={`step${this.props.index}`} style={this.props.children ? { minHeight: '1000px' } : {}}>
 				{this.props.children}
-				<div
-					className='container'
-					style={
-						this.props.children
-							? { paddingTop: '202px', boxSizing: 'border-box' }
-							: {}
-					}>
-					<div className={`question t${this.props.index}`}>
-						{this.props.question}
-					</div>
+				<div className='container' style={this.props.children ? { paddingTop: '202px', boxSizing: 'border-box' } : {}}>
+					<div className={`question t${this.props.index}`}>{this.props.question}</div>
 					<div className='answer'>
 						<div className='res'>
 							<div className='slider-ctx'>
 								<div ref='slick' className='slick'>
-									<Items
-										ref='items'
-										step={this.props.index}
-										clicked={this.clicked.bind(this)}
-									/>
+									<Items ref='items' step={this.props.index} clicked={this.clicked.bind(this)} />
 								</div>
-								<div
-									ref='touch'
-									id={`touch${this.props.index}`}
-									className='touch'></div>
+								<div ref='touch' id={`touch${this.props.index}`} className='touch'></div>
 								<Arrow
 									direct='prev'
 									onClick={() => {

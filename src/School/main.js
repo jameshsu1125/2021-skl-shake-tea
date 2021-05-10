@@ -2,14 +2,17 @@ import $ from 'jquery';
 import Landscape from 'lesca-react-landscape';
 import Loading from 'lesca-react-loading';
 import React from 'react';
+import ConsultationDialog from '../Components/ConsultationDialog/main';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
+import { school as Data } from '../_config';
 import Top from './../Components/Top/main';
 import Buttons from './Buttons/main';
 import Content from './Content/main';
 import Header from './Header/main';
 import './main.less';
 import Video from './Video/main';
+
 require('jquery-easing');
 require('jquery.waitforimages');
 
@@ -22,9 +25,10 @@ export default class School extends React.Component {
 	componentDidMount() {
 		$(this.refs.main).waitForImages({
 			finished: () => {
-				for (let i = 0; i < 5; i++) {
+				Data.map((e, i) => {
 					this.refs['v' + i].in();
-				}
+				});
+
 				this.setState({ loading: false });
 				this.refs.header.tr.in();
 			},
@@ -62,23 +66,23 @@ export default class School extends React.Component {
 	}
 
 	append_loading() {
-		if (this.state.loading) return <Loading text="Loading now..." />;
+		if (this.state.loading) return <Loading text='Loading now...' />;
 	}
 
 	render() {
 		return (
-			<div ref="main" id="School">
+			<div ref='main' id='School'>
 				<Nav
 					open={() => {
 						this.setState({ menu: true });
 					}}
 				/>
-				<div className="ctx">
-					<Header ref="header">
+				<div className='ctx'>
+					<Header ref='header'>
 						<Buttons scrollTo={this.scrollTo.bind(this)} />
 					</Header>
 					<Content>
-						{require('./../_config').school.map((e, i) => (
+						{Data.map((e, i) => (
 							<Video key={i} ref={`v${i}`} index={i} tag={e.tag} title={e.title} yt-id={e['yt-id']} />
 						))}
 					</Content>
@@ -89,8 +93,9 @@ export default class School extends React.Component {
 					}}
 				/>
 				{this.append_menu()}
+				<ConsultationDialog align />
 				{this.append_loading()}
-				<Landscape dw="750" />
+				<Landscape dw='750' />
 			</div>
 		);
 	}

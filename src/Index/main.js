@@ -14,6 +14,7 @@ import Home from './Header/main';
 import './main.less';
 import Profile from './Profile/main';
 import Slider from './Slider/main';
+import ConsultationDialog from '../Components/ConsultationDialog/main';
 
 require('jquery-easing');
 require('jquery.waitforimages');
@@ -75,10 +76,7 @@ export default class index extends React.Component {
 
 	scrollToBy(e, cb) {
 		let top = $(e)?.offset(),
-			nowTop =
-				window.pageYOffset ||
-				document.documentElement.scrollTop ||
-				document.body.scrollTop,
+			nowTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
 			time = Math.abs(top?.top - nowTop);
 		if (!top) return;
 		top.top -= window.innerWidth > 750 ? 54 : 90;
@@ -108,11 +106,7 @@ export default class index extends React.Component {
 	append_step1() {
 		if (this.state.step >= 1)
 			return (
-				<Carousel
-					ref='step1'
-					index='1'
-					question='你喜歡的茶品基底？'
-					scrollTo={this.scrollTo.bind(this)}>
+				<Carousel ref='step1' index='1' question='你喜歡的茶品基底？' scrollTo={this.scrollTo.bind(this)}>
 					<Sign style={{ position: 'absolute' }}>
 						<div className='line3'>
 							歡迎光臨新光人壽「好時光。手搖客製所」
@@ -130,38 +124,17 @@ export default class index extends React.Component {
 
 	append_step2() {
 		if (this.state.step >= 2)
-			return (
-				<Carousel
-					ref='step2'
-					index='2'
-					question='你要加什麼配料呢？(可複選)'
-					scrollTo={this.scrollTo.bind(this)}
-				/>
-			);
+			return <Carousel ref='step2' index='2' question='你要加什麼配料呢？(可複選)' scrollTo={this.scrollTo.bind(this)} />;
 	}
 
 	append_step3() {
 		if (this.state.step >= 3)
-			return (
-				<Slider
-					ref='step3'
-					index='3'
-					question='你的糖分喜好？'
-					scrollTo={this.scrollTo.bind(this)}
-				/>
-			);
+			return <Slider ref='step3' index='3' question='你的糖分喜好？' scrollTo={this.scrollTo.bind(this)} />;
 	}
 
 	append_step4() {
 		if (this.state.step >= 4)
-			return (
-				<Slider
-					ref='step4'
-					index='4'
-					question='你一週平均都喝幾杯手搖呢？'
-					scrollTo={this.scrollTo.bind(this)}
-				/>
-			);
+			return <Slider ref='step4' index='4' question='你一週平均都喝幾杯手搖呢？' scrollTo={this.scrollTo.bind(this)} />;
 	}
 
 	append_content() {
@@ -211,7 +184,7 @@ export default class index extends React.Component {
 					{this.append_profile()}
 				</div>
 				{this.append_menu()}
-				{this.append_loading()}
+				<ConsultationDialog />;{this.append_loading()}
 				<Landscape dw='750' />
 			</div>
 		);

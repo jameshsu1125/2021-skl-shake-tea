@@ -1,0 +1,68 @@
+.align {
+	bottom: 130px !important;
+	right: 6px !important;
+}
+
+.consultationDialog {
+	position: fixed;
+	right: 42px;
+	bottom: 30px;
+	width: image-width(@img) * @scale;
+	height: image-height(@img) * @scale;
+	background-image: url(@img);
+	background-size: 100%;
+	cursor: pointer;
+	transform-origin: right bottom;
+	animation: consultationDialog 10s ease-out infinite;
+
+	@img: './img/dialog.svg';
+	@scale: 0.8;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+		padding: 30px;
+		width: 100%;
+		height: 100%;
+		color: #d10737;
+		content: '諮詢專人';
+		font-size: 30px;
+		line-height: 38px;
+		pointer-events: none;
+	}
+}
+
+@keyframes consultationDialog {
+	0% {
+		transform: rotate(0deg);
+	}
+	2% {
+		transform: rotate(-20deg);
+	}
+	4% {
+		transform: rotate(8deg);
+	}
+	6% {
+		transform: rotate(0deg);
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	.consultationDialog {
+		width: image-width(@img) * @scale;
+		height: image-height(@img) * @scale;
+
+		@img: './img/dialog.svg';
+		@scale: 1;
+
+		&::after {
+			font-size: 35px;
+			line-height: 45px;
+		}
+	}
+}

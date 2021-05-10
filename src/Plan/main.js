@@ -2,6 +2,7 @@ import $ from 'jquery';
 import Landscape from 'lesca-react-landscape';
 import Loading from 'lesca-react-loading';
 import React from 'react';
+import ConsultationDialog from '../Components/ConsultationDialog/main';
 import Menu from '../Components/Menu/main';
 import Nav from '../Components/Nav/main';
 import Top from './../Components/Top/main';
@@ -129,6 +130,7 @@ export default class Plan extends React.Component {
 					}}
 				/>
 				{this.append_menu()}
+				<ConsultationDialog align />
 				{this.append_loading()}
 				<Landscape dw='750' />
 			</div>
