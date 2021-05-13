@@ -17,7 +17,7 @@ export default class Plan extends React.Component {
 	constructor(props) {
 		super(props);
 		let hash = window.location.hash.slice(1) || 'carousel';
-		this.state = { menu: false, content: hash, loading: true };
+		this.state = { menu: false, content: hash, loading: true, initialSlide: 0 };
 	}
 
 	componentDidMount() {
@@ -41,19 +41,28 @@ export default class Plan extends React.Component {
 			);
 	}
 
+	toCarouselWithPageIndex(index = 0) {
+		// ? need scroll top? => this.scrollTo('#Plan');
+		this.setState({
+			content: 'carousel',
+			initialSlide: index,
+		});
+	}
+
 	append_content() {
 		switch (this.state.content) {
 			default:
 			case 'carousel':
-				return <Carousel />;
+				return <Carousel initialSlide={this.state.initialSlide} />;
 			case 'plan-A':
 				return (
 					<Page
 						index='A'
 						data={[
-							{ text: '好時光<br>住院醫療', color: '#f65e62' },
-							{ text: '好時光<br>實支醫療<br><span>(附約)</span>', color: '#00b4a0' },
+							{ text: '好時光<br>住院醫療', color: '#f65e62', index: 0 },
+							{ text: '好時光<br>實支醫療<br><span>(附約)</span>', color: '#00b4a0', index: 1 },
 						]}
+						toCarouselWithPageIndex={this.toCarouselWithPageIndex.bind(this)}
 					/>
 				);
 			case 'plan-B':
@@ -61,11 +70,12 @@ export default class Plan extends React.Component {
 					<Page
 						index='B'
 						data={[
-							{ text: '好時光<br>住院醫療', color: '#f65e62' },
-							{ text: '好時光<br>定期傷害', color: '#f65e62' },
-							{ text: '好時光<br>實支醫療<br><span>(附約)</span>', color: '#00b4a0' },
-							{ text: '好時光<br>手術醫療<br><span>(附約)</span>', color: '#00b4a0' },
+							{ text: '好時光<br>住院醫療', color: '#f65e62', index: 0 },
+							{ text: '好時光<br>定期傷害', color: '#f65e62', index: 2 },
+							{ text: '好時光<br>實支醫療<br><span>(附約)</span>', color: '#00b4a0', index: 1 },
+							{ text: '好時光<br>手術醫療<br><span>(附約)</span>', color: '#00b4a0', index: 3 },
 						]}
+						toCarouselWithPageIndex={this.toCarouselWithPageIndex.bind(this)}
 					/>
 				);
 			case 'plan-C':
@@ -73,13 +83,14 @@ export default class Plan extends React.Component {
 					<Page
 						index='C'
 						data={[
-							{ text: '好時光<br>住院醫療', color: '#f65e62' },
-							{ text: '好時光<br>定期傷害', color: '#f65e62' },
-							{ text: '好時光<br>定期長照', color: '#f65e62' },
-							{ text: '好時光<br>定期壽險', color: '#f65e62' },
-							{ text: '好時光<br>實支醫療<br><span>(附約)</span>', color: '#00b4a0' },
-							{ text: '好時光<br>手術醫療<br><span>(附約)</span>', color: '#00b4a0' },
+							{ text: '好時光<br>住院醫療', color: '#f65e62', index: 0 },
+							{ text: '好時光<br>定期傷害', color: '#f65e62', index: 2 },
+							{ text: '好時光<br>定期長照', color: '#f65e62', index: 4 },
+							{ text: '好時光<br>定期壽險', color: '#f65e62', index: 5 },
+							{ text: '好時光<br>實支醫療<br><span>(附約)</span>', color: '#00b4a0', index: 1 },
+							{ text: '好時光<br>手術醫療<br><span>(附約)</span>', color: '#00b4a0', index: 3 },
 						]}
+						toCarouselWithPageIndex={this.toCarouselWithPageIndex.bind(this)}
 					/>
 				);
 		}

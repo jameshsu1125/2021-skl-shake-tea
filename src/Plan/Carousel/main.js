@@ -21,6 +21,7 @@ export default class Carousel extends React.Component {
 			nextArrow: <Arrow dir={'next'} />,
 			prevArrow: <Arrow dir={'prev'} />,
 			draggable: true,
+			initialSlide: this.props.initialSlide || 0,
 			appendDots: (dots) => (
 				<div
 					style={{
@@ -87,12 +88,14 @@ export default class Carousel extends React.Component {
 								'住院前後<br>門診醫療',
 								'無住院<br>理賠獎勵',
 							]}
+							url='https://www.skl.com.tw/content.html?insId=IHA'
 						/>
 						<Item
 							index='2'
 							headline='實支醫療 <span>(附約)<span>'
 							subline='自費支出，不怕負擔'
 							items={['實支實付<br>或日額給付<br><span>（二擇一）</span>', '門診<br>手術費用', '無住院<br>理賠獎勵']}
+							url='https://www.skl.com.tw/content.html?insId=IJ'
 						/>
 						<Item
 							index='3'
@@ -105,12 +108,14 @@ export default class Carousel extends React.Component {
 								'意外住院<br>慰問',
 								'無理賠<br>獎勵',
 							]}
+							url='https://www.skl.com.tw/content.html?insId=IK'
 						/>
 						<Item
 							index='4'
 							headline='手術醫療 <span>(附約)<span>'
 							subline='處置、醫材全納入'
 							items={['手術', '特定<br>手術', '住院/門診<br>處置', '特定住院<br>處置', '特定醫材<br>補助', '無理賠<br>獎勵']}
+							url='https://www.skl.com.tw/content.html?insId=IIA'
 						/>
 						<Item
 							index='5'
@@ -124,12 +129,14 @@ export default class Carousel extends React.Component {
 								'保險費的<br>豁免',
 								'健康促進<br>回饋',
 							]}
+							url='https://www.skl.com.tw/content.html?insId=ILA'
 						/>
 						<Item
 							index='6'
 							headline='定期壽險<span>(主約)<span>'
 							subline='留給我愛的人！'
 							items={['身故/喪葬<br>費用', '完全失能', '健康促進<br>回饋']}
+							url='https://www.skl.com.tw/content.html?insId=8RA'
 						/>
 					</Slider>
 				</div>

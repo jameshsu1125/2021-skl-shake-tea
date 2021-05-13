@@ -53,7 +53,12 @@ export default class Page extends React.Component {
 					<div className={`plan plan-${this.props.index}`}></div>
 					<div className='items'>
 						{this.props.data.map((e, i) => (
-							<div key={i} style={{ backgroundColor: e.color }}>
+							<div
+								key={i}
+								style={{ backgroundColor: e.color }}
+								onClick={() => {
+									this.props.toCarouselWithPageIndex(e.index || 0);
+								}}>
 								{htmlParser(e.text)}
 							</div>
 						))}

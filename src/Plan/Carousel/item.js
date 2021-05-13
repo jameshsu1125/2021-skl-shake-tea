@@ -15,7 +15,13 @@ export default class item extends React.Component {
 								<div key={i}>{ReactHtmlParser(e)}</div>
 							))}
 						</div>
-						<div className='defend'>*詳細內容請以保單條款為準。</div>
+						<div
+							onClick={() => {
+								window.open(this.props.url);
+							}}
+							className='defend'>
+							*詳細內容請以保單條款為準。
+						</div>
 					</div>
 				</div>
 			</div>

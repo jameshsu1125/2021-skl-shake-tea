@@ -87,8 +87,8 @@ export default class Result extends React.Component {
 	append_content() {
 		switch (this.state.content) {
 			case 0:
-			case 2:
 			case 1:
+			case 2:
 			default:
 				return (
 					<Taste
@@ -175,10 +175,12 @@ export default class Result extends React.Component {
 							</div>
 							<div
 								onClick={() => {
-									window.location.href = './plan.html';
+									let hash = ['plan-A', 'plan-B', 'plan-C'];
+									const { content: index } = this.state;
+									window.location.href = `./plan.html#${hash[index] || ''}`;
 								}}
 								className='btn'>
-								產品DM
+								商品資訊
 							</div>
 							<div
 								onClick={() => {

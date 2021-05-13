@@ -184,7 +184,8 @@ export default class index extends React.Component {
 					{this.append_profile()}
 				</div>
 				{this.append_menu()}
-				<ConsultationDialog />;{this.append_loading()}
+				<ConsultationDialog />
+				{this.append_loading()}
 				<Landscape dw='750' />
 			</div>
 		);
