@@ -11,8 +11,8 @@ export default class Nav extends React.Component {
 
 	componentDidMount() {
 		this.addMenuBorder = () => {
-			let file = Parameter.file();
-			let hash = location.hash;
+			const file = Parameter.file();
+			const hash = location.hash;
 			let index = 0;
 			for (let i = 0; i < this.filename.length; i++) {
 				if (file == this.filename[i]) {
@@ -78,9 +78,9 @@ export default class Nav extends React.Component {
 						</div>
 					</div>
 					<div className='han' onClick={this.props.open}>
-						<div></div>
-						<div></div>
-						<div></div>
+						<div />
+						<div />
+						<div />
 					</div>
 				</div>
 			</div>

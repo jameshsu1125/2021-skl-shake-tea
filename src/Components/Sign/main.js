@@ -6,7 +6,7 @@ export default class Sign extends React.Component {
 		return (
 			<div id='Sign' style={{ ...this.props.style }} className={this.props.size || ''}>
 				<div>
-					<div></div>
+					<div />
 					{this.props.children}
 				</div>
 			</div>

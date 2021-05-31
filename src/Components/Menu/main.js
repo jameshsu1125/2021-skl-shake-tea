@@ -70,8 +70,8 @@ export default class Menu extends React.Component {
 	componentDidMount() {
 		this.tr.init().in();
 		this.addMenuBorder = () => {
-			let file = Parameter.file();
-			let hash = location.hash;
+			const file = Parameter.file();
+			const hash = location.hash;
 			let index = 0;
 			for (let i = 0; i < this.filename.length; i++) {
 				if (file == this.filename[i]) {
@@ -81,7 +81,7 @@ export default class Menu extends React.Component {
 					}
 				}
 			}
-			let tar = $(this.refs.content).children('div');
+			const tar = $(this.refs.content).children('div');
 
 			tar.removeClass('on');
 			tar[index].classList.add('on');
@@ -142,8 +142,8 @@ export default class Menu extends React.Component {
 						<span>諮詢專人</span>
 					</div>
 					<div className='close' onClick={this.close.bind(this)}>
-						<div></div>
-						<div></div>
+						<div />
+						<div />
 					</div>
 				</div>
 			</div>
